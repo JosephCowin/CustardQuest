@@ -8,9 +8,10 @@ namespace CustardQuest
 {
     class Program
     {
-        public static int Sections(string input, string seperator)
+        
+        public static int Sections(string input, string seperator) //outputs the amount of sections in the string, seperated by the seperator, -1 (so minimum 0)
         {
-            int found = 1;
+            int found = 0;
 
             for (int i = 0; i < input.Length - (seperator.Length - 1); i++ )
             {
@@ -22,11 +23,49 @@ namespace CustardQuest
             }
             return found;
         }
+        public static string selectSection(string input, string seperator, int section) //section ranges from 0 to the maximum section
+        {
+            string selected = input;
+            int maxSect = Sections(input, seperator);
+            int curSect = 0;
+            while (curSect < section)
+            {
+                int i = 0;
+                bool donesection = false;
+                while (!donesection)
+                {
+                    if (selected.Substring(i,seperator.Length) == seperator)
+                    {
+                        selected = selected.Substring(i + seperator.Length);
+                        donesection = true;
+                    }
+                    i++;
+                }
+                curSect++;
+            }
+            if (section < maxSect)
+            {
+
+                int i = 0;
+                bool donesection = false;
+                while (!donesection)
+                {
+                    if (selected.Substring(i, seperator.Length) == seperator)
+                    {
+                        selected = selected.Substring(0,i);
+                        donesection = true;
+                    }
+                    i++;
+                }
+                curSect++;
+            }
+
+            return selected;
+        }
         static void Main(string[] args)
         {
-                    Console.WindowWidth = 150;
+            Console.WindowWidth = 150;
             Console.WindowHeight ="";
-
             Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
             Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄"); 
             Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██"); 
@@ -36,7 +75,6 @@ namespace CustardQuest
             Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    "); 
             Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
             Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
             Console.WriteLine("Press Enter To Start");
             Console.ReadKey();
             

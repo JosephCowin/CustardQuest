@@ -8,12 +8,12 @@ namespace CustardQuest
 {
     class Program
     {
-        
+
         public static int Sections(string input, string seperator) //outputs the amount of sections in the string, seperated by the seperator, -1 (so minimum 0)
         {
             int found = 0;
 
-            for (int i = 0; i < input.Length - (seperator.Length - 1); i++ )
+            for (int i = 0; i < input.Length - (seperator.Length - 1); i++)
             {
                 if (input.Substring(i, seperator.Length) == seperator)
                 {
@@ -34,7 +34,7 @@ namespace CustardQuest
                 bool donesection = false;
                 while (!donesection)
                 {
-                    if (selected.Substring(i,seperator.Length) == seperator)
+                    if (selected.Substring(i, seperator.Length) == seperator)
                     {
                         selected = selected.Substring(i + seperator.Length);
                         donesection = true;
@@ -52,7 +52,7 @@ namespace CustardQuest
                 {
                     if (selected.Substring(i, seperator.Length) == seperator)
                     {
-                        selected = selected.Substring(0,i);
+                        selected = selected.Substring(0, i);
                         donesection = true;
                     }
                     i++;
@@ -64,20 +64,23 @@ namespace CustardQuest
         }
         static void Main(string[] args)
         {
+            Console.CursorVisible = false;
             Console.WindowWidth = 150;
-            Console.WindowHeight ="";
+            Console.WindowHeight = 30;
             Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-            Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄"); 
-            Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██"); 
-            Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀"); 
-            Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    "); 
-            Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    "); 
-            Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    "); 
+            Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
+            Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
+            Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
+            Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
+            Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
+            Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
             Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
             Console.WriteLine(@"                                                              ███    ███                                                                             ");
             Console.WriteLine("Press Enter To Start");
+            Console.ReadLine();
+            Console.Clear();
             Console.ReadKey();
-            
+
         }
     }
 }

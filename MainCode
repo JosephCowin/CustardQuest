@@ -166,24 +166,20 @@ namespace CustardQuest
 
                     char input = Console.ReadKey().KeyChar;
 
-                    if (input == 'p')           //Lead to Char creation and Game Setup - j
-                    {
-                        Console.Clear();
-                        Console.Write("P");
-                        Console.ReadKey();
-                    }
-
-                    else if (input == 'o')      //Options need to include Sound, Colourblind, Easter eggs - j
-                    {
-                        Console.Clear();
-                        Console.Write("O");
-                        Console.ReadKey();
-                    }
-
-                    else if (input == 'c')      //Need "Orry - Did all the work Joey - 3d rendering" - j
-
+                    if (input == 'p')           
                     {
                         Menu = 1;
+                    }
+
+                    else if (input == 'o')      
+                    {
+                        Menu = 2;
+                    }
+
+                    else if (input == 'c')
+
+                    {
+                        Menu = 3;
                     }
 
                     else if (input == 'e')
@@ -191,7 +187,17 @@ namespace CustardQuest
                         Running = false;
                     }
                 }
-                else if (Menu == 1)
+
+
+                else if (Menu == 1)     //Play - Lead to Char creation and Game Setup - j
+                {
+
+                }
+                else if (Menu == 2)     //Options need to include Sound, Colourblind, Easter eggs - j
+                {
+
+                }
+                else if (Menu == 3)     //Credits
                 {
                     text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
                     Console.ReadKey();

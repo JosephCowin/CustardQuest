@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,9 @@ namespace CustardQuest
         }
         static void Main(string[] args)
         {
+            bool Running = true;
+            int Menu = 0;
+
             Console.CursorVisible = false;
             Console.WindowWidth = 150;
             Console.WindowHeight = 30;
@@ -77,15 +81,66 @@ namespace CustardQuest
             Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
             Console.WriteLine(@"                                                              ███    ███                                                                             ");
             Console.WriteLine("Press Enter To Start");
-            Console.ReadLine(); //Need to fade up?-j        what?-o
-            Console.Clear();
+            Console.ReadLine();
+            while (Running)
+            {
+                Console.Clear();
+                if (Menu == 0)
+                {
+                    Console.CursorVisible = false;
+                    Console.WindowWidth = 150;
+                    Console.WindowHeight = 30;
+                    Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
+                    Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
+                    Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
+                    Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
+                    Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
+                    Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
+                    Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
+                    Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
+                    Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-            //Play, Options, Credits, Exit
+                    Console.WriteLine("Play");      //Need to underline / bold first char (Make this input) -j
+                    Console.WriteLine("Options");  
+                    Console.WriteLine("Credits");
+                    Console.WriteLine("Exit");      
 
-            Console.WriteLine("Play");      //Need to underline / bold first char (Make this input) -j
-            Console.WriteLine("Options");   //Add functionality e.g press "P" to play ... -j
-            Console.WriteLine("Credits");
-            Console.WriteLine("Exit");  //need to test the functions -o
+
+                    char input = Console.ReadKey().KeyChar;
+
+                    if (input == 'p')
+                    {
+                        Console.Clear();
+                        Console.Write("P");
+                        Console.ReadKey();
+                    }
+
+                    else if (input == 'o')
+                    {
+                        Console.Clear();
+                        Console.Write("O");
+                        Console.ReadKey();
+                    }
+
+                    else if (input == 'c')
+                    {
+                        Console.Clear();
+                        Console.Write("C");
+                        Console.ReadKey();
+                    }
+
+                    else if (input == 'e')
+                    {
+                        Console.Clear();
+                        Console.Write("E");
+                        Console.ReadLine();
+                    }
+                }
+
+
+            }
+
+            
 
 
         }

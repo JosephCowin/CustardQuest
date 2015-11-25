@@ -52,11 +52,11 @@ namespace CustardQuest
                     {
                         if (waitForSound)
                         {
-                           // voice.PlaySync();
+                            // voice.PlaySync();
                         }
                         else
                         {
-                           // voice.Play();
+                            // voice.Play();
                         }
                     }
                 }
@@ -65,7 +65,7 @@ namespace CustardQuest
                     System.Threading.Thread.Sleep(wait);
                 }
             }
-
+            Console.WriteLine();
         }
 
         public static int Sections(string input, string seperator) //outputs the amount of sections in the string, seperated by the seperator, -1 (so minimum 0)
@@ -125,7 +125,7 @@ namespace CustardQuest
         {
             bool Running = true;
             int Menu = 0;
-
+            Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = false;
             Console.WindowWidth = 150;
             Console.WindowHeight = 30;
@@ -158,40 +158,43 @@ namespace CustardQuest
                     Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
                     Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-                    Console.WriteLine("Play");      //Need to underline / bold first char (Make this input) -j
-                    Console.WriteLine("Options");  
-                    Console.WriteLine("Credits");
-                    Console.WriteLine("Exit");      
+                    text("\\eP\\glay");      //Need to underline / bold first char (Make this input) -j
+                    text("\\eO\\gptions");
+                    text("\\eC\\gredits");
+                    text("\\eE\\gxit");      
 
 
                     char input = Console.ReadKey().KeyChar;
 
-                    if (input == 'p')
+                    if (input == 'p')           //Lead to Char creation and Game Setup - j
                     {
                         Console.Clear();
                         Console.Write("P");
                         Console.ReadKey();
                     }
 
-                    else if (input == 'o')
+                    else if (input == 'o')      //Options need to include Sound, Colourblind, Easter eggs - j
                     {
                         Console.Clear();
                         Console.Write("O");
                         Console.ReadKey();
                     }
 
-                    else if (input == 'c')
+                    else if (input == 'c')      //Need "Orry - Did all the work Joey - 3d rendering" - j
+
                     {
                         Console.Clear();
                         Console.Write("C");
                         Console.ReadKey();
                     }
 
-                    else if (input == 'e')
+                    else if (input == 'e')      //Exits the Game - j
                     {
                         Console.Clear();
                         Console.Write("E");
                         Console.ReadLine();
+                        Running = false;
+                        
                     }
                 }
 

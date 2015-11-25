@@ -77,9 +77,16 @@ namespace CustardQuest
             Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
             Console.WriteLine(@"                                                              ███    ███                                                                             ");
             Console.WriteLine("Press Enter To Start");
-            Console.ReadLine();
+            Console.ReadLine(); //Need to fade up?
             Console.Clear();
-            Console.ReadKey();
+
+            //Play, Options, Credits, Exit
+
+            Console.WriteLine("Play");      //Need to underline / bold first char (Make this input)
+            Console.WriteLine("Options");   //Add functionality e.g press "P" to play ...
+            Console.WriteLine("Credits");
+            Console.WriteLine("Exit");
+
 
         }
     }

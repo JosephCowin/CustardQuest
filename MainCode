@@ -19,14 +19,14 @@ namespace CustardQuest
             for (int i = 0; i < input.Length; i++)
             {
                 if (input.Substring(i, 1) == "\\")
-                {
-                    i++;
-                    if (input.Substring(i, 1) == "e") { Console.ForegroundColor = ConsoleColor.Cyan; }
-                    else if (input.Substring(i, 1) == "a") { Console.ForegroundColor = ConsoleColor.Gray; }
-                    else if (input.Substring(i, 1) == "s") { Console.ForegroundColor = ConsoleColor.Green; }
-                    else if (input.Substring(i, 1) == "f") { Console.ForegroundColor = ConsoleColor.Red; }
-                    else if (input.Substring(i, 1) == "g") { Console.ForegroundColor = ConsoleColor.White; }
-                    else if (input.Substring(i, 1) == "h") { Console.ForegroundColor = ConsoleColor.Yellow; }
+                {  //Text colour effects: c-cyan,g-grey,e-green,r-red,w-white,y-yellow,1-6 wait time, v-start/stop voice, b-alllettersvoice toggle, B-waitforsound to end toggle, \\/@"\"-\, \"-", £- newline, $ -clear
+                    i++; //Use \\ or \ if using @ prior to quotes to have special effects
+                    if (input.Substring(i, 1) == "c") { Console.ForegroundColor = ConsoleColor.Cyan; }
+                    else if (input.Substring(i, 1) == "g") { Console.ForegroundColor = ConsoleColor.Gray; }
+                    else if (input.Substring(i, 1) == "e") { Console.ForegroundColor = ConsoleColor.Green; }
+                    else if (input.Substring(i, 1) == "r") { Console.ForegroundColor = ConsoleColor.Red; }
+                    else if (input.Substring(i, 1) == "w") { Console.ForegroundColor = ConsoleColor.White; }
+                    else if (input.Substring(i, 1) == "y") { Console.ForegroundColor = ConsoleColor.Yellow; }
                     else if (input.Substring(i, 1) == "1") { wait = 0; }
                     else if (input.Substring(i, 1) == "2") { wait = 100; }
                     else if (input.Substring(i, 1) == "3") { wait = 250; }
@@ -40,8 +40,6 @@ namespace CustardQuest
                     else if (input.Substring(i, 1) == "!") { Console.Write("\""); }
                     else if (input.Substring(i, 1) == "£") { Console.WriteLine(); }
                     else if (input.Substring(i, 1) == "$") { Console.Clear(); }
-                    else if (input.Substring(i, 1) == "%") { Console.Read(); }
-                    else if (input.Substring(i, 1) == ".") { }
                 }
                 else
                 {
@@ -158,10 +156,10 @@ namespace CustardQuest
                     Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
                     Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-                    text("\\eP\\glay");      //Need to underline / bold first char (Make this input) -j
-                    text("\\eO\\gptions");
-                    text("\\eC\\gredits");
-                    text("\\eE\\gxit");      
+                    text("\\cP\\wlay");      //Need to underline / bold first char (Make this input) -j
+                    text("\\cO\\wptions");
+                    text("\\cC\\wredits");
+                    text("\\cE\\wxit");      
 
 
                     char input = Console.ReadKey().KeyChar;

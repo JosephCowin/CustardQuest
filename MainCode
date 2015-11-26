@@ -122,6 +122,8 @@ namespace CustardQuest
         static void Main(string[] args)
         {
             bool Running = true;
+            bool optJokey = false;
+            bool optSound = true;
             int Menu = 0;
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = false;
@@ -193,7 +195,22 @@ namespace CustardQuest
                 }
                 else if (Menu == 2)     //Options need to include Sound, Colourblind, Easter eggs - j
                 {
-
+                    text("Jokes - \\cj\\w - \\g" + optJokey + "\\£\\wSound - \\cs\\w - \\g" + optSound + "\\£\\wReturn to main menu - \\cm\\w");
+                    char input = Console.ReadKey().KeyChar;
+                    if (input == 'j')           
+                    {
+                        optJokey = !optJokey;
+                    }
+                    
+                    else if (input == 's')      
+                    {
+                        optSound = !optSound;
+                    }
+                    
+                    else if (input == 'm')      
+                    {
+                        Menu = 0;
+                    }
                 }
                 else if (Menu == 3)     //Credits
                 {

@@ -9,8 +9,128 @@ namespace CustardQuest
 {
     class Program
     {
+        static bool optJokey = false;
+        static bool optSound = true;
+        static bool optColour = true;
+
+        public static string info(string input, string type)
+        {
+            string output = "";
+
+            if (type == "gender")
+            {
+                if (input == "Male")
+                {
+                    output = "Has no effect on gameplay.";
+                }
+                else if (input == "Female")
+                {
+                    output = "Has no effect on gameplay.";
+                }
+            }
+            else if (type == "race")
+            {
+                if (input == "Human")
+                {
+                    output = "Generally scrub tier. Class bonuses are larger.";
+                }
+                else if (input == "Elf")
+                {
+                    output = "High mind, lower flexibility, little strength.";
+                }
+                else if (input == "Dwarf")
+                {
+                    output = "High strength, lower mind, very low flex. Good perception and good at repairing items.";
+                }
+                else if (input == "Orc")
+                {
+                    output = "Highest strength, very low mind, little flex.";
+                }
+                else if (input == "Gnome")
+                {
+                    output = "Great at magic but not much else. Good shop prices.";
+                }
+                else if (input == "Goblin")
+                {
+                    output = "Stealthy. Enemies may be friendly.";
+                }
+                else if (input == "Tiefling")
+                {
+                    output = "Good at offensive magic, decent strength.";
+                }
+                else if (input == "Kobold")
+                {
+                    output = "Innate resistance against special damage. Can frenzy, losing control but damage is raised.";
+                }
+                else if (input == "Skeleton")
+                {
+                    output = "Weak to special damage, however innate slash and smash resistance. Passively regenerates quickly provided health is above a threshold. Can actively regenerate. Can't eat. Detachable limbs and decent unarmed attacks.";
+                    if (optJokey)
+                    {
+                        output += " May get drafted, ending the adventure.";
+                    }
+                }
+            }
+            else if (type == "class")
+            {
+                if (input == "Fighter")
+                {
+                    output = "Good with melee, however poor at other skills.";
+                }
+                else if (input == "Druid")
+                {
+                    output = "Controls plants and animals, which can be befriended. Wild animals and plants are friendly.";
+                }
+                else if (input == "Wizard")
+                {
+                    output = "Wide variety of spells but physical attack is poor.";
+                }
+                else if (input == "Monk")
+                {
+                    output = "Can use unarmed combat and has a few spells.";
+                }
+                else if (input == "Paladin")
+                {
+                    output = "Decent with melee and has healing spells.";
+                }
+                else if (input == "Ranger")
+                {
+                    output = "Good with flexibility weapons. Good at making food! Not great with melee.";
+                }
+                else if (input == "Thief")
+                {
+                    output = "Great with traps, sneak attacks and stealth.";
+                }
+                else if (input == "Warlock")
+                {
+                    output = "Magic is very powerful, yet lacks restraint. Health is lost every time a spell is used.";
+                }
+
+            }
+            else if (type == "stats")
+            {
+                if (input == "Strength")
+                {
+                    output = "Melee Weapons, HP, Poison Resist";
+                }
+                else if (input == "Flexibility")
+                {
+                    output = "Affects hit rate and dodging, flexibility weapons.";
+                }
+                else if (input == "Mind")
+                {
+                    output = "Identifying items, magic, perception, curse resistance, detecting traps.";
+                }
+            }
+
+
+            return output;
+        }
+
+
         public static void text(string input)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             int wait = 0;       //cyan - inputs for the user, white - default, grey - values that can be directly changed, green - good alerts, red - bad alerts or dealt damage, yellow - neutral alerts and general highlighting
             bool playing = false;
             bool allLettersVoice = false;
@@ -21,12 +141,12 @@ namespace CustardQuest
                 if (input.Substring(i, 1) == "\\")
                 {  //Text colour effects: c-cyan,g-grey,e-green,r-red,w-white,y-yellow,1-6 wait time, v-start/stop voice, b-alllettersvoice toggle, B-waitforsound to end toggle, \\/@"\"-\, \"-", £- newline, $ -clear
                     i++; //Use \\ or \ if using @ prior to quotes to have special effects
-                    if (input.Substring(i, 1) == "c") { Console.ForegroundColor = ConsoleColor.Cyan; }
-                    else if (input.Substring(i, 1) == "g") { Console.ForegroundColor = ConsoleColor.Gray; }
-                    else if (input.Substring(i, 1) == "e") { Console.ForegroundColor = ConsoleColor.Green; }
-                    else if (input.Substring(i, 1) == "r") { Console.ForegroundColor = ConsoleColor.Red; }
-                    else if (input.Substring(i, 1) == "w") { Console.ForegroundColor = ConsoleColor.White; }
-                    else if (input.Substring(i, 1) == "y") { Console.ForegroundColor = ConsoleColor.Yellow; }
+                    if (input.Substring(i, 1) == "c" && optColour) { Console.ForegroundColor = ConsoleColor.Cyan; }
+                    else if (input.Substring(i, 1) == "g" && optColour) { Console.ForegroundColor = ConsoleColor.Gray; }
+                    else if (input.Substring(i, 1) == "e" && optColour) { Console.ForegroundColor = ConsoleColor.Green; }
+                    else if (input.Substring(i, 1) == "r" && optColour) { Console.ForegroundColor = ConsoleColor.Red; }
+                    else if (input.Substring(i, 1) == "w" && optColour) { Console.ForegroundColor = ConsoleColor.White; }
+                    else if (input.Substring(i, 1) == "y" && optColour) { Console.ForegroundColor = ConsoleColor.Yellow; }
                     else if (input.Substring(i, 1) == "1") { wait = 0; }
                     else if (input.Substring(i, 1) == "2") { wait = 100; }
                     else if (input.Substring(i, 1) == "3") { wait = 250; }
@@ -46,7 +166,7 @@ namespace CustardQuest
                     Console.Write(input.Substring(i, 1));
 
 
-                    if (playing && ((Convert.ToChar(input.Substring(i, 1)) <= 'z' && Convert.ToChar(input.Substring(i, 1)) >= 'a') || (Convert.ToChar(input.Substring(i, 1)) <= 'Z' && Convert.ToChar(input.Substring(i, 1)) >= 'A')) && (allLettersVoice || Convert.ToChar(input.Substring(i, 1)) == 'u' || Convert.ToChar(input.Substring(i, 1)) == 'o' || (Convert.ToChar(input.Substring(i, 1)) == 'i' || Convert.ToChar(input.Substring(i, 1)) == 'e' || Convert.ToChar(input.Substring(i, 1)) == 'a')))
+                    if (optSound && (playing && ((Convert.ToChar(input.Substring(i, 1)) <= 'z' && Convert.ToChar(input.Substring(i, 1)) >= 'a') || (Convert.ToChar(input.Substring(i, 1)) <= 'Z' && Convert.ToChar(input.Substring(i, 1)) >= 'A')) && (allLettersVoice || Convert.ToChar(input.Substring(i, 1)) == 'u' || Convert.ToChar(input.Substring(i, 1)) == 'o' || (Convert.ToChar(input.Substring(i, 1)) == 'i' || Convert.ToChar(input.Substring(i, 1)) == 'e' || Convert.ToChar(input.Substring(i, 1)) == 'a'))))
                     {
                         if (waitForSound)
                         {
@@ -121,10 +241,23 @@ namespace CustardQuest
         }
         static void Main(string[] args)
         {
-            bool Running = true;
-            bool optJokey = false;
-            bool optSound = true;
+            bool Running = true;        //variable setup
             int Menu = 0;
+
+            string charGender = "Male";
+            string charRace = "Human";
+            string charClass = "Fighter";
+            int charStr = 5;
+            int charFlx = 5;
+            int charMnd = 5;
+            string charName = "";
+
+            int currentOption = 0;
+
+
+
+
+
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = false;
             Console.WindowWidth = 150;
@@ -188,7 +321,7 @@ namespace CustardQuest
                 }
 
 
-                else if (Menu == 1)  
+                else if (Menu == 1)
                 {
                     text("Would you like to \\cl\\woad a game or make a \\cn\\wew one?");
                     char input = Console.ReadKey().KeyChar;
@@ -200,12 +333,13 @@ namespace CustardQuest
                     else if (input == 'n')
                     {
                         Menu = 5;
+                        currentOption = 0;
                     }
 
                 }
-                else if (Menu == 2)     //Options need to include Sound, Colourblind, Easter eggs - j
+                else if (Menu == 2)
                 {
-                    text("Jokes - \\cj\\w - \\g" + optJokey + "\\£\\wSound - \\cs\\w - \\g" + optSound + "\\£\\wReturn to main menu - \\cm\\w");
+                    text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\wReturn to main menu - \\cm\\w");
                     char input = Console.ReadKey().KeyChar;
                     if (input == 'j')
                     {
@@ -215,6 +349,11 @@ namespace CustardQuest
                     else if (input == 's')
                     {
                         optSound = !optSound;
+                    }
+
+                    else if (input == 'c')
+                    {
+                        optColour = !optColour;
                     }
 
                     else if (input == 'm')
@@ -235,6 +374,75 @@ namespace CustardQuest
                 else if (Menu == 5)
                 {
                     // new game -o
+                    //character creation
+
+                    //gender
+                    if (currentOption == 0)
+                    {
+                        text("Gender - \\g" + charGender + "\\w - " + info(charGender, "gender"));
+                    }
+                    else
+                    {
+                        text("Gender - " + charGender + "\\w - " + info(charGender, "gender"));
+                    }
+                    if (currentOption == 1)
+                    {
+                        text("Race - \\g" + charRace + "\\w - " + info(charRace, "race"));
+                    }
+                    else
+                    {
+                        text("Race - " + charRace + "\\w - " + info(charRace, "race"));
+                    }
+                    if (currentOption == 2)
+                    {
+                        text("Class - \\g" + charClass + "\\w - " + info(charClass, "class"));
+                    }
+                    else
+                    {
+                        text("Class - " + charClass + "\\w - " + info(charClass, "class"));
+                    }
+                    if (currentOption == 3)
+                    {
+                        text("Strength - \\g" + charStr + "\\w - " + info("Strength", "stats"));
+                    }
+                    else
+                    {
+                        text("Strength - " + charStr + "\\w - " + info("Strength", "stats"));
+                    }
+                    if (currentOption == 4)
+                    {
+                        text("Flexibility - \\g" + charFlx + "\\w - " + info("Flexibility", "stats"));
+                    }
+                    else
+                    {
+                        text("Flexibility - " + charFlx + "\\w - " + info("Flexibility", "stats"));
+                    }
+                    if (currentOption == 5)
+                    {
+                        text("Mind - \\g" + charMnd + "\\w - " + info("Mind", "stats"));
+                    }
+                    else
+                    {
+                        text("Mind - " + charMnd + "\\w - " + info("Mind", "stats"));
+                    }
+
+                    ConsoleKey input = Console.ReadKey().Key;
+                    if (input == ConsoleKey.DownArrow)
+                    {
+                        if (currentOption != 5)
+                        {
+                            currentOption++;
+                        }
+                    }
+                    else if (input == ConsoleKey.UpArrow)
+                    {
+                        if (currentOption != 0)
+                        {
+                            currentOption--;
+                        }
+                    }
+
+
                 }
 
 

@@ -11,7 +11,7 @@ namespace CustardQuest
     {
         public static void text(string input)
         {
-            int wait = 0;
+            int wait = 0;       //cyan - inputs for the user, white - default, grey - values that can be directly changed, green - good alerts, red - bad alerts or dealt damage, yellow - neutral alerts and general highlighting
             bool playing = false;
             bool allLettersVoice = false;
             bool waitForSound = false;

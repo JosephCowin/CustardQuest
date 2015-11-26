@@ -441,16 +441,8 @@ namespace CustardQuest
                             currentOption--;
                         }
                     }
-
-
                 }
-
-
             }
-
-
-
-
         }
     }
 }

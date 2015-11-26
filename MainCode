@@ -14,13 +14,28 @@ namespace CustardQuest
         static bool optColour = true;
         static int line = 0;
         static int column = 0;
-        
+
         public static void clear()
         {
             line = 0;
             column = 0;
         }
-        
+
+        public static string newline(string input)
+        {
+            string output = input;
+            while (column < 150)
+            {
+                output += " ";
+                column++;
+            }
+
+            line++;
+            column = 0;
+
+            return output;
+        }
+
         public static string info(string input, string type)
         {
             string output = "";
@@ -143,11 +158,12 @@ namespace CustardQuest
             bool playing = false;
             bool allLettersVoice = false;
             bool waitForSound = false;
+            string output = "";
 
             for (int i = 0; i < input.Length; i++)
             {
                 if (input.Substring(i, 1) == "\\")
-                {  //Text colour effects: c-cyan,g-grey,e-green,r-red,w-white,y-yellow,1-6 wait time, v-start/stop voice, b-alllettersvoice toggle, B-waitforsound to end toggle, \\/@"\"-\, \"-", £- newline, $ -clear
+                {  //Text colour effects: c-cyan,g-grey,e-green,r-red,w-white,y-yellow,1-6 wait time, v-start/stop voice, b-alllettersvoice toggle, B-waitforsound to end toggle, \\/@"\"-\, £- newline
                     i++; //Use \\ or \ if using @ prior to quotes to have special effects
                     if (input.Substring(i, 1) == "c" && optColour) { Console.ForegroundColor = ConsoleColor.Cyan; }
                     else if (input.Substring(i, 1) == "g" && optColour) { Console.ForegroundColor = ConsoleColor.Gray; }
@@ -164,15 +180,13 @@ namespace CustardQuest
                     else if (input.Substring(i, 1) == "v") { playing = !playing; }
                     else if (input.Substring(i, 1) == "b") { allLettersVoice = !allLettersVoice; }
                     else if (input.Substring(i, 1) == "B") { waitForSound = !waitForSound; }
-                    else if (input.Substring(i, 1) == "\\") { Console.Write("\\"); }
-                    else if (input.Substring(i, 1) == "!") { Console.Write("\""); }
-                    else if (input.Substring(i, 1) == "£") { Console.WriteLine(); }
-                    else if (input.Substring(i, 1) == "$") { Console.Clear(); }
+                    else if (input.Substring(i, 1) == "\\") { output += "\\"; column++;}
+                    else if (input.Substring(i, 1) == "£") { newline(input);}
                 }
                 else
                 {
-                    Console.Write(input.Substring(i, 1));
-
+                    output += input.Substring(i, 1);
+                    column++;
 
                     if (optSound && (playing && ((Convert.ToChar(input.Substring(i, 1)) <= 'z' && Convert.ToChar(input.Substring(i, 1)) >= 'a') || (Convert.ToChar(input.Substring(i, 1)) <= 'Z' && Convert.ToChar(input.Substring(i, 1)) >= 'A')) && (allLettersVoice || Convert.ToChar(input.Substring(i, 1)) == 'u' || Convert.ToChar(input.Substring(i, 1)) == 'o' || (Convert.ToChar(input.Substring(i, 1)) == 'i' || Convert.ToChar(input.Substring(i, 1)) == 'e' || Convert.ToChar(input.Substring(i, 1)) == 'a'))))
                     {
@@ -190,8 +204,12 @@ namespace CustardQuest
                 {
                     System.Threading.Thread.Sleep(wait);
                 }
+                if (column == 150)
+                {
+                    newline(input);
+                }
             }
-            Console.WriteLine();
+            newline(input);
         }
 
         public static int Sections(string input, string seperator) //outputs the amount of sections in the string, seperated by the seperator, -1 (so minimum 0)

@@ -12,7 +12,15 @@ namespace CustardQuest
         static bool optJokey = false;
         static bool optSound = true;
         static bool optColour = true;
-
+        static int line = 0;
+        static int column = 0;
+        
+        public static void clear()
+        {
+            line = 0;
+            column = 0;
+        }
+        
         public static string info(string input, string type)
         {
             string output = "";
@@ -261,7 +269,7 @@ namespace CustardQuest
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = false;
             Console.WindowWidth = 150;
-            Console.WindowHeight = 30;
+            Console.WindowHeight = 40;
             Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
             Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
             Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");

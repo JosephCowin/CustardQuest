@@ -161,23 +161,22 @@ namespace CustardQuest
                     text("\\cP\\wlay");      //Need to underline / bold first char (Make this input) -j
                     text("\\cO\\wptions");
                     text("\\cC\\wredits");
-                    text("\\cE\\wxit");      
+                    text("\\cE\\wxit");
 
 
                     char input = Console.ReadKey().KeyChar;
 
-                    if (input == 'p')           
+                    if (input == 'p')
                     {
                         Menu = 1;
                     }
 
-                    else if (input == 'o')      
+                    else if (input == 'o')
                     {
                         Menu = 2;
                     }
 
                     else if (input == 'c')
-
                     {
                         Menu = 3;
                     }
@@ -189,25 +188,36 @@ namespace CustardQuest
                 }
 
 
-                else if (Menu == 1)     //Play - Lead to Char creation and Game Setup - j
+                else if (Menu == 1)  
                 {
+                    text("Would you like to \\cl\\woad a game or make a \\cn\\wew one?");
+                    char input = Console.ReadKey().KeyChar;
+                    if (input == 'l')
+                    {
+                        Menu = 4;
+                    }
+
+                    else if (input == 'n')
+                    {
+                        Menu = 5;
+                    }
 
                 }
                 else if (Menu == 2)     //Options need to include Sound, Colourblind, Easter eggs - j
                 {
                     text("Jokes - \\cj\\w - \\g" + optJokey + "\\£\\wSound - \\cs\\w - \\g" + optSound + "\\£\\wReturn to main menu - \\cm\\w");
                     char input = Console.ReadKey().KeyChar;
-                    if (input == 'j')           
+                    if (input == 'j')
                     {
                         optJokey = !optJokey;
                     }
-                    
-                    else if (input == 's')      
+
+                    else if (input == 's')
                     {
                         optSound = !optSound;
                     }
-                    
-                    else if (input == 'm')      
+
+                    else if (input == 'm')
                     {
                         Menu = 0;
                     }
@@ -218,11 +228,19 @@ namespace CustardQuest
                     Console.ReadKey();
                     Menu = 0;
                 }
+                else if (Menu == 4)
+                {
+                    //game loading - o
+                }
+                else if (Menu == 5)
+                {
+                    // new game -o
+                }
 
 
             }
 
-            
+
 
 
         }

@@ -32,7 +32,7 @@ namespace CustardQuest
             {
                 if (input == "Human")
                 {
-                    output = "Generally scrub tier. Class bonuses are larger.";
+                    output = "Well rounded. Class bonuses are larger.";
                 }
                 else if (input == "Elf")
                 {

@@ -12,29 +12,6 @@ namespace CustardQuest
         static bool optJokey = false;
         static bool optSound = true;
         static bool optColour = true;
-        static int line = 0;
-        static int column = 0;
-
-        public static void clear()
-        {
-            line = 0;
-            column = 0;
-        }
-
-        public static string newline(string input)
-        {
-            string output = input;
-            while (column < 150)
-            {
-                output += " ";
-                column++;
-            }
-
-            line++;
-            column = 0;
-
-            return output;
-        }
 
         public static string info(string input, string type)
         {
@@ -154,17 +131,15 @@ namespace CustardQuest
         public static void text(string input)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(column, line);
             int wait = 0;       //cyan - inputs for the user, white - default, grey - values that can be directly changed, green - good alerts, red - bad alerts or dealt damage, yellow - neutral alerts and general highlighting
             bool playing = false;
             bool allLettersVoice = false;
             bool waitForSound = false;
-            string output = "";
 
             for (int i = 0; i < input.Length; i++)
             {
                 if (input.Substring(i, 1) == "\\")
-                {  //Text colour effects: c-cyan,g-grey,e-green,r-red,w-white,y-yellow,1-6 wait time, v-start/stop voice, b-alllettersvoice toggle, B-waitforsound to end toggle, \\/@"\"-\, £- newline
+                {  //Text colour effects: c-cyan,g-grey,e-green,r-red,w-white,y-yellow,1-6 wait time, v-start/stop voice, b-alllettersvoice toggle, B-waitforsound to end toggle, \\/@"\"-\, \"-", £- newline, $ -clear
                     i++; //Use \\ or \ if using @ prior to quotes to have special effects
                     if (input.Substring(i, 1) == "c" && optColour) { Console.ForegroundColor = ConsoleColor.Cyan; }
                     else if (input.Substring(i, 1) == "g" && optColour) { Console.ForegroundColor = ConsoleColor.Gray; }
@@ -181,13 +156,15 @@ namespace CustardQuest
                     else if (input.Substring(i, 1) == "v") { playing = !playing; }
                     else if (input.Substring(i, 1) == "b") { allLettersVoice = !allLettersVoice; }
                     else if (input.Substring(i, 1) == "B") { waitForSound = !waitForSound; }
-                    else if (input.Substring(i, 1) == "\\") { output += "\\"; column++;}
-                    else if (input.Substring(i, 1) == "£") { input = newline(input);}
+                    else if (input.Substring(i, 1) == "\\") { Console.Write("\\"); }
+                    else if (input.Substring(i, 1) == "!") { Console.Write("\""); }
+                    else if (input.Substring(i, 1) == "£") { Console.WriteLine(); }
+                    else if (input.Substring(i, 1) == "$") { Console.Clear(); }
                 }
                 else
                 {
-                    output += input.Substring(i, 1);
-                    column++;
+                    Console.Write(input.Substring(i, 1));
+
 
                     if (optSound && (playing && ((Convert.ToChar(input.Substring(i, 1)) <= 'z' && Convert.ToChar(input.Substring(i, 1)) >= 'a') || (Convert.ToChar(input.Substring(i, 1)) <= 'Z' && Convert.ToChar(input.Substring(i, 1)) >= 'A')) && (allLettersVoice || Convert.ToChar(input.Substring(i, 1)) == 'u' || Convert.ToChar(input.Substring(i, 1)) == 'o' || (Convert.ToChar(input.Substring(i, 1)) == 'i' || Convert.ToChar(input.Substring(i, 1)) == 'e' || Convert.ToChar(input.Substring(i, 1)) == 'a'))))
                     {
@@ -205,21 +182,8 @@ namespace CustardQuest
                 {
                     System.Threading.Thread.Sleep(wait);
                 }
-                if (column == 150)
-                {
-                    line++;
-                    column = 0;
-                }
             }
-            input = newline(input);
-            for (int i = line; i < 40; i++)
-            {
-                for (int j = 0; j < 150; j++)
-                {
-                    input += " ";
-                }
-            }
-            Console.Write(input);
+            Console.WriteLine();
         }
 
         public static int Sections(string input, string seperator) //outputs the amount of sections in the string, seperated by the seperator, -1 (so minimum 0)
@@ -297,32 +261,35 @@ namespace CustardQuest
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = false;
             Console.WindowWidth = 150;
-            Console.WindowHeight = 40;
-            text(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-            text(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-            text(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-            text(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-            text(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-            text(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-            text(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-            text(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-            text(@"                                                              ███    ███                                                                             ");
-            text("Press Enter To Start");
+            Console.WindowHeight = 30;
+            Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
+            Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
+            Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
+            Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
+            Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
+            Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
+            Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
+            Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
+            Console.WriteLine(@"                                                              ███    ███                                                                             ");
+            Console.WriteLine("Press Enter To Start");
             Console.ReadLine();
             while (Running)
             {
                 Console.Clear();
                 if (Menu == 0)
                 {
-                    text(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                    text(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                    text(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                    text(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                    text(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                    text(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                    text(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                    text(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                    text(@"                                                              ███    ███                                                                             ");
+                    Console.CursorVisible = false;
+                    Console.WindowWidth = 150;
+                    Console.WindowHeight = 30;
+                    Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
+                    Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
+                    Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
+                    Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
+                    Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
+                    Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
+                    Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
+                    Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
+                    Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
                     text("\\cP\\wlay");      //Need to underline / bold first char (Make this input) -j
                     text("\\cO\\wptions");

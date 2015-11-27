@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,34 +20,46 @@ namespace CustardQuest
             {
                 if (input == "Male")
                 {
-                    output = "Has no effect on gameplay.";
+                    output = "Are you a Male or Female?";
                 }
                 else if (input == "Female")
                 {
-                    output = "Has no effect on gameplay.";
+                    output = "Are you a Male or Female?";
                 }
             }
             else if (type == "race")
             {
                 if (input == "Human")
                 {
-                    output = "Well rounded. Class bonuses are larger.";
+                    output = "A well rounded race that can't do anthing special.";
                 }
                 else if (input == "Elf")
                 {
-                    output = "High mind, lower flexibility, little strength.";
+                    output = "Very smart individuals who would use their mind over matter.";
+                    if (optJokey)
+                    {
+                        output += "Lifeless individuals who do not care for the lesser races.";
+                    }
                 }
                 else if (input == "Dwarf")
                 {
-                    output = "High strength, lower mind, very low flex. Good perception and good at repairing items.";
+                    output = "Short, strong and wise.";
+                    if (optJokey)
+                    {
+                        output += "Short, strong, wise and a raging alcoholic.";
+                    }
                 }
                 else if (input == "Orc")
                 {
-                    output = "Highest strength, very low mind, little flex.";
+                    output = "Very strong and not very bright.";
+                    if (optJokey)
+                    {
+                        output += "ORC SMASH";
+                    }
                 }
                 else if (input == "Gnome")
                 {
-                    output = "Great at magic but not much else. Good shop prices.";
+                    output = "Great at magic but not much else.";
                 }
                 else if (input == "Goblin")
                 {
@@ -67,7 +78,7 @@ namespace CustardQuest
                     output = "Weak to special damage, however innate slash and smash resistance. Passively regenerates quickly provided health is above a threshold. Can actively regenerate. Can't eat. Detachable limbs and decent unarmed attacks.";
                     if (optJokey)
                     {
-                        output += " May get drafted, ending the adventure.";
+                        output += "May get drafted, ending the adventure.";
                     }
                 }
             }

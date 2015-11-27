@@ -11,6 +11,64 @@ namespace CustardQuest
         static bool optJokey = false;
         static bool optSound = true;
         static bool optColour = true;
+        public static string cycle(string input, string type, bool right = true)
+        {
+            string output = "";
+            string[] options = new string[1];
+            options[0] = "";
+
+            if (type == "gender")
+            {
+                options = new string[] { "Male", "Female" };
+            }
+            else if (type == "race")
+            {
+                options = new string[] { "Human", "Elf", "Dwarf", "Orc", "Gnome", "Goblin", "Tiefling", "Kobold", "Skeleton" };
+            }
+            else if (type == "species")
+            {
+                options = new string[] { "Male", "Female" };
+            }
+
+
+            int inputCode = -1;
+            for (int i = 0; i < options.Length; i++)
+            {
+                if (input == options[i])
+                {
+                    inputCode = i;
+                }
+            }
+            if (inputCode != -1)
+            {
+                if (right)
+                {
+                    inputCode++;
+                }
+                else
+                {
+                    inputCode--;
+                }
+                if (inputCode < 0)
+                {
+                    inputCode = options.Length - 1;
+                }
+                if (inputCode == options.Length)
+                {
+                    inputCode = 0;
+                }
+                for (int i = 0; i < options.Length; i++)
+                {
+                    if (inputCode == i)
+                    {
+                        output = options[i];
+                    }
+                }
+            }
+
+
+            return output;
+        }
 
         public static string info(string input, string type)
         {

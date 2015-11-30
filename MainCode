@@ -27,9 +27,9 @@ namespace CustardQuest
             {
                 options = new string[] { "Human", "Elf", "Dwarf", "Orc", "Gnome", "Goblin", "Tiefling", "Kobold", "Skeleton" };
             }
-            else if (type == "species")
+            else if (type == "class")
             {
-                options = new string[] { "Male", "Female" };
+                options = new string[] { "Fighter", "Druid", "Wizard", "Monk", "Paladin", "Ranger", "Thief", "Warlock" };
             }
 
 
@@ -179,6 +179,21 @@ namespace CustardQuest
                 else if (input == "Mind")
                 {
                     output = "Identifying items, magic, perception, curse resistance, detecting traps.";
+                }
+            }
+            else if (type == "menu")
+            {
+                if (input == "0")
+                {
+                    output = "gender";
+                }
+                else if (input == "1")
+                {
+                    output = "race";
+                }
+                else if (input == "2")
+                {
+                    output = "class";
                 }
             }
 
@@ -423,18 +438,9 @@ namespace CustardQuest
                 }
                 else if (Menu == 3)     //Credits
                 {
-                    if (optJokey)
-                    {
-                        text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
-                        Console.ReadKey();
-                        Menu = 0;
-                    }
-                    else
-                    {
-                        text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The two of us");
-                        Console.ReadKey();
-                        Menu = 0;
-                    }
+                    text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
+                    Console.ReadKey();
+                    Menu = 0;
                 }
                 else if (Menu == 4)
                 {
@@ -508,6 +514,36 @@ namespace CustardQuest
                         if (currentOption != 0)
                         {
                             currentOption--;
+                        }
+                    }
+                    else if (input == ConsoleKey.LeftArrow)
+                    {
+                        if (info(Convert.ToString(currentOption), "menu") == "0")
+                        {
+                            charGender = cycle(charGender, "gender", false);
+                        }
+                        else if (info(Convert.ToString(currentOption), "menu") == "1")
+                        {
+                            charRace = cycle(charRace, "race", false);
+                        }
+                        else if (info(Convert.ToString(currentOption), "menu") == "2")
+                        {
+                            charClass = cycle(charClass, "class", false);
+                        }
+                    }
+                    else if (input == ConsoleKey.RightArrow)
+                    {
+                        if (info(Convert.ToString(currentOption), "menu") == "0")
+                        {
+                            charGender = cycle(charGender, "gender", true);
+                        }
+                        else if (info(Convert.ToString(currentOption), "menu") == "1")
+                        {
+                            charRace = cycle(charRace, "race", true);
+                        }
+                        else if (info(Convert.ToString(currentOption), "menu") == "2")
+                        {
+                            charClass = cycle(charClass, "class", true);
                         }
                     }
                 }

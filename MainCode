@@ -98,7 +98,7 @@ namespace CustardQuest
                     output = "Very smart individuals who would use their mind over matter.";
                     if (optJokey)
                     {
-                        output += "Lifeless individuals who do not care for the lesser races.";
+                        output += " Lifeless individuals who do not care for the lesser races.";
                     }
                 }
                 else if (input == "Dwarf")
@@ -106,14 +106,14 @@ namespace CustardQuest
                     output = "Short, strong and wise.";
                     if (optJokey)
                     {
-                        output += "Short, strong, wise and a raging alcoholic.";
+                        output += " Short, strong, wise and a raging alcoholic.";
                    }
                 else if (input == "Orc")
                 {
                     output = "Very strong and not very bright.";
                     if (optJokey)
                     {
-                        output += "ORC SMASH";
+                        output += " ORC SMASH";
                     }
                 }
                 else if (input == "Gnome")
@@ -137,7 +137,7 @@ namespace CustardQuest
                     output = "Weak to special damage, however innate slash and smash resistance. Passively regenerates quickly provided health is above a threshold. Can actively regenerate. Can't eat. Detachable limbs and decent unarmed attacks.";
                     if (optJokey)
                     {
-                        output += "May get drafted, ending the adventure.";
+                        output += " May get drafted, ending the adventure.";
                     }
                 }
             }
@@ -544,15 +544,15 @@ namespace CustardQuest
                     }
                     else if (input == ConsoleKey.RightArrow)
                     {
-                        if (info(Convert.ToString(currentOption), "menu") == "0")
+                        if (currentOption == 0)
                         {
                             charGender = cycle(charGender, "gender", true);
                         }
-                        else if (info(Convert.ToString(currentOption), "menu") == "1")
+                        else if (currentOption == 1)
                         {
                             charRace = cycle(charRace, "race", true);
                         }
-                        else if (info(Convert.ToString(currentOption), "menu") == "2")
+                        else if (currentOption == 2)
                         {
                             charClass = cycle(charClass, "class", true);
                         }

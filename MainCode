@@ -423,9 +423,18 @@ namespace CustardQuest
                 }
                 else if (Menu == 3)     //Credits
                 {
-                    text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
-                    Console.ReadKey();
-                    Menu = 0;
+                    if (optJokey)
+                    {
+                        text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
+                        Console.ReadKey();
+                        Menu = 0;
+                    }
+                    else
+                    {
+                        text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The two of us");
+                        Console.ReadKey();
+                        Menu = 0;
+                    }
                 }
                 else if (Menu == 4)
                 {

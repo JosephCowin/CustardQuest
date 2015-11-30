@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace CustardQuest
         static bool optJokey = false;
         static bool optSound = true;
         static bool optColour = true;
+
         public static string cycle(string input, string type, bool right = true)
         {
             string output = "";
@@ -78,46 +80,34 @@ namespace CustardQuest
             {
                 if (input == "Male")
                 {
-                    output = "Are you a Male or Female?";
+                    output = "Has no effect on gameplay.";
                 }
                 else if (input == "Female")
                 {
-                    output = "Are you a Male or Female?";
+                    output = "Has no effect on gameplay.";
                 }
             }
             else if (type == "race")
             {
                 if (input == "Human")
                 {
-                    output = "A well rounded race that can't do anthing special.";
+                    output = "Well rounded. Class bonuses are larger.";
                 }
                 else if (input == "Elf")
                 {
-                    output = "Very smart individuals who would use their mind over matter.";
-                    if (optJokey)
-                    {
-                        output += "Lifeless individuals who do not care for the lesser races.";
-                    }
+                    output = "High mind, lower flexibility, little strength.";
                 }
                 else if (input == "Dwarf")
                 {
-                    output = "Short, strong and wise.";
-                    if (optJokey)
-                    {
-                        output += "Short, strong, wise and a raging alcoholic.";
-                    }
+                    output = "High strength, lower mind, very low flex. Good perception and good at repairing items.";
                 }
                 else if (input == "Orc")
                 {
-                    output = "Very strong and not very bright.";
-                    if (optJokey)
-                    {
-                        output += "ORC SMASH";
-                    }
+                    output = "Highest strength, very low mind, little flex.";
                 }
                 else if (input == "Gnome")
                 {
-                    output = "Great at magic but not much else.";
+                    output = "Great at magic but not much else. Good shop prices.";
                 }
                 else if (input == "Goblin")
                 {
@@ -136,7 +126,7 @@ namespace CustardQuest
                     output = "Weak to special damage, however innate slash and smash resistance. Passively regenerates quickly provided health is above a threshold. Can actively regenerate. Can't eat. Detachable limbs and decent unarmed attacks.";
                     if (optJokey)
                     {
-                        output += "May get drafted, ending the adventure.";
+                        output += " May get drafted, ending the adventure.";
                     }
                 }
             }
@@ -204,18 +194,19 @@ namespace CustardQuest
             bool playing = false;
             bool allLettersVoice = false;
             bool waitForSound = false;
+            string output = "";
 
             for (int i = 0; i < input.Length; i++)
             {
                 if (input.Substring(i, 1) == "\\")
                 {  //Text colour effects: c-cyan,g-grey,e-green,r-red,w-white,y-yellow,1-6 wait time, v-start/stop voice, b-alllettersvoice toggle, B-waitforsound to end toggle, \\/@"\"-\, \"-", £- newline, $ -clear
                     i++; //Use \\ or \ if using @ prior to quotes to have special effects
-                    if (input.Substring(i, 1) == "c" && optColour) { Console.ForegroundColor = ConsoleColor.Cyan; }
-                    else if (input.Substring(i, 1) == "g" && optColour) { Console.ForegroundColor = ConsoleColor.Gray; }
-                    else if (input.Substring(i, 1) == "e" && optColour) { Console.ForegroundColor = ConsoleColor.Green; }
-                    else if (input.Substring(i, 1) == "r" && optColour) { Console.ForegroundColor = ConsoleColor.Red; }
-                    else if (input.Substring(i, 1) == "w" && optColour) { Console.ForegroundColor = ConsoleColor.White; }
-                    else if (input.Substring(i, 1) == "y" && optColour) { Console.ForegroundColor = ConsoleColor.Yellow; }
+                    if (input.Substring(i, 1) == "c" && optColour) { Console.Write(output); output = ""; Console.ForegroundColor = ConsoleColor.Cyan; }
+                    else if (input.Substring(i, 1) == "g" && optColour) { Console.Write(output); output = ""; Console.ForegroundColor = ConsoleColor.Gray; }
+                    else if (input.Substring(i, 1) == "e" && optColour) { Console.Write(output); output = ""; Console.ForegroundColor = ConsoleColor.Green; }
+                    else if (input.Substring(i, 1) == "r" && optColour) { Console.Write(output); output = ""; Console.ForegroundColor = ConsoleColor.Red; }
+                    else if (input.Substring(i, 1) == "w" && optColour) { Console.Write(output); output = ""; Console.ForegroundColor = ConsoleColor.White; }
+                    else if (input.Substring(i, 1) == "y" && optColour) { Console.Write(output); output = ""; Console.ForegroundColor = ConsoleColor.Yellow; }
                     else if (input.Substring(i, 1) == "1") { wait = 0; }
                     else if (input.Substring(i, 1) == "2") { wait = 100; }
                     else if (input.Substring(i, 1) == "3") { wait = 250; }
@@ -227,12 +218,12 @@ namespace CustardQuest
                     else if (input.Substring(i, 1) == "B") { waitForSound = !waitForSound; }
                     else if (input.Substring(i, 1) == "\\") { Console.Write("\\"); }
                     else if (input.Substring(i, 1) == "!") { Console.Write("\""); }
-                    else if (input.Substring(i, 1) == "£") { Console.WriteLine(); }
+                    else if (input.Substring(i, 1) == "£") { output += "\n"; }
                     else if (input.Substring(i, 1) == "$") { Console.Clear(); }
                 }
                 else
                 {
-                    Console.Write(input.Substring(i, 1));
+                    output += (input.Substring(i, 1));
 
 
                     if (optSound && (playing && ((Convert.ToChar(input.Substring(i, 1)) <= 'z' && Convert.ToChar(input.Substring(i, 1)) >= 'a') || (Convert.ToChar(input.Substring(i, 1)) <= 'Z' && Convert.ToChar(input.Substring(i, 1)) >= 'A')) && (allLettersVoice || Convert.ToChar(input.Substring(i, 1)) == 'u' || Convert.ToChar(input.Substring(i, 1)) == 'o' || (Convert.ToChar(input.Substring(i, 1)) == 'i' || Convert.ToChar(input.Substring(i, 1)) == 'e' || Convert.ToChar(input.Substring(i, 1)) == 'a'))))
@@ -252,7 +243,7 @@ namespace CustardQuest
                     System.Threading.Thread.Sleep(wait);
                 }
             }
-            Console.WriteLine();
+            Console.WriteLine(output);
         }
 
         public static int Sections(string input, string seperator) //outputs the amount of sections in the string, seperated by the seperator, -1 (so minimum 0)

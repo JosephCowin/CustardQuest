@@ -1,4 +1,4 @@
-
+//replace description, not add. Finish making descriptions
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -107,7 +107,8 @@ namespace CustardQuest
                     if (optJokey)
                     {
                         output += " Short, strong, wise and a raging alcoholic.";
-                   }
+                    }
+                }
                 else if (input == "Orc")
                 {
                     output = "Very strong and not very bright.";

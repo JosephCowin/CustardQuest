@@ -99,7 +99,7 @@ namespace CustardQuest
                     output = "Very smart individuals who would use their mind over matter.";
                     if (optJokey)
                     {
-                        output += " Lifeless individuals who do not care for the lesser races.";
+                        output = "Lifeless individuals who do not care for the lesser races.";
                     }
                 }
                 else if (input == "Dwarf")
@@ -107,7 +107,7 @@ namespace CustardQuest
                     output = "Short, strong and wise.";
                     if (optJokey)
                     {
-                        output += " Short, strong, wise and a raging alcoholic.";
+                        output = "Short, strong, wise and a raging alcoholic.";
                     }
                 }
                 else if (input == "Orc")
@@ -115,7 +115,7 @@ namespace CustardQuest
                     output = "Very strong and not very bright.";
                     if (optJokey)
                     {
-                        output += " ORC SMASH";
+                        output = "ORC SMASH";
                     }
                 }
                 else if (input == "Gnome")
@@ -124,22 +124,34 @@ namespace CustardQuest
                 }
                 else if (input == "Goblin")
                 {
-                    output = "Stealthy. Enemies may be friendly.";
+                    output = "Small selfish humanoids who can sneak anywhere.";
+                    if (optJokey)
+                    {
+                        output = "Sneaky Beaky Like.";
+                    }
                 }
                 else if (input == "Tiefling")
                 {
-                    output = "Good at offensive magic, decent strength.";
+                    output = "Trained in the offensive schools of magic.";
+                    if(optJokey)
+                    {
+                        output = "Wierd demon folk who no one likes. Also into Scat.";
+                    }
                 }
                 else if (input == "Kobold")
                 {
                     output = "Innate resistance against special damage. Can frenzy, losing control but damage is raised.";
+                    if (optJokey)
+                    {
+                        output = "KOBALLLLLLLLLTTTTTT.";
+                    }
                 }
                 else if (input == "Skeleton")
                 {
                     output = "Weak to special damage, however innate slash and smash resistance. Passively regenerates quickly provided health is above a threshold. Can actively regenerate. Can't eat. Detachable limbs and decent unarmed attacks.";
                     if (optJokey)
                     {
-                        output += " May get drafted, ending the adventure.";
+                        output += "Thank mr Skeltal";
                     }
                 }
             }

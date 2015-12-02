@@ -50,7 +50,7 @@ namespace CustardQuest
                 }
                 else
                 {
-                    inputCode--;
+                    inputCode += -1;
                 }
                 if (inputCode < 0)
                 {
@@ -60,13 +60,11 @@ namespace CustardQuest
                 {
                     inputCode = 0;
                 }
-                for (int i = 0; i < options.Length; i++)
-                {
-                    if (inputCode == i)
-                    {
-                        output = options[i];
-                    }
-                }
+                output = options[inputCode];
+            }
+            else
+            {
+                output = "FAIL";
             }
 
 
@@ -350,6 +348,10 @@ namespace CustardQuest
             int charStr = 5;
             int charFlx = 5;
             int charMnd = 5;
+            int charStrMod = 0;
+            int charFlxMod = 0;
+            int charMndMod = 0;
+            int charRemainMod = 10;
             string charName = "";
 
             int currentOption = 0;
@@ -503,27 +505,27 @@ namespace CustardQuest
                     }
                     if (currentOption == 3)
                     {
-                        text("Strength - \\g" + charStr + "\\w - " + info("Strength", "stats"));
+                        text("Strength - \\g" + (charStr+charStrMod) + "\\w - " + info("Strength", "stats"));
                     }
                     else
                     {
-                        text("Strength - " + charStr + "\\w - " + info("Strength", "stats"));
+                        text("Strength - " + (charStr+charStrMod) + "\\w - " + info("Strength", "stats"));
                     }
                     if (currentOption == 4)
                     {
-                        text("Flexibility - \\g" + charFlx + "\\w - " + info("Flexibility", "stats"));
+                        text("Flexibility - \\g" + (charFlx+charFlxMod) + "\\w - " + info("Flexibility", "stats"));
                     }
                     else
                     {
-                        text("Flexibility - " + charFlx + "\\w - " + info("Flexibility", "stats"));
+                        text("Flexibility - " + char(charFlx+charFlxMod)Flx + "\\w - " + info("Flexibility", "stats"));
                     }
                     if (currentOption == 5)
                     {
-                        text("Mind - \\g" + charMnd + "\\w - " + info("Mind", "stats"));
+                        text("Mind - \\g" + (charMnd+charMndMod) + "\\w - " + info("Mind", "stats"));
                     }
                     else
                     {
-                        text("Mind - " + charMnd + "\\w - " + info("Mind", "stats"));
+                        text("Mind - " + (charMnd+charMndMod) + "\\w - " + info("Mind", "stats"));
                     }
 
                     ConsoleKey input = Console.ReadKey().Key;
@@ -543,17 +545,41 @@ namespace CustardQuest
                     }
                     else if (input == ConsoleKey.LeftArrow)
                     {
-                        if (info(Convert.ToString(currentOption), "menu") == "0")
+                        if (currentOption == 0)
                         {
                             charGender = cycle(charGender, "gender", false);
                         }
-                        else if (info(Convert.ToString(currentOption), "menu") == "1")
+                        else if (currentOption == 1)
                         {
                             charRace = cycle(charRace, "race", false);
                         }
-                        else if (info(Convert.ToString(currentOption), "menu") == "2")
+                        else if (currentOption == 2)
                         {
                             charClass = cycle(charClass, "class", false);
+                        }
+                        else if (currentOption == 3)
+                        {
+                            if (charStrMod < 0)
+                            {
+                                charStrMod--;
+                                charRemainMod++;
+                            }
+                        }
+                        else if (currentOption == 4)
+                        {
+                            if (charFlxMod < 0)
+                            {
+                                charFlxMod--;
+                                charRemainMod++;
+                            }
+                        }
+                        else if (currentOption == 5)
+                        {
+                            if (charMndMod < 0)
+                            {
+                                charMndMod--;
+                                charRemainMod++;
+                            }
                         }
                     }
                     else if (input == ConsoleKey.RightArrow)
@@ -569,6 +595,30 @@ namespace CustardQuest
                         else if (currentOption == 2)
                         {
                             charClass = cycle(charClass, "class", true);
+                        }
+                        else if (currentOption == 3)
+                        {
+                            if (charRemainMod < 0)
+                            {
+                                charStrMod++;
+                                charRemainMod--;
+                            }
+                        }
+                        else if (currentOption == 4)
+                        {
+                            if (charRemainMod < 0)
+                            {
+                                charFlxMod++;
+                                charRemainMod--;
+                            }
+                        }
+                        else if (currentOption == 5)
+                        {
+                            if (charRemainMod < 0)
+                            {
+                                charMndMod++;
+                                charRemainMod--;
+                            }
                         }
                     }
                 }

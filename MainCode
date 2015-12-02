@@ -375,6 +375,8 @@ namespace CustardQuest
             Console.WriteLine(@"                                                              ███    ███                                                                             ");
             Console.WriteLine("Press Enter To Start");
             Console.ReadLine();
+            ConsoleKey input;
+            char inputc;
             while (Running)
             {
                 Console.Clear();
@@ -399,24 +401,24 @@ namespace CustardQuest
                     text("\\cE\\wxit");
 
 
-                    char input = Console.ReadKey().KeyChar;
+                    inputc = Console.ReadKey().KeyChar;
 
-                    if (input == 'p')
+                    if (inputc == 'p')
                     {
                         Menu = 1;
                     }
 
-                    else if (input == 'o')
+                    else if (inputc == 'o')
                     {
                         Menu = 2;
                     }
 
-                    else if (input == 'c')
+                    else if (inputc == 'c')
                     {
                         Menu = 3;
                     }
 
-                    else if (input == 'e')
+                    else if (inputc == 'e')
                     {
                         Running = false;
                     }
@@ -426,13 +428,13 @@ namespace CustardQuest
                 else if (Menu == 1)
                 {
                     text("Would you like to \\cl\\woad a game or make a \\cn\\wew one?");
-                    char input = Console.ReadKey().KeyChar;
-                    if (input == 'l')
+                    inputc = Console.ReadKey().KeyChar;
+                    if (inputc == 'l')
                     {
                         Menu = 4;
                     }
 
-                    else if (input == 'n')
+                    else if (inputc == 'n')
                     {
                         Menu = 5;
                         currentOption = 0;
@@ -442,23 +444,23 @@ namespace CustardQuest
                 else if (Menu == 2)
                 {
                     text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\wReturn to main menu - \\cm\\w");
-                    char input = Console.ReadKey().KeyChar;
-                    if (input == 'j')
+                    inputc = Console.ReadKey().KeyChar;
+                    if (inputc == 'j')
                     {
                         optJokey = !optJokey;
                     }
 
-                    else if (input == 's')
+                    else if (inputc == 's')
                     {
                         optSound = !optSound;
                     }
 
-                    else if (input == 'c')
+                    else if (inputc == 'c')
                     {
                         optColour = !optColour;
                     }
 
-                    else if (input == 'm')
+                    else if (inputc == 'm')
                     {
                         Menu = 0;
                     }
@@ -527,9 +529,14 @@ namespace CustardQuest
                     {
                         text("Mind - " + (charMnd+charMndMod) + "\\w - " + info("Mind", "stats"));
                     }
-                    text("Stat Points remaining - " + charRemainMod);
+                    if (charRemainMod > 0)
+                    { 
+                        text("Stat Points remaining - " + charRemainMod);
+                    }
+                    text("\\cI\\wnfo about options.");
+                    text("\\cE\\wxtra info about chosen choices.");
 
-                    ConsoleKey input = Console.ReadKey().Key;
+                    input = Console.ReadKey().Key;
                     if (input == ConsoleKey.DownArrow)
                     {
                         if (currentOption != 5)
@@ -621,6 +628,14 @@ namespace CustardQuest
                                 charRemainMod--;
                             }
                         }
+                    }
+                    else if (input == ConsoleKey.I)
+                    {
+
+                    }
+                    else if (input == ConsoleKey.E)
+                    {
+
                     }
                 }
             }

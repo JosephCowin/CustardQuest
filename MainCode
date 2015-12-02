@@ -133,7 +133,7 @@ namespace CustardQuest
                     output = "Trained in the offensive schools of magic.";
                     if (optJokey)
                     {
-                        output = "Wierd demon folk who no one likes. Also into Scat.";
+                        output = "Wierd demon folk who no one likes. Also into Scat. Horns provide extra clumsiness.";
                     }
                 }
                 else if (input == "Kobold")
@@ -151,6 +151,45 @@ namespace CustardQuest
                     {
                         output += "Thank mr Skeltal";
                     }
+                }
+            }
+            else if (type == "Erace")
+            {
+                if (input == "Human")
+                {
+                    output = "Base 7 STR, 7 FLX, 7 MND.";
+                }
+                else if (input == "Elf")
+                {
+                    output = "Base 2 STR, 8 FLX, 11 MND.";
+                }
+                else if (input == "Dwarf")
+                {
+                    output = "Base 9 STR, 4 FLX, 7 MND. Item repair is more effective.";
+                }
+                else if (input == "Orc")
+                {
+                    output = "Base 16 STR, 4 FLX, 1 MND.";
+                }
+                else if (input == "Gnome")
+                {
+                    output = "Base 7 STR, 3 FLX, 10 MND. Shop prices are lowered.";
+                }
+                else if (input == "Goblin")
+                {
+                    output = "Base 2 STR, 13 FLX, 1 MND. Very low chance of being detected. Can 'befriend' other goblins easily.";
+                }
+                else if (input == "Tiefling")
+                {
+                    output = "Base 8 STR, 3 FLX, 9 MND. Offensive magic does higher damage and is easier to learn.";
+                }
+                else if (input == "Kobold")
+                {
+                    output = "Base 4 STR, 9 FLX, 2 MND. Higher special resistance. Can frenzy- temporarily reduce MND to 0, raising STR by what MND was. Lasts until stamina runs out. Player loses control during frenzy, character attacks everything that moves.";
+                }
+                else if (input == "Skeleton")
+                {
+                    output = "Base 4 STR, 3 FLX, 10 MND. Weak to special damage. Innate slash and smash resistance. HP repairs quickly when above threshold. Can't eat. Detachable limbs that move when not attached. Decent unarmed attacks. Limbs repair slowly over time.";
                 }
             }
             else if (type == "class")
@@ -185,7 +224,43 @@ namespace CustardQuest
                 }
                 else if (input == "Warlock")
                 {
-                    output = "Magic is very powerful, yet lacks restraint. Health is lost every time a spell is used.";
+                    output = "Magic is very powerful, yet lacks restraint. Magic is stronger at low health.";
+                }
+
+            }
+            else if (type == "Eclass")
+            {
+                if (input == "Fighter")
+                {
+                    output = "Starts with a good sword and shield, along with heavy armour. Good with high strength.";
+                }
+                else if (input == "Druid")
+                {
+                    output = "Starts with a wrist claw, nature staff, and an amulet that makes wild animals and plants less aggressive. Also begins with a spell that befriends wild animals and plants - so that they aid you. Good with high mind and moderate strength or flexibility.";
+                }
+                else if (input == "Wizard")
+                {
+                    output = "Starts with a magic staff, weakly enchanted robes, and a spellbook that can be repeatedly used to gain more spells. They start with knowing a basic fireball spell, and a bread summoning spell. Good with high mind.";
+                }
+                else if (input == "Monk")
+                {
+                    output = "Begins with monk robes. They also know spells that draw on their stamina to cause physical heightening. Good with a balance of strength and flexibility.";
+                }
+                else if (input == "Paladin")
+                {
+                    output = "Begins with a hammer that deals bonus damage to undead, a shield, and medium armour. Also begins with a light healing spell. Good with high strength and moderate mind.";
+                }
+                else if (input == "Ranger")
+                {
+                    output = "Starts with a bow and some arrows, along with light armour and an animal companion. They also have tools designed to aid in scavenging and tracking. Good with high flexibility and moderate mind.";
+                }
+                else if (input == "Thief")
+                {
+                    output = "Begins with a dagger that becomes stronger when unnoticed, and clothes that aid in hiding from enemies. Good with flexibility.";
+                }
+                else if (input == "Warlock")
+                {
+                    output = "Begins with a sacrificial dagger that may grant new spells when killing or cutting self, an amulet that increases spell power at low health, and very basic clothes. Also begins with a very weak blood draining spell.";
                 }
 
             }
@@ -345,9 +420,9 @@ namespace CustardQuest
             string charGender = "Male";
             string charRace = "Human";
             string charClass = "Fighter";
-            int charStr = 5;
-            int charFlx = 5;
-            int charMnd = 5;
+            int charStr = 7;
+            int charFlx = 7;
+            int charMnd = 7;
             int charStrMod = 0;
             int charFlxMod = 0;
             int charMndMod = 0;
@@ -631,11 +706,23 @@ namespace CustardQuest
                     }
                     else if (input == ConsoleKey.I)
                     {
-
+                        Console.Clear();
+                        text("Press the up/down keys to move to a different option.");
+                        text("Press the left/right keys to cycle through the choices, or add/subtract from a numerical value.");
+                        text("Gender - No effect on gameplay.");
+                        text("Race - Affects starting stats, spells and some ingame things.");
+                        text("Class - Affects stating items and spells.");
+                        text("Strength - Affects melee damage, health and stamina. Also helps resist poisons.");
+                        text("Flexibility - Affects ease of hitting, dodging, and use of precision weapons eg. bow.");
+                        text("Mind - Helps provides extra information to the player, improves magic and curse resistance.");
+                        Console.ReadKey();
                     }
                     else if (input == ConsoleKey.E)
                     {
-
+                        Console.Clear();
+                        text("Race - " + charRace + "\\w - " + info(charRace, "Erace"));
+                        text("Class - \\g" + charClass + "\\w - " + info(charClass, "Eclass"));
+                        Console.ReadKey();
                     }
                 }
             }

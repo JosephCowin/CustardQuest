@@ -131,7 +131,7 @@ namespace CustardQuest
                 else if (input == "Tiefling")
                 {
                     output = "Trained in the offensive schools of magic.";
-                    if(optJokey)
+                    if (optJokey)
                     {
                         output = "Wierd demon folk who no one likes. Also into Scat.";
                     }
@@ -517,7 +517,7 @@ namespace CustardQuest
                     }
                     else
                     {
-                        text("Flexibility - " + char(charFlx+charFlxMod)Flx + "\\w - " + info("Flexibility", "stats"));
+                        text("Flexibility - " + (charFlx+charFlxMod) + "\\w - " + info("Flexibility", "stats"));
                     }
                     if (currentOption == 5)
                     {
@@ -527,6 +527,7 @@ namespace CustardQuest
                     {
                         text("Mind - " + (charMnd+charMndMod) + "\\w - " + info("Mind", "stats"));
                     }
+                    text("Stat Points remaining - " + charRemainMod);
 
                     ConsoleKey input = Console.ReadKey().Key;
                     if (input == ConsoleKey.DownArrow)
@@ -559,7 +560,7 @@ namespace CustardQuest
                         }
                         else if (currentOption == 3)
                         {
-                            if (charStrMod < 0)
+                            if (charStrMod > 0)
                             {
                                 charStrMod--;
                                 charRemainMod++;
@@ -567,7 +568,7 @@ namespace CustardQuest
                         }
                         else if (currentOption == 4)
                         {
-                            if (charFlxMod < 0)
+                            if (charFlxMod > 0)
                             {
                                 charFlxMod--;
                                 charRemainMod++;
@@ -575,7 +576,7 @@ namespace CustardQuest
                         }
                         else if (currentOption == 5)
                         {
-                            if (charMndMod < 0)
+                            if (charMndMod > 0)
                             {
                                 charMndMod--;
                                 charRemainMod++;
@@ -598,7 +599,7 @@ namespace CustardQuest
                         }
                         else if (currentOption == 3)
                         {
-                            if (charRemainMod < 0)
+                            if (charRemainMod > 0)
                             {
                                 charStrMod++;
                                 charRemainMod--;
@@ -606,7 +607,7 @@ namespace CustardQuest
                         }
                         else if (currentOption == 4)
                         {
-                            if (charRemainMod < 0)
+                            if (charRemainMod > 0)
                             {
                                 charFlxMod++;
                                 charRemainMod--;
@@ -614,7 +615,7 @@ namespace CustardQuest
                         }
                         else if (currentOption == 5)
                         {
-                            if (charRemainMod < 0)
+                            if (charRemainMod > 0)
                             {
                                 charMndMod++;
                                 charRemainMod--;

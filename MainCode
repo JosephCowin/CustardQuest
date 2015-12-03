@@ -610,6 +610,7 @@ namespace CustardQuest
                     }
                     text("\\cI\\wnfo about options.");
                     text("\\cE\\wxtra info about chosen choices.");
+                    text("\\£\\cM\\wain menu";
 
                     input = Console.ReadKey().Key;
                     if (input == ConsoleKey.DownArrow)
@@ -721,8 +722,12 @@ namespace CustardQuest
                     {
                         Console.Clear();
                         text("Race - " + charRace + "\\w - " + info(charRace, "Erace"));
-                        text("Class - \\g" + charClass + "\\w - " + info(charClass, "Eclass"));
+                        text("Class - " + charClass + "\\w - " + info(charClass, "Eclass"));
                         Console.ReadKey();
+                    }
+                    else if (input == ConsoleKey.M)
+                    {
+                        Menu = 0;
                     }
                 }
             }

@@ -154,9 +154,10 @@ namespace CustardQuest
                 break;
             }
             Random rng = new Random();
-            for (int i = 0; i < syllables.Length; i++)
+            for (int i = 0; i < syllables.GetLength(0); i++)
             {
-                output += syllables[i,rng.Next(0,syllables.GetLength(i))];
+                int j = rng.Next(0, syllables.GetLength(1));
+                output += syllables[i,j];
             }
             
             
@@ -238,18 +239,18 @@ namespace CustardQuest
                 break;
             }
             string outputT = "";
-            for (int i = 0; i < syllables.Length; i++)
+            for (int i = 0; i < syllables.GetLength(0); i++)
             {
                 if (i != 0)
                 {
                     if (outputT != "")
                     {
-                        outputT += syllables[i,rng.Next(0,syllables.GetLength(i))];
+                        outputT += syllables[i,rng.Next(0,syllables.GetLength(1))];
                     }
                 }
                 else
                 {
-                    outputT += syllables[i,rng.Next(0,syllables.GetLength(i))];
+                    outputT += syllables[i,rng.Next(0,syllables.GetLength(1))];
                     
                     if (outputT != "")
                     {

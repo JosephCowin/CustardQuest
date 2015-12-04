@@ -15,9 +15,9 @@ namespace CustardQuest
         static bool optColour = true;
         
         
-        public static string name(string species, string class, string extra)
+        public static string name(string species, string Class, string extra)
         {
-            output = "";
+            string output = "";
             string[,] syllables = new string[0,0];
             
             
@@ -26,228 +26,217 @@ namespace CustardQuest
                 case "Human":
                     if (extra == "Male")
                     {
-                        syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""}{" Ho",""}{"mo",""}{"nym",""};
+                        syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""},{" Ho",""},{"mo",""},{"nym",""}};
                     }
                     else if (extra == "Female")
                     {
-                        syllables = new string[,] {"Ja",""}{"ne",""}{" th",""}{"an,""};
+                        syllables = new string[,] {{"Ja",""},{"ne",""},{" th",""},{"an",""}};
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Elf":
                     if (extra == "Male")
                     {
-                        syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""};
+                        syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""}};
                     }
                     else if (extra == "Female")
                     {
-                        syllables = new string[,] {"Ja",""}{"ne",""}{" th",""}{"an,""};
+                        syllables = new string[,] {{"Ja",""},{"ne",""},{" th",""},{"an",""}};
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Dwarf":
                     if (extra == "Male")
                     {
-                        syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""};
+                        syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""}};
                     }
                     else if (extra == "Female")
                     {
-                        syllables = new string[,] {"Ja",""}{"ne",""}{" th",""}{"an,""};
+                        syllables = new string[,] {{"Ja",""},{"ne",""},{" th",""},{"an",""}};
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Orc":
                     if (extra == "Male")
                     {
-                        syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""};
+                        syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""}};
                     }
                     else if (extra == "Female")
                     {
-                        syllables = new string[,] {"Ja",""}{"ne",""}{" th",""}{"an,""};
+                        syllables = new string[,] {{"Ja",""},{"ne",""},{" th",""},{"an",""}};
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Gnome":
                     if (extra == "Male")
                     {
-                        syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""};
+                        syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""}};
                     }
                     else if (extra == "Female")
                     {
-                        syllables = new string[,] {"Ja",""}{"ne",""}{" th",""}{"an,""};
+                        syllables = new string[,] {{"Ja",""},{"ne",""},{" th",""},{"an",""}};
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Goblin":
                     if (extra == "Male")
                     {
-                        syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""};
+                        syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""}};
                     }
                     else if (extra == "Female")
                     {
-                        syllables = new string[,] {"Ja",""}{"ne",""}{" th",""}{"an,""};
+                        syllables = new string[,] {{"Ja",""},{"ne",""},{" th",""},{"an",""}};
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Tiefling":
                     if (extra == "Male")
                     {
-                        syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""};
+                        syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""}};
                     }
                     else if (extra == "Female")
                     {
-                        syllables = new string[,] {"Ja",""}{"ne",""}{" th",""}{"an,""};
+                        syllables = new string[,] {{"Ja",""},{"ne",""},{" th",""},{"an",""}};
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Kobold":
                     if (extra == "Male")
                     {
-                        syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""};
+                        syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""}};
                     }
                     else if (extra == "Female")
                     {
-                        syllables = new string[,] {"Ja",""}{"ne",""}{" th",""}{"an,""};
+                        syllables = new string[,] {{"Ja",""},{"ne",""},{" th",""},{"an",""}};
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Skeleton":
                     if (extra == "Male")
                     {
-                        syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""};
+                        syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""}};
                     }
                     else if (extra == "Female")
                     {
-                        syllables = new string[,] {"Ja",""}{"ne",""}{" th",""}{"an,""};
+                        syllables = new string[,] {{"Ja",""},{"ne",""},{" th",""},{"an",""}};
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 default:
-                    syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""};
+                    syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""}};
                 break;
             }
             Random rng = new Random();
             for (int i = 0; i < syllables.Length; i++)
             {
-                output += syllables[i,rng.next(0,syllables[i].Length)];
+                output += syllables[i,rng.Next(0,syllables.GetLength(i))];
             }
             
             
             
-            switch (class)
+            switch (Class)
             {
                 case "Fighter":
                     if (extra == "Male" || extra == "Female")
                     {
-                        syllables = new string[,] {"the",""}{" Death"}{" of",""}{"Crow""}{"sdale","s"};
+                        syllables = new string[,] {{"the",""},{" Death",""},{" of",""},{"Crow",""},{"sdale","s"}};
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Druid":
                     if (extra == "Male" || extra == "Female")
                     {
-                        syllables = new string[,] {"the",""}{" Death"}{" of",""}{"Crow""}{"sdale","s"};
+                        syllables = new string[,] { { "the", "" }, { " Death", "" }, { " of", "" }, { "Crow", "" }, { "sdale", "s" } };
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Wizard":
                     if (extra == "Male" || extra == "Female")
                     {
-                        syllables = new string[,] {"the",""}{" Death"}{" of",""}{"Crow""}{"sdale","s"};
+                        syllables = new string[,] { { "the", "" }, { " Death", "" }, { " of", "" }, { "Crow", "" }, { "sdale", "s" } };
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Monk":
                     if (extra == "Male" || extra == "Female")
                     {
-                        syllables = new string[,] {"the",""}{" Death"}{" of",""}{"Crow""}{"sdale","s"};
+                        syllables = new string[,] { { "the", "" }, { " Death", "" }, { " of", "" }, { "Crow", "" }, { "sdale", "s" } };
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Paladin":
                     if (extra == "Male" || extra == "Female")
                     {
-                        syllables = new string[,] {"the",""}{" Death"}{" of",""}{"Crow""}{"sdale","s"};
+                        syllables = new string[,] { { "the", "" }, { " Death", "" }, { " of", "" }, { "Crow", "" }, { "sdale", "s" } };
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Ranger":
                     if (extra == "Male" || extra == "Female")
                     {
-                        syllables = new string[,] {"the",""}{" Death"}{" of",""}{"Crow""}{"sdale","s"};
+                        syllables = new string[,] { { "the", "" }, { " Death", "" }, { " of", "" }, { "Crow", "" }, { "sdale", "s" } };
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 case "Thief":
                     if (extra == "Male" || extra == "Female")
                     {
-                        syllables = new string[,] {"the",""}{" Death"}{" of",""}{"Crow""}{"sdale","s"};
+                        syllables = new string[,] { { "the", "" }, { " Death", "" }, { " of", "" }, { "Crow", "" }, { "sdale", "s" } };
                     }
                     else
                     {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
-                    }
-                break;
-                case "Warlock":
-                    if (extra == "Male" || extra == "Female")
-                    {
-                        syllables = new string[,] {"the",""}{" Death"}{" of",""}{"Crow""}{"sdale","s"};
-                    }
-                    else
-                    {
-                        syllables = new string[,] {"Ug",""}{"",""}{"ma",""}{"n,""};
+                        syllables = new string[,] {{"Ug",""},{"",""},{"ma",""},{"n",""}};
                     }
                 break;
                 default:
-                    syllables = new string[,] {"Jo",""}{"hn",""}{"ath",""}{"on,""};
+                    syllables = new string[,] {{"Jo",""},{"hn",""},{"ath",""},{"on",""}};
                 break;
             }
-            Random rng = new Random();
             string outputT = "";
             for (int i = 0; i < syllables.Length; i++)
             {
@@ -255,12 +244,12 @@ namespace CustardQuest
                 {
                     if (outputT != "")
                     {
-                        outputT += syllables[i,rng.next(0,syllables[i].Length)];
+                        outputT += syllables[i,rng.Next(0,syllables.GetLength(i))];
                     }
                 }
                 else
                 {
-                    outputT += syllables[i,rng.next(0,syllables[i].Length)];
+                    outputT += syllables[i,rng.Next(0,syllables.GetLength(i))];
                     
                     if (outputT != "")
                     {
@@ -405,7 +394,7 @@ namespace CustardQuest
                 }
                 else if (input == "Skeleton")
                 {
-                    output = "Weak to special damage, however innate slash and smash resistance. Passively regenerates quickly provided health is above a threshold. Can actively regenerate. Can't eat. Detachable limbs and decent unarmed attacks.";
+                    output = "Weak to smash damage, however innate slash resistance. Passively regenerates quickly provided health is above a threshold. Can actively regenerate. Can't eat. Detachable limbs and decent unarmed attacks.";
                     if (optJokey)
                     {
                         output += "Thank mr Skeltal";
@@ -870,12 +859,12 @@ namespace CustardQuest
                     text("\\cN\\wext");
                     text("\\£\\cI\\wnfo about options.");
                     text("\\cE\\wxtra info about chosen choices.");
-                    text("\\£\\cM\\wain menu";
+                    text("\\£\\cM\\wain menu");
 
                     input = Console.ReadKey().Key;
                     if (input == ConsoleKey.DownArrow)
                     {
-                        if (currentOption != 4)
+                        if (currentOption != 5)
                         {
                             currentOption++;
                         }

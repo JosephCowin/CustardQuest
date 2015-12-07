@@ -26,7 +26,7 @@ namespace CustardQuest
                 case "Human":
                     if (extra == "Male")
                     {
-                        syllables = new string[,] { { "Jo", "" }, { "hn", "" }, { "ath", "" }, { "on", "" }, { " Ho", "" }, { "mo", "" }, { "nym", "" } };
+                        syllables = new string[,] { { "Jo", "Ba", "Ean" }, { "hn", "rin", "ean" }, { "ath", "tho", "ean" }, { "on", "lon", "ean" }, { " Ho", " No", " Mo" }, { "mo", "an", "y" }, { "nym", "ki", "ath" } };
                     }
                     else if (extra == "Female")
                     {
@@ -167,7 +167,7 @@ namespace CustardQuest
                 case "Fighter":
                     if (extra == "Male" || extra == "Female")
                     {
-                        syllables = new string[,] { { "the", "" }, { " Death", "" }, { " of", "" }, { "Crow", "" }, { "sdale", "s" } };
+                        syllables = new string[,] { { "the", "", "", "of" }, { " Death", " Sword", " Shield" ," Claw"}, { " of", " and", " annihilator of", " annihilator for" }, { " Crows", " Justice", " Shield", " lovely boys" } };
                     }
                     else
                     {

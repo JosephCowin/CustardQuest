@@ -398,7 +398,7 @@ namespace CustardQuest
                     output = "Skeletons are restless souls who are stuck on this plane.";
                     if (optJokey)
                     {
-                        output += "Thank mr Skeltal";
+                        output = "Thank mr Skeltal";
                     }
                 }
             }

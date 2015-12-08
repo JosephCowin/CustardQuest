@@ -1,5 +1,4 @@
-//Finish making descriptions and names -o
-
+//replace description, not add. Finish making descriptions -o
 
 using System;
 using System.Collections.Generic;
@@ -157,11 +156,11 @@ namespace CustardQuest
 
 
             Random rng = new Random();
-            for (int i = 0; i < Sections(syllables,@"|"); i++)
+            for (int i = 0; i < Sections(syllables, @"|"); i++)
             {
                 string current = selectSection(syllables, @"|", i);
-                int j = rng.Next(0, Sections(current,@"\"));
-                output += selectSection(current,@"\",j);
+                int j = rng.Next(0, Sections(current, @"\"));
+                output += selectSection(current, @"\", j);
             }
 
 
@@ -979,6 +978,7 @@ namespace CustardQuest
                         text("Strength - Affects melee damage, health and stamina. Also helps resist poisons.");
                         text("Flexibility - Affects ease of hitting, dodging, and use of precision weapons eg. bow.");
                         text("Mind - Helps provides extra information to the player, improves magic and curse resistance.");
+                        text("\\£Press any key to continue");
                         Console.ReadKey();
                     }
                     else if (input == ConsoleKey.E)
@@ -986,6 +986,7 @@ namespace CustardQuest
                         Console.Clear();
                         text("Race - " + charRace + "\\w - " + info(charRace, "Erace"));
                         text("Class - " + charClass + "\\w - " + info(charClass, "Eclass"));
+                        text("\\£Press any key to continue");
                         Console.ReadKey();
                     }
                     else if (input == ConsoleKey.M)

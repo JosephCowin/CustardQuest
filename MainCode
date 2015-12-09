@@ -420,11 +420,11 @@ namespace CustardQuest
             {
                 if (input == "Human")
                 {
-                    output = "Base 7 STR, 7 FLX, 7 MND.";
+                    output = "Base 7 STR, 7 FLX, 7 MND. No other special feats.";
                 }
                 else if (input == "Elf")
                 {
-                    output = "Base 2 STR, 8 FLX, 11 MND.";
+                    output = "Base 2 STR, 8 FLX, 11 MND. No other special feats.";
                 }
                 else if (input == "Dwarf")
                 {
@@ -432,7 +432,7 @@ namespace CustardQuest
                 }
                 else if (input == "Orc")
                 {
-                    output = "Base 16 STR, 4 FLX, 1 MND.";
+                    output = "Base 16 STR, 4 FLX, 1 MND. Skilled with strength weapons.";
                 }
                 else if (input == "Gnome")
                 {
@@ -440,42 +440,42 @@ namespace CustardQuest
                 }
                 else if (input == "Goblin")
                 {
-                    output = "Base 2 STR, 13 FLX, 1 MND. Very low chance of being detected. Can 'befriend' other goblins easily.";
+                    output = "Base 2 STR, 13 FLX, 1 MND. Can recruit fellow goblins and harder to detect.";
                 }
                 else if (input == "Tiefling")
                 {
-                    output = "Base 8 STR, 3 FLX, 9 MND. Offensive magic does higher damage and is easier to learn.";
+                    output = "Base 8 STR, 3 FLX, 9 MND. Skilled at offencive magic.";
                 }
                 else if (input == "Kobold")
                 {
-                    output = "Base 4 STR, 9 FLX, 2 MND. Higher special resistance. Can frenzy- temporarily reduce MND to 0, raising STR by what MND was. Lasts until stamina runs out. Player loses control during frenzy, character attacks everything that moves.";
+                    output = "Base 4 STR, 9 FLX, 2 MND. Special resistance and can frenzy causing MND to be added to STR";
                 }
                 else if (input == "Skeleton")
                 {
-                    output = "Base 4 STR, 3 FLX, 10 MND. Weak to smash damage. Innate slash and special resistance. HP repairs quickly when above threshold. Can't eat. Detachable limbs. Decent unarmed attacks. Limbs repair slowly over time. Inability to use spells.";
+                    output = "Base 4 STR, 3 FLX, 10 MND. Weak to smash attacks but resistant to both slash and special attacks. Can’t eat to heal but automatically  heals over time.";
                 }
             }
             else if (type == "class")
             {
                 if (input == "Fighter")
                 {
-                    output = "Good with melee, however poor at other skills.";
+                    output = "Trained in the arts of melee from birth but not skilled at much else.";
                 }
                 else if (input == "Druid")
                 {
-                    output = "Controls plants and animals, which can be befriended. Wild animals and plants are friendly.";
+                    output = "Intune with the force of nature meaning that they can control and befriend animals.";
                 }
                 else if (input == "Wizard")
                 {
-                    output = "Wide variety of spells but physical attack is poor.";
+                    output = "Can focus mystical energies and form them into powerful spells.";
                 }
                 else if (input == "Monk")
                 {
-                    output = "Can use unarmed combat and has a few spells.";
+                    output = "Trained in the ways of Ki monks can unleash devastating unarmed attacks.";
                 }
                 else if (input == "Paladin")
                 {
-                    output = "Decent with melee and has healing spells.";
+                    output = "After taking a sacred oath to protect the land and its people in the name of one powerful deity.";
                 }
                 else if (input == "Ranger")
                 {
@@ -867,9 +867,9 @@ namespace CustardQuest
                     charFlxMod = 0;
                     charMndMod = 0;
                     charName = "";
-                    charRemainMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"),",",0));
-                    charBlessCurseMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"),",",1));
-                    text("Difficulty - " + difficulty + " - " + info(difficulty,"idifficulty"));
+                    charRemainMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"), ",", 0));
+                    charBlessCurseMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"), ",", 1));
+                    text("Difficulty - " + difficulty + " - " + info(difficulty, "idifficulty"));
                     text("\\£\\cM\\wainmenu");
                     text("\\£\\cN\\wext");
 
@@ -884,13 +884,13 @@ namespace CustardQuest
                     }
                     else if (input == ConsoleKey.N)
                     {
-                        menu = 6;
+                        Menu = 6;
                     }
                     else if (input == ConsoleKey.M)
                     {
-                        menu = 0;
+                        Menu = 0;
                     }
-                    
+
                 }
                 else if (Menu == 6)
                 {

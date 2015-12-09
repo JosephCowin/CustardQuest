@@ -295,6 +295,10 @@ namespace CustardQuest
             {
                 options = new string[] { "Easy", "Normal", "Hard", "Impossible" };
             }
+            else if (type == "location")
+            {
+                options = new string[] { "Mansion", "Dungeon - Crypt", "Dungeon - Basement", "Dungeon - Treasure Store", "Cemetery", "Shrine", "Temple", "Sentient Forest", "Sentient Cave", "Sentient House", "Haunted House", "Abandoned Village", "Trap Maker's Shop", "Magic School" };
+            }
 
 
             int inputCode = -1;
@@ -595,6 +599,65 @@ namespace CustardQuest
                     output = "How the game was meant to be played. You must have many curses, spells will be weaker, rooms will be almost bare of useful items, enemies will be almost impossible to kill alone.";
                 }
             }
+            else if (type == "location")
+            {
+                if (input == "Mansion")
+                {
+                    output = "";
+                }
+                else if (input == "Dungeon - Crypt")
+                {
+                    output = "";
+                }
+                else if (input == "Dungeon - Basement")
+                {
+                    output = "";
+                }
+                else if (input == "Dungeon - Treasure Store")
+                {
+                    output = "";
+                }
+                else if (input == "Cemetery")
+                {
+                    output = "";
+                }
+                else if (input == "Shrine")
+                {
+                    output = "";
+                }
+                else if (input == "Temple")
+                {
+                    output = "";
+                }
+                else if (input == "Sentient Forest")
+                {
+                    output = "";
+                }
+                else if (input == "Sentient Cave")
+                {
+                    output = "";
+                }
+                else if (input == "Sentient House")
+                {
+                    output = "";
+                }
+                else if (input == "Haunted House")
+                {
+                    output = "";
+                }
+                else if (input == "Abandoned Village")
+                {
+                    output = "";
+                }
+                else if (input == "Trap Maker's Shop")
+                {
+                    output = "";
+                }
+                else if (input == "Magic School")
+                {
+                    output = "";
+                }
+            }
 
 
             return output;
@@ -731,6 +794,7 @@ namespace CustardQuest
             int charBlessCurseMod = 5;
             string charName = "";
             string difficulty = "Normal";
+            string location = "Mansion";
 
             int currentOption = 0;
 
@@ -1092,7 +1156,8 @@ namespace CustardQuest
 
                     text("\\cI\\wnput name");
                     text("\\cR\\wandom name");
-                    text("\\cB\\wack");
+                    text("\\£\\cB\\wack");
+                    text("\\£\\cN\\wext");
 
 
                     input = Console.ReadKey().Key;
@@ -1110,6 +1175,35 @@ namespace CustardQuest
                     else if (input == ConsoleKey.B)
                     {
                         Menu = 6;
+                    }
+                    else if (input == ConsoleKey.N)
+                    {
+                        Menu = 8;
+                    }
+                }
+                else if (Menu == 8)
+                {
+                    text("Select a location for the game");
+                    text(location + " - " + info(location,"location"));
+                    text("\\£\\cB\\wack");
+                    text("\\£\\cN\\wext");
+                    
+                    input = Console.ReadKey().Key;
+                    if (input == ConsoleKey.LeftArrow)
+                    {
+                        location = cycle(location, "location", false);
+                    }
+                    else if (input == ConsoleKey.RightArrow)
+                    {
+                        location = cycle(location, "location", true);
+                    }
+                    else if (input == ConsoleKey.N)
+                    {
+                        Menu = 9;
+                    }
+                    else if (input == ConsoleKey.B)
+                    {
+                        Menu = 7;
                     }
                 }
             }

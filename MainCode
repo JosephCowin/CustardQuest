@@ -291,6 +291,10 @@ namespace CustardQuest
             {
                 options = new string[] { "Fighter", "Druid", "Wizard", "Monk", "Paladin", "Ranger", "Thief", "Warlock" };
             }
+            else if (type == "difficulty")
+            {
+                options = new string[] { "Easy", "Normal", "Hard", "Impossible" };
+            }
 
 
             int inputCode = -1;
@@ -553,6 +557,44 @@ namespace CustardQuest
                     output = "class";
                 }
             }
+            else if (type == "difficulty")//skill bonus points,blessing/curse points
+            {
+                if (input == "Easy")
+                {
+                    output = "15,5";
+                }
+                else if (input == "Normal")
+                {
+                    output = "10,0";
+                }
+                else if (input == "Hard")
+                {
+                    output = "5,-5";
+                }
+                else if (input == "Impossible")
+                {
+                    output = "0,-20";
+                }
+            }
+            else if (type == "idifficulty")
+            {
+                if (input == "Easy")
+                {
+                    output = "An easier game. Smaller floors, weaker enemies, easier attacks. More blessings and less curses.";
+                }
+                else if (input == "Normal")
+                {
+                    output = "The standard game. Everything is balanced.";
+                }
+                else if (input == "Hard")
+                {
+                    output = "A hard experience. Big floors, sporadic beneficial items, rarer item qualities, harder enemies. Spells are weaker and longer.";
+                }
+                else if (input == "Impossible")
+                {
+                    output = "How the game was meant to be played. You must have many curses, spells will be weaker, rooms will be almost bare of useful items, enemies will be almost impossible to kill alone.";
+                }
+            }
 
 
             return output;
@@ -686,7 +728,9 @@ namespace CustardQuest
             int charFlxMod = 0;
             int charMndMod = 0;
             int charRemainMod = 10;
+            int charBlessCurseMod = 5;
             string charName = "";
+            string difficulty = "Normal";
 
             int currentOption = 0;
 
@@ -812,6 +856,43 @@ namespace CustardQuest
                     //game loading - o
                 }
                 else if (Menu == 5)
+                { //difficulty choosing
+                    charGender = "Male";
+                    charRace = "Human";
+                    charClass = "Fighter";
+                    charStr = 7;
+                    charFlx = 7;
+                    charMnd = 7;
+                    charStrMod = 0;
+                    charFlxMod = 0;
+                    charMndMod = 0;
+                    charName = "";
+                    charRemainMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"),",",0));
+                    charBlessCurseMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"),",",1));
+                    text("Difficulty - " + difficulty + " - " + info(difficulty,"idifficulty"));
+                    text("\\£\\cM\\wainmenu");
+                    text("\\£\\cN\\wext");
+
+                    input = Console.ReadKey().Key;
+                    if (input == ConsoleKey.LeftArrow)
+                    {
+                        difficulty = cycle(difficulty, "difficulty", false);
+                    }
+                    else if (input == ConsoleKey.RightArrow)
+                    {
+                        difficulty = cycle(difficulty, "difficulty", true);
+                    }
+                    else if (input == ConsoleKey.N)
+                    {
+                        menu = 6;
+                    }
+                    else if (input == ConsoleKey.M)
+                    {
+                        menu = 0;
+                    }
+                    
+                }
+                else if (Menu == 6)
                 {
                     // new game -o
                     //character creation
@@ -865,14 +946,17 @@ namespace CustardQuest
                     {
                         text("Mind - " + (charMnd + charMndMod) + "\\w - " + info("Mind", "stats"));
                     }
-                    if (charRemainMod > 0)
+                    if (charRemainMod != 0)
                     {
                         text("Stat Points remaining - " + charRemainMod);
                     }
-                    text("\\cN\\wext");
+                    else
+                    {
+                        text("\\cN\\wext");
+                    }
                     text("\\£\\cI\\wnfo about options.");
                     text("\\cE\\wxtra info about chosen choices.");
-                    text("\\£\\cM\\wain menu");
+                    text("\\£\\cM\\wenu");
 
                     input = Console.ReadKey().Key;
                     if (input == ConsoleKey.DownArrow)
@@ -991,14 +1075,14 @@ namespace CustardQuest
                     }
                     else if (input == ConsoleKey.M)
                     {
-                        Menu = 0;
+                        Menu = 5;
                     }
                     else if (input == ConsoleKey.N)
                     {
-                        Menu = 6;
+                        Menu = 7;
                     }
                 }
-                else if (Menu == 6)
+                else if (Menu == 7)
                 {
                     text("Character naming");
                     if (charName != "")
@@ -1025,7 +1109,7 @@ namespace CustardQuest
                     }
                     else if (input == ConsoleKey.B)
                     {
-                        Menu = 5;
+                        Menu = 6;
                     }
                 }
             }

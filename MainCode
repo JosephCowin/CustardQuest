@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace CustardQuest
 {
@@ -14,6 +15,55 @@ namespace CustardQuest
         static bool optSound = true;
         static bool optColour = true;
 
+        string[,] items = new string[0, 14]; //name, mass, blessings and curses, container and method, limbs, stats (0 is hp "," is seperator), extra, alignment to player, target, sentience, damage, description, dialog, moving
+
+        static string attackInfo = "";  //target,max damage, variation, min, speed, location, limb, limb damage | [next attack]
+
+
+        static System.Timers.Timer aTimer;
+
+        private static void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            string output = "";
+
+            for (int i = 0; i < Sections(attackInfo, "|"); i++ )
+            {
+                if (i != 0)
+                {
+                    output = output + "|";
+                }
+                string attack = selectSection(attackInfo, "|", i);
+                string target = selectSection(attack, ",", 0);
+                string maxdam = selectSection(attack, ",", 1);
+                string variat = selectSection(attack, ",", 2);
+                string mindam = selectSection(attack, ",", 3);
+                double speed = Convert.ToDouble(selectSection(attack, ",", 4));
+                double location = Convert.ToDouble(selectSection(attack, ",", 5));
+                string limb = selectSection(attack, ",", 6);
+                string limbdam = selectSection(attack, ",", 7);
+
+                location += speed;
+                if (location <= 150)
+                {
+                    output = output + attack + "," + target + "," + maxdam + "," + variat + "," + mindam + "," + speed.ToString() + "," + location.ToString() + "," + limb + "," + limbdam;
+                }
+                else
+                {
+                    if (target == "1")
+                    {
+                        items[1,5] = 
+                    }
+                    else
+                    {
+
+                    }
+                }
+
+
+            }
+
+            attackInfo = output;
+        }
 
         public static string name(string species, string Class, string extra)
         {
@@ -741,42 +791,54 @@ namespace CustardQuest
             }
             return found;
         }
-        public static string selectSection(string input, string seperator, int section) //section ranges from 0 to the maximum section
+        public static string selectSection(string input, string seperator, int section, int priorSectionafter = 1) //section ranges from 0 to the maximum section
         {
             string selected = input;
             int maxSect = Sections(input, seperator) - 1;
             int curSect = 0;
-            while (curSect < section)
+            if (priorSectionafter == 1)
             {
-                int i = 0;
-                bool donesection = false;
-                while (!donesection)
+                while (curSect < section)
                 {
-                    if (selected.Substring(i, seperator.Length) == seperator)
+                    int i = 0;
+                    bool donesection = false;
+                    while (!donesection)
                     {
-                        selected = selected.Substring(i + seperator.Length);
-                        donesection = true;
+                        if (selected.Substring(i, seperator.Length) == seperator)
+                        {
+                            selected = selected.Substring(i + seperator.Length);
+                            donesection = true;
+                        }
+                        i++;
                     }
-                    i++;
+                    curSect++;
                 }
-                curSect++;
+                if (section < maxSect)
+                {
+
+                    int i = 0;
+                    bool donesection = false;
+                    while (!donesection)
+                    {
+                        if (selected.Substring(i, seperator.Length) == seperator)
+                        {
+                            selected = selected.Substring(0, i);
+                            donesection = true;
+                        }
+                        i++;
+                    }
+                    curSect++;
+                }
             }
-            if (section < maxSect)
+            else if (priorSectionafter == 0)
             {
 
-                int i = 0;
-                bool donesection = false;
-                while (!donesection)
-                {
-                    if (selected.Substring(i, seperator.Length) == seperator)
-                    {
-                        selected = selected.Substring(0, i);
-                        donesection = true;
-                    }
-                    i++;
-                }
-                curSect++;
             }
+            else if (priorSectionafter == 2)
+            {
+
+            }
+            
 
             return selected;
         }
@@ -799,6 +861,7 @@ namespace CustardQuest
             string charName = "";
             string difficulty = "Normal";
             string location = "Mansion";
+            bool firstrun = true;
 
             int currentOption = 0;
 
@@ -1211,6 +1274,43 @@ namespace CustardQuest
                     {
                         Menu = 7;
                     }
+                }
+
+                else if (Menu == 12)  // attack
+                {
+                    if (firstrun)
+                    {
+                        aTimer = new System.Timers.Timer(20);
+                        // Hook up the Elapsed event for the timer. 
+                        aTimer.Elapsed += OnTimedEvent;
+                        aTimer.AutoReset = true;
+                        aTimer.Enabled = true;
+                        firstrun = false;
+                    }
+                    if (Console.KeyAvailable)
+                    {
+                        input = Console.ReadKey(true).Key;
+                        if (input == ConsoleKey.Spacebar)
+                        {
+                            int furthestatt = -1;
+                            double furthestdist = 0;
+                            for (int i = 0; i < Sections(attackInfo, "|"); i++)
+                            {
+                                if (furthestdist <= Convert.ToDouble(selectSection(selectSection(attackInfo,"|",i),",",5)))
+                                {
+                                    furthestatt = i;
+                                    furthestdist = Convert.ToDouble(selectSection(selectSection(attackInfo, "|", i), ",", 5));
+                                }
+                            }
+                            if (furthestatt != -1)
+                            {
+
+                            }
+
+                        }
+                    }
+
+                    
                 }
             }
         }

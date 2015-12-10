@@ -503,35 +503,35 @@ namespace CustardQuest
             {
                 if (input == "Fighter")
                 {
-                    output = "Starts with a good sword and shield, along with heavy armour. Good with high strength.";
+                    output = "Starts with a steel broadsword, steel shield and scalemail.";
                 }
                 else if (input == "Druid")
                 {
-                    output = "Starts with a wrist claw, nature staff, and an amulet that makes wild animals and plants less aggressive. Also begins with a spell that befriends wild animals and plants - so that they aid you. Good with high mind and moderate strength or flexibility.";
+                    output = "Starts with a wrist claw, ancient staff of nature and a wild ruby amulet.";
                 }
                 else if (input == "Wizard")
                 {
-                    output = "Starts with a magic staff, weakly enchanted robes, and a spellbook that can be repeatedly used to gain more spells. They start with knowing a basic fireball spell, and a bread summoning spell. Good with high mind.";
+                    output = "Starts with a wooden staff of arcane, enchanted cloth robes and a spellbook.";
                 }
                 else if (input == "Monk")
                 {
-                    output = "Begins with monk robes. They also know spells that draw on their stamina to cause physical heightening. Good with a balance of strength and flexibility.";
+                    output = "Starts with monk robes and a Ki pool.";
                 }
                 else if (input == "Paladin")
                 {
-                    output = "Begins with a hammer that deals bonus damage to undead, a shield, and medium armour. Also begins with a light healing spell. Good with high strength and moderate mind.";
+                    output = "Starts with a hammer of light, a tall shield, padded leather armour and a light heal spell.";
                 }
                 else if (input == "Ranger")
                 {
-                    output = "Starts with a bow and some arrows, along with light armour and an animal companion. They also have tools designed to aid in scavenging and tracking. Good with high flexibility and moderate mind.";
+                    output = "Starts with a light bow and some arrows, leather armour and an animal companion.";
                 }
                 else if (input == "Thief")
                 {
-                    output = "Begins with a dagger that becomes stronger when unnoticed, and clothes that aid in hiding from enemies. Good with flexibility.";
+                    output = "Starts with a dagger and light stealth clothing.";
                 }
                 else if (input == "Warlock")
                 {
-                    output = "Begins with a sacrificial dagger that may grant new spells when killing or cutting self, an amulet that increases spell power at low health, and very basic clothes. Also begins with a very weak blood draining spell.";
+                    output = "Starts with a sacrificial dagger, light clothing and a blood drain spell.";
                 }
 
             }

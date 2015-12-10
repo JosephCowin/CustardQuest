@@ -295,10 +295,6 @@ namespace CustardQuest
             {
                 options = new string[] { "Easy", "Normal", "Hard", "Impossible" };
             }
-            else if (type == "location")
-            {
-                options = new string[] { "Mansion", "Dungeon - Crypt", "Dungeon - Basement", "Dungeon - Treasure Store", "Cemetery", "Shrine", "Temple", "Sentient Forest", "Sentient Cave", "Sentient House", "Haunted House", "Abandoned Village", "Trap Maker's Shop", "Magic School" };
-            }
 
 
             int inputCode = -1;
@@ -386,6 +382,10 @@ namespace CustardQuest
                 else if (input == "Gnome")
                 {
                     output = "Great at magic but not much else.";
+                    if (optJokey)
+                    {
+                        output = "Pretty bad tbh.";
+                    }
                 }
                 else if (input == "Goblin")
                 {
@@ -405,10 +405,10 @@ namespace CustardQuest
                 }
                 else if (input == "Kobold")
                 {
-                    output = "Innate resistance against special damage. Can frenzy, losing control but damage is raised.";
+                    output = "Kobalds are small fury creatures who aren't very special.";
                     if (optJokey)
                     {
-                        output = "KOBALLLLLLLLLTTTTTT.";
+                        output = "KOBALLLLLLLLLDDDDDD.";
                     }
                 }
                 else if (input == "Skeleton")
@@ -483,15 +483,15 @@ namespace CustardQuest
                 }
                 else if (input == "Ranger")
                 {
-                    output = "Good with flexibility weapons. Good at making food! Not great with melee.";
+                    output = "Trained with a bow and can prepare excellent food from their slain enemies.";
                 }
                 else if (input == "Thief")
                 {
-                    output = "Great with traps, sneak attacks and stealth.";
+                    output = "Aligned with one code - the code of thieves.";
                 }
                 else if (input == "Warlock")
                 {
-                    output = "Magic is very powerful, yet lacks restraint. Magic is stronger at low health.";
+                    output = "Made a deal with a dark demon to drain his life force for powerful magics.";
                 }
 
             }
@@ -597,65 +597,6 @@ namespace CustardQuest
                 else if (input == "Impossible")
                 {
                     output = "How the game was meant to be played. You must have many curses, spells will be weaker, rooms will be almost bare of useful items, enemies will be almost impossible to kill alone.";
-                }
-            }
-            else if (type == "location")
-            {
-                if (input == "Mansion")
-                {
-                    output = "";
-                }
-                else if (input == "Dungeon - Crypt")
-                {
-                    output = "";
-                }
-                else if (input == "Dungeon - Basement")
-                {
-                    output = "";
-                }
-                else if (input == "Dungeon - Treasure Store")
-                {
-                    output = "";
-                }
-                else if (input == "Cemetery")
-                {
-                    output = "";
-                }
-                else if (input == "Shrine")
-                {
-                    output = "";
-                }
-                else if (input == "Temple")
-                {
-                    output = "";
-                }
-                else if (input == "Sentient Forest")
-                {
-                    output = "";
-                }
-                else if (input == "Sentient Cave")
-                {
-                    output = "";
-                }
-                else if (input == "Sentient House")
-                {
-                    output = "";
-                }
-                else if (input == "Haunted House")
-                {
-                    output = "";
-                }
-                else if (input == "Abandoned Village")
-                {
-                    output = "";
-                }
-                else if (input == "Trap Maker's Shop")
-                {
-                    output = "";
-                }
-                else if (input == "Magic School")
-                {
-                    output = "";
                 }
             }
 
@@ -794,7 +735,6 @@ namespace CustardQuest
             int charBlessCurseMod = 5;
             string charName = "";
             string difficulty = "Normal";
-            string location = "Mansion";
 
             int currentOption = 0;
 
@@ -1156,8 +1096,7 @@ namespace CustardQuest
 
                     text("\\cI\\wnput name");
                     text("\\cR\\wandom name");
-                    text("\\£\\cB\\wack");
-                    text("\\£\\cN\\wext");
+                    text("\\cB\\wack");
 
 
                     input = Console.ReadKey().Key;
@@ -1175,35 +1114,6 @@ namespace CustardQuest
                     else if (input == ConsoleKey.B)
                     {
                         Menu = 6;
-                    }
-                    else if (input == ConsoleKey.N)
-                    {
-                        Menu = 8;
-                    }
-                }
-                else if (Menu == 8)
-                {
-                    text("Select a location for the game");
-                    text(location + " - " + info(location,"location"));
-                    text("\\£\\cB\\wack");
-                    text("\\£\\cN\\wext");
-                    
-                    input = Console.ReadKey().Key;
-                    if (input == ConsoleKey.LeftArrow)
-                    {
-                        location = cycle(location, "location", false);
-                    }
-                    else if (input == ConsoleKey.RightArrow)
-                    {
-                        location = cycle(location, "location", true);
-                    }
-                    else if (input == ConsoleKey.N)
-                    {
-                        Menu = 9;
-                    }
-                    else if (input == ConsoleKey.B)
-                    {
-                        Menu = 7;
                     }
                 }
             }

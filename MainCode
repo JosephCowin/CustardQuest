@@ -954,7 +954,7 @@ namespace CustardQuest
                 }
                 else if (Menu == 2)
                 {
-                    text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\wReturn to main menu - \\cm\\w");
+                    text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wain menu");
                     inputc = Console.ReadKey().KeyChar;
                     if (inputc == 'j')
                     {

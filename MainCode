@@ -51,12 +51,12 @@ namespace CustardQuest
                 {
                     if (target == "1")
                     {
-                        items[1,5] = 
+                     //   items[1,5] = 
                     }
-                    else
-                    {
+                    
+                    
 
-                    }
+                    
                 }
 
 
@@ -838,7 +838,7 @@ namespace CustardQuest
             {
 
             }
-            
+
 
             return selected;
         }
@@ -954,7 +954,7 @@ namespace CustardQuest
                 }
                 else if (Menu == 2)
                 {
-                    text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wain menu");
+                    text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu");
                     inputc = Console.ReadKey().KeyChar;
                     if (inputc == 'j')
                     {
@@ -1001,8 +1001,8 @@ namespace CustardQuest
                     charRemainMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"), ",", 0));
                     charBlessCurseMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"), ",", 1));
                     text("Difficulty - " + difficulty + " - " + info(difficulty, "idifficulty"));
-                    text("\\£\\cM\\wainmenu");
                     text("\\£\\cN\\wext");
+                    text("\\cM\\wainmenu");
 
                     input = Console.ReadKey().Key;
                     if (input == ConsoleKey.LeftArrow)
@@ -1087,7 +1087,8 @@ namespace CustardQuest
                     }
                     text("\\£\\cI\\wnfo about options.");
                     text("\\cE\\wxtra info about chosen choices.");
-                    text("\\£\\cM\\wenu");
+                    text("\\£\\cB\\wack");
+                    text("\\cM\\wainmenu");
 
                     input = Console.ReadKey().Key;
                     if (input == ConsoleKey.DownArrow)
@@ -1204,13 +1205,17 @@ namespace CustardQuest
                         text("\\£Press any key to continue");
                         Console.ReadKey();
                     }
-                    else if (input == ConsoleKey.M)
+                    else if (input == ConsoleKey.B)
                     {
                         Menu = 5;
                     }
                     else if (input == ConsoleKey.N && charRemainMod == 0)
                     {
                         Menu = 7;
+                    }
+                    else if (input == ConsoleKey.M)
+                    {
+                        Menu = 0;
                     }
                 }
                 else if (Menu == 7)
@@ -1223,11 +1228,19 @@ namespace CustardQuest
 
                     text("\\cI\\wnput name");
                     text("\\cR\\wandom name");
-                    text("\\£\\cB\\wack");
+                    
                     if (charName != "")
                     {
                         text("\\£\\cN\\wext");
+                        text("\\cB\\wack");
+                        text("\\cM\\wainmenu");
                     }
+                    else
+                    {
+                        text("\\£\\cB\\wack");
+                        text("\\cM\\wainmenu");
+                    }
+
 
                     input = Console.ReadKey().Key;
 
@@ -1249,13 +1262,20 @@ namespace CustardQuest
                     {
                         Menu = 8;
                     }
+                    else if (input == ConsoleKey.M)
+                    {
+                        Menu = 0;
+                    }
+
                 }
                 else if (Menu == 8)
                 {
                     text("Select a location for the game");
                     text(location + " - " + info(location, "location"));
-                    text("\\£\\cB\\wack");
+
                     text("\\£\\cN\\wext");
+                    text("\\cB\\wack");
+                    text("\\cM\\wainmenu");
 
                     input = Console.ReadKey().Key;
                     if (input == ConsoleKey.LeftArrow)
@@ -1273,6 +1293,10 @@ namespace CustardQuest
                     else if (input == ConsoleKey.B)
                     {
                         Menu = 7;
+                    }
+                    else if (input == ConsoleKey.M)
+                    {
+                        Menu = 0;
                     }
                 }
 
@@ -1296,7 +1320,7 @@ namespace CustardQuest
                             double furthestdist = 0;
                             for (int i = 0; i < Sections(attackInfo, "|"); i++)
                             {
-                                if (furthestdist <= Convert.ToDouble(selectSection(selectSection(attackInfo,"|",i),",",5)))
+                                if (furthestdist <= Convert.ToDouble(selectSection(selectSection(attackInfo, "|", i), ",", 5)))
                                 {
                                     furthestatt = i;
                                     furthestdist = Convert.ToDouble(selectSection(selectSection(attackInfo, "|", i), ",", 5));
@@ -1310,7 +1334,7 @@ namespace CustardQuest
                         }
                     }
 
-                    
+
                 }
             }
         }

@@ -26,7 +26,7 @@ namespace CustardQuest
         {
             string output = "";
 
-            for (int i = 0; i < Sections(attackInfo, "|"); i++ )
+            for (int i = 0; i < Sections(attackInfo, "|"); i++)
             {
                 if (i != 0)
                 {
@@ -51,12 +51,12 @@ namespace CustardQuest
                 {
                     if (target == "1")
                     {
-                     //   items[1,5] = 
+                        //   items[1,5] = 
                     }
-                    
-                    
 
-                    
+
+
+
                 }
 
 
@@ -792,7 +792,7 @@ namespace CustardQuest
             return found;
         }
         public static string selectSection(string input, string seperator, int section, int priorSectionafter = 1) //section ranges from 0 to the maximum section
-        {
+        {//pSa 0 = all before section, 1 = section, 2 = all after section, 3 = all excluding section
             string selected = input;
             int maxSect = Sections(input, seperator) - 1;
             int curSect = 0;
@@ -837,6 +837,24 @@ namespace CustardQuest
             else if (priorSectionafter == 2)
             {
 
+            }
+            else if (priorSectionafter == 3)
+            {
+                selected = "";
+                string current = "";
+                for (int i = 0; i < input.Length + 1 -seperator.Length; i++)
+                {
+                    current = input.Substring(i, seperator.Length);
+                    if (current == seperator)
+                    {
+                        curSect++;
+                        i -= 1 + seperator.Length;
+                    }
+                    if (!(curSect == section))
+                    {
+                        selected += current;
+                    }
+                }
             }
 
 
@@ -1228,7 +1246,7 @@ namespace CustardQuest
 
                     text("\\cI\\wnput name");
                     text("\\cR\\wandom name");
-                    
+
                     if (charName != "")
                     {
                         text("\\£\\cN\\wext");
@@ -1328,7 +1346,11 @@ namespace CustardQuest
                             }
                             if (furthestatt != -1)
                             {
+                                while (furthestatt != -1)
+                                {
+                                    attackInfo = selectSection(attackInfo, "|", furthestatt, 3);
 
+                                }
                             }
 
                         }

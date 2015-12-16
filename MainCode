@@ -657,7 +657,7 @@ namespace CustardQuest
             {
                 if (input == "Mansion")
                 {
-                    output = "";
+                    output = "An old abond  ";
 
                     if (optJokey)
                     {
@@ -677,10 +677,6 @@ namespace CustardQuest
                     output = "";
                 }
                 else if (input == "Cemetery")
-                {
-                    output = "";
-                }
-                else if (input == "Shrine")
                 {
                     output = "";
                 }

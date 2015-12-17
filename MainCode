@@ -347,7 +347,7 @@ namespace CustardQuest
             }
             else if (type == "location")
             {
-                options = new string[] { "Mansion", "Dungeon - Crypt", "Dungeon - Basement", "Dungeon - Treasure Store", "Cemetery", "Shrine", "Temple", "Sentient Forest", "Sentient Cave", "Sentient House", "Haunted House", "Abandoned Village", "Trap Maker's Shop", "Magic School" };
+                options = new string[] { "Mansion", "Dungeon - Crypt", "Dungeon - Basement", "Dungeon - Treasure Store", "Cemetery", "Temple", "Sentient Forest", "Sentient Cave", "Sentient House", "Haunted House", "Abandoned Village", "Trap Maker's Shop", "Magic School" };
             }
 
 

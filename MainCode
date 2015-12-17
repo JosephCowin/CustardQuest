@@ -876,6 +876,8 @@ namespace CustardQuest
             string difficulty = "Normal";
             string location = "Mansion";
             bool firstrun = true;
+            
+            string title = @"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     \\£███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄\\£███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██\\£███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀\\£███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    \\£███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    \\£███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    \\£████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  \\£                                                              ███    ███                                                                             \\£";
 
             int currentOption = 0;
 
@@ -887,16 +889,8 @@ namespace CustardQuest
             Console.CursorVisible = false;
             Console.WindowWidth = 150;
             Console.WindowHeight = 30;
-            Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-            Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-            Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-            Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-            Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-            Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-            Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-            Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-            Console.WriteLine(@"                                                              ███    ███                                                                             ");
-            text("\\£Press Enter To Start");
+            text(title);
+            text("Press Enter To Start");
             Console.ForegroundColor = ConsoleColor.Black;
             Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.White;
@@ -910,17 +904,9 @@ namespace CustardQuest
                     Console.CursorVisible = false;
                     Console.WindowWidth = 150;
                     Console.WindowHeight = 30;
-                    Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                    Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                    Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                    Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                    Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                    Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                    Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                    Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                    Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
-                    text("\\£\\cP\\wlay");      //Need to underline / bold first char (Make this input) -j
+                    text(title);
+                    
+                    text("\\cP\\wlay");      //Need to underline / bold first char (Make this input) -j
                     text("\\cO\\wptions");
                     text("\\cC\\wredits");
                     text("\\cE\\wxit");
@@ -952,17 +938,9 @@ namespace CustardQuest
 
                 else if (Menu == 1)
                 {
-                    Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                    Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                    Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                    Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                    Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                    Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                    Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                    Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                    Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
-                    text("\\£\\cN\\wew Game");
+                    text(title);
+                    
+                    text("\\cN\\wew Game");
                     text("\\cL\\woad Game");
 
 
@@ -982,17 +960,9 @@ namespace CustardQuest
                 }
                 else if (Menu == 2)
                 {
-                    Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                    Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                    Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                    Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                    Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                    Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                    Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                    Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                    Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
-                    text("\\£\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu");
+                    text(title);
+                    
+                    text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu");
                     inputc = Console.ReadKey().KeyChar;
                     if (inputc == 'j')
                     {
@@ -1016,17 +986,9 @@ namespace CustardQuest
                 }
                 else if (Menu == 3)     //Credits
                 {
-                    Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                    Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                    Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                    Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                    Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                    Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                    Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                    Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                    Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
-                    text("\\£CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
+                    text(title);
+                    
+                    text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
                     Console.ReadKey();
                     Menu = 0;
                 }
@@ -1036,16 +998,8 @@ namespace CustardQuest
                 }
                 else if (Menu == 5)
                 { //difficulty choosing
-                    Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                    Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                    Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                    Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                    Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                    Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                    Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                    Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                    Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
+                    text(title);
+                    
                     charGender = "Male";
                     charRace = "Human";
                     charClass = "Fighter";
@@ -1058,7 +1012,7 @@ namespace CustardQuest
                     charName = "";
                     charRemainMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"), ",", 0));
                     charBlessCurseMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"), ",", 1));
-                    text("\\£Difficulty - " + difficulty + " - " + info(difficulty, "idifficulty"));
+                    text("Difficulty - " + difficulty + " - " + info(difficulty, "idifficulty"));
                     text("\\£\\cN\\wext");
                     text("\\cM\\wainmenu");
 
@@ -1087,23 +1041,15 @@ namespace CustardQuest
                     //character creation
 
                     //gender
-                    Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                    Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                    Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                    Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                    Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                    Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                    Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                    Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                    Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
+                    text(title);
+                    
                     if (currentOption == 0)
                     {
-                        text("\\£Gender - \\g" + charGender + "\\w - " + info(charGender, "gender"));
+                        text("Gender - \\g" + charGender + "\\w - " + info(charGender, "gender"));
                     }
                     else
                     {
-                        text("\\£Gender - " + charGender + "\\w - " + info(charGender, "gender"));
+                        text("Gender - " + charGender + "\\w - " + info(charGender, "gender"));
                     }
                     if (currentOption == 1)
                     {
@@ -1254,17 +1200,9 @@ namespace CustardQuest
                     else if (input == ConsoleKey.I)
                     {
                         Console.Clear();
-                        Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                        Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                        Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                        Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                        Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                        Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                        Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                        Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                        Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
-                        text("\\£Press the up/down keys to move to a different option.");
+                        text(title);
+                    
+                        text("Press the up/down keys to move to a different option.");
                         text("Press the left/right keys to cycle through the choices, or add/subtract from a numerical value.");
                         text("Gender - No effect on gameplay.");
                         text("Race - Affects starting stats, spells and some ingame things.");
@@ -1278,17 +1216,9 @@ namespace CustardQuest
                     else if (input == ConsoleKey.E)
                     {
                         Console.Clear();
-                        Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                        Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                        Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                        Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                        Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                        Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                        Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                        Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                        Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
-                        text("\\£Race - " + charRace + "\\w - " + info(charRace, "Erace"));
+                    text(title);
+                    
+                    text("Race - " + charRace + "\\w - " + info(charRace, "Erace"));
                         text("Class - " + charClass + "\\w - " + info(charClass, "Eclass"));
                         text("\\£Press any key to continue");
                         Console.ReadKey();
@@ -1308,17 +1238,9 @@ namespace CustardQuest
                 }
                 else if (Menu == 7)
                 {
-                    Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                    Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                    Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                    Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                    Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                    Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                    Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                    Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                    Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
-                    text("\\£Character naming");
+                    text(title);
+                    
+                    text("Character naming");
                     if (charName != "")
                     {
                         text("\\£Current Name - " + charName + "\\£");
@@ -1368,17 +1290,9 @@ namespace CustardQuest
                 }
                 else if (Menu == 8)
                 {
-                    Console.WriteLine(@"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     ");
-                    Console.WriteLine(@"███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄");
-                    Console.WriteLine(@"███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██");
-                    Console.WriteLine(@"███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀");
-                    Console.WriteLine(@"███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    ");
-                    Console.WriteLine(@"███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    ");
-                    Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
-                    Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
-                    Console.WriteLine(@"                                                              ███    ███                                                                             ");
-
-                    text("\\£Select a location for the game");
+                    text(title);
+                    
+                    text("Select a location for the game");
                     text(location + " - " + info(location, "location"));
 
                     text("\\£\\cN\\wext");

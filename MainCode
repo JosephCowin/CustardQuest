@@ -657,60 +657,55 @@ namespace CustardQuest
             {
                 if (input == "Mansion")
                 {
-                    output = "An old abond  ";
-
-                    if (optJokey)
-                    {
-                        output = "";
-                    }
+                    output = "An old abandoned mansion that an old curse inhabits";
                 }
                 else if (input == "Dungeon - Crypt")
                 {
-                    output = "";
+                    output = "An underground tomb that houses the great King Anu Annear III";
                 }
                 else if (input == "Dungeon - Basement")
                 {
-                    output = "";
+                    output = "An underground series of rooms and floors that was recently uncovered";
                 }
                 else if (input == "Dungeon - Treasure Store")
                 {
-                    output = "";
+                    output = "An old abandoned store that houses the treasure of the hated Orlark Zuzha";
                 }
                 else if (input == "Cemetery")
                 {
-                    output = "";
+                    output = "An eerie cemetery in a dead forest that now possess a dark magic";
                 }
                 else if (input == "Temple")
                 {
-                    output = "";
+                    output = "A dark god has possessed his followers into a blood rage killing any who enter";
                 }
                 else if (input == "Sentient Forest")
                 {
-                    output = "";
+                    output = "A forest that is always changing trying to trap anyone willing to explore it";
                 }
                 else if (input == "Sentient Cave")
                 {
-                    output = "";
+                    output = "A cave with caverns that are always opening and closing";
                 }
                 else if (input == "Sentient House")
                 {
-                    output = "";
+                    output = "An unhappy spirit manifests in this house trying to harm all who enter";
                 }
                 else if (input == "Haunted House")
                 {
-                    output = "";
+                    output = "A house containing large amounts of unhappy spirits who are unable to pass on to the next plane";
                 }
                 else if (input == "Abandoned Village")
                 {
-                    output = "";
+                    output = "A strange plague hit this village now no one dares enter it ";
                 }
                 else if (input == "Trap Maker's Shop")
                 {
-                    output = "";
+                    output = "A shop that's not well designed as the customer has to navigate the traps to buy any traps";
                 }
                 else if (input == "Magic School")
                 {
-                    output = "";
+                    output = "A school where young minds can develop but one of the students has been experimenting with the dark arts";
                 }
             }
 

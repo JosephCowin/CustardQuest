@@ -638,74 +638,74 @@ namespace CustardQuest
             {
                 if (input == "Easy")
                 {
-                    output = "An easier game. Smaller floors, weaker enemies, easier attacks. More blessings and less curses.";
+                    output = "All the difficulty removed. Smaller floors, weaker enemies and easier attacks.";
                 }
                 else if (input == "Normal")
                 {
-                    output = "The standard game. Everything is balanced.";
+                    output = "The standard game.";
                 }
                 else if (input == "Hard")
                 {
-                    output = "A hard experience. Big floors, sporadic beneficial items, rarer item qualities, harder enemies. Spells are weaker and longer.";
+                    output = "The game with a bit of challenge. Larger floors, harder enemies and rarer items.";
                 }
                 else if (input == "Impossible")
                 {
-                    output = "How the game was meant to be played. You must have many curses, spells will be weaker, rooms will be almost bare of useful items, enemies will be almost impossible to kill alone.";
+                    output = "The ways the game should be played. Massive floors, impossible enemies and barely any items.";
                 }
             }
             else if (type == "location")
             {
                 if (input == "Mansion")
                 {
-                    output = "An old abandoned mansion that an old curse inhabits";
+                    output = "An old abandoned mansion that an old curse inhabits.";
                 }
                 else if (input == "Dungeon - Crypt")
                 {
-                    output = "An underground tomb that houses the great King Anu Annear III";
+                    output = "An underground tomb that houses the great King Anu Annear III.";
                 }
                 else if (input == "Dungeon - Basement")
                 {
-                    output = "An underground series of rooms and floors that was recently uncovered";
+                    output = "An underground series of rooms and floors that was recently uncovered.";
                 }
                 else if (input == "Dungeon - Treasure Store")
                 {
-                    output = "An old abandoned store that houses the treasure of the hated Orlark Zuzha";
+                    output = "An old abandoned store that houses the treasure of the hated Orlark Zuzha.";
                 }
                 else if (input == "Cemetery")
                 {
-                    output = "An eerie cemetery in a dead forest that now possess a dark magic";
+                    output = "An eerie cemetery in a dead forest that now possess a dark magic.";
                 }
                 else if (input == "Temple")
                 {
-                    output = "A dark god has possessed his followers into a blood rage killing any who enter";
+                    output = "A dark god has possessed his followers into a blood rage killing any who enter.";
                 }
                 else if (input == "Sentient Forest")
                 {
-                    output = "A forest that is always changing trying to trap anyone willing to explore it";
+                    output = "A forest that is always changing trying to trap anyone willing to explore it.";
                 }
                 else if (input == "Sentient Cave")
                 {
-                    output = "A cave with caverns that are always opening and closing";
+                    output = "A cave with caverns that are always opening and closing.";
                 }
                 else if (input == "Sentient House")
                 {
-                    output = "An unhappy spirit manifests in this house trying to harm all who enter";
+                    output = "An unhappy spirit manifests in this house trying to harm all who enter.";
                 }
                 else if (input == "Haunted House")
                 {
-                    output = "A house containing large amounts of unhappy spirits who are unable to pass on to the next plane";
+                    output = "A house containing large amounts of unhappy spirits who are unable to pass on to the next plane.";
                 }
                 else if (input == "Abandoned Village")
                 {
-                    output = "A strange plague hit this village now no one dares enter it ";
+                    output = "A strange plague hit this village now no one dares enter it.";
                 }
                 else if (input == "Trap Maker's Shop")
                 {
-                    output = "A shop that's not well designed as the customer has to navigate the traps to buy any traps";
+                    output = "A shop that's not well designed as the customer has to navigate the traps to buy any traps.";
                 }
                 else if (input == "Magic School")
                 {
-                    output = "A school where young minds can develop but one of the students has been experimenting with the dark arts";
+                    output = "A school where young minds can develop but one of the students has been experimenting with the dark arts.";
                 }
             }
 
@@ -896,7 +896,7 @@ namespace CustardQuest
             Console.WriteLine(@"███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    ");
             Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
             Console.WriteLine(@"                                                              ███    ███                                                                             ");
-            Console.WriteLine("Press Enter To Start");
+            text("\\£Press Enter To Start");
             Console.ForegroundColor = ConsoleColor.Black;
             Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.White;
@@ -920,7 +920,7 @@ namespace CustardQuest
                     Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
                     Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-                    text("\\cP\\wlay");      //Need to underline / bold first char (Make this input) -j
+                    text("\\£\\cP\\wlay");      //Need to underline / bold first char (Make this input) -j
                     text("\\cO\\wptions");
                     text("\\cC\\wredits");
                     text("\\cE\\wxit");
@@ -962,7 +962,7 @@ namespace CustardQuest
                     Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
                     Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-                    text("\\cN\\wew Game");
+                    text("\\£\\cN\\wew Game");
                     text("\\cL\\woad Game");
 
 
@@ -992,7 +992,7 @@ namespace CustardQuest
                     Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
                     Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-                    text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu");
+                    text("\\£\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu");
                     inputc = Console.ReadKey().KeyChar;
                     if (inputc == 'j')
                     {
@@ -1026,7 +1026,7 @@ namespace CustardQuest
                     Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
                     Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-                    text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
+                    text("\\£CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
                     Console.ReadKey();
                     Menu = 0;
                 }
@@ -1058,7 +1058,7 @@ namespace CustardQuest
                     charName = "";
                     charRemainMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"), ",", 0));
                     charBlessCurseMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"), ",", 1));
-                    text("Difficulty - " + difficulty + " - " + info(difficulty, "idifficulty"));
+                    text("\\£Difficulty - " + difficulty + " - " + info(difficulty, "idifficulty"));
                     text("\\£\\cN\\wext");
                     text("\\cM\\wainmenu");
 
@@ -1099,11 +1099,11 @@ namespace CustardQuest
 
                     if (currentOption == 0)
                     {
-                        text("Gender - \\g" + charGender + "\\w - " + info(charGender, "gender"));
+                        text("\\£Gender - \\g" + charGender + "\\w - " + info(charGender, "gender"));
                     }
                     else
                     {
-                        text("Gender - " + charGender + "\\w - " + info(charGender, "gender"));
+                        text("\\£Gender - " + charGender + "\\w - " + info(charGender, "gender"));
                     }
                     if (currentOption == 1)
                     {
@@ -1264,7 +1264,7 @@ namespace CustardQuest
                         Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
                         Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-                        text("Press the up/down keys to move to a different option.");
+                        text("\\£Press the up/down keys to move to a different option.");
                         text("Press the left/right keys to cycle through the choices, or add/subtract from a numerical value.");
                         text("Gender - No effect on gameplay.");
                         text("Race - Affects starting stats, spells and some ingame things.");
@@ -1288,7 +1288,7 @@ namespace CustardQuest
                         Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
                         Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-                        text("Race - " + charRace + "\\w - " + info(charRace, "Erace"));
+                        text("\\£Race - " + charRace + "\\w - " + info(charRace, "Erace"));
                         text("Class - " + charClass + "\\w - " + info(charClass, "Eclass"));
                         text("\\£Press any key to continue");
                         Console.ReadKey();
@@ -1318,7 +1318,7 @@ namespace CustardQuest
                     Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
                     Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-                    text("Character naming");
+                    text("\\£Character naming");
                     if (charName != "")
                     {
                         text("\\£Current Name - " + charName + "\\£");
@@ -1378,7 +1378,7 @@ namespace CustardQuest
                     Console.WriteLine(@"████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  ");
                     Console.WriteLine(@"                                                              ███    ███                                                                             ");
 
-                    text("Select a location for the game");
+                    text("\\£Select a location for the game");
                     text(location + " - " + info(location, "location"));
 
                     text("\\£\\cN\\wext");

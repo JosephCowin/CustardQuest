@@ -1355,10 +1355,10 @@ namespace CustardQuest
                 {
                     text(title);
 
-                    text("Character naming");
+                    text("Character naming\\£");
                     if (charName != "")
                     {
-                        text("\\£Current Name - " + charName + "\\£");
+                        text("Current Name - " + charName + "\\£");
                     }
 
                     text("\\cI\\wnput name");

@@ -1,3 +1,5 @@
+// Finish making descriptions, add names -o
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -321,7 +323,7 @@ namespace CustardQuest
             return output;
         }
 
-        public static string cycle(string input, string type, bool right = true)
+        public static string cycle(string input, string type, bool right = true, bool rand = false)
         {
             string output = "";
             string[] options = new string[1];
@@ -357,6 +359,13 @@ namespace CustardQuest
                     inputCode = i;
                 }
             }
+
+            if (rand)
+            {
+                Random rng = new Random();
+                inputCode = rng.Next(0, options.Length);
+            }
+
             if (inputCode != -1)
             {
                 if (right)
@@ -707,6 +716,115 @@ namespace CustardQuest
                 }
             }
 
+            else if (type == "Glocation")
+            {
+                if (input == "Mansion")
+                {
+                    output = "The massive door slams shut behind you as you enter the oft feared mansion. However, at least you're out of the rain.";
+                    if (optJokey)
+                    {
+                        output = "You have entered Ainsley's secret mansion. Watch your step, the floor is sticky.";
+                    }
+                }
+                else if (input == "Dungeon - Crypt")
+                {
+                    output = "A musty smell fills your lungs when you enter the crypt.";
+                    if (optJokey)
+                    {
+                        output = "Fear of the recently revived Noel rattles your bones.";
+                    }
+                }
+                else if (input == "Dungeon - Basement")
+                {
+                    output = "You fall through a trap door into a dark room. The trap door seals shut. The only way out is down.";
+                    if (optJokey)
+                    {
+                        output = "Rape dungeon time.";
+                    }
+                }
+                else if (input == "Dungeon - Treasure Store")
+                {
+                    output = "You find a secret entrance into a warehouse, which locks behind you.";
+                    if (optJokey)
+                    {
+                        output = "gold everyyywhere!";
+                    }
+                }
+                else if (input == "Cemetery")
+                {
+                    output = "Something grabs your foot when the clock strikes midnight. You a pulled under the ground.";
+                    if (optJokey)
+                    {
+                        output = "something spooky rattles its boner at you";
+                    }
+                }
+                else if (input == "Temple")
+                {
+                    output = "Creepy chanting fills the air.";
+                    if (optJokey)
+                    {
+                        output = @"its party time : )";
+                    }
+                }
+                else if (input == "Sentient Forest")
+                {
+                    output = "As you enter the forest you feel like someone's watching you.";
+                    if (optJokey)
+                    {
+                        output = "a branch gets well mad at you";
+                    }
+                }
+                else if (input == "Sentient Cave")
+                {
+                    output = "As you delve into the cave you hear a rumble and the sunlight disappears.";
+                    if (optJokey)
+                    {
+                        output = "a pebble gets well mad at you";
+                    }
+                }
+                else if (input == "Sentient House")
+                {
+                    output = "The door flattens into wall behind you.";
+                    if (optJokey)
+                    {
+                        output = "the walls are talking";
+                    }
+                }
+                else if (input == "Haunted House")
+                {
+                    output = "A cold feeling passes through you when the door shuts.";
+                    if (optJokey)
+                    {
+                        output = "You get ghosts! You get ghosts! Everybody gets ghosts";
+                    }
+                }
+                else if (input == "Abandoned Village")
+                {
+                    output = "You feel a strange force as you get close to the village.";
+                    if (optJokey)
+                    {
+                        output = "Some gross guy used to live here.";
+                    }
+                }
+                else if (input == "Trap Maker's Shop")
+                {
+                    output = "The owner of this shop misunderstands basic sales tactics, the very shop preventing your exit.";
+                    if (optJokey)
+                    {
+                        output = "A bear trap wrenches off your 14th leg. You centipede.";
+                    }
+                }
+                else if (input == "Magic School")
+                {
+                    output = "As you enter the school, the walls are covered in a fleshy-like material, with no one to be seen.";
+                    if (optJokey)
+                    {
+                        output = "Harry Potter dies in front of you.";
+                    }
+                }
+            }
+
+
 
             return output;
         }
@@ -870,12 +988,13 @@ namespace CustardQuest
             int charMndMod = 0;
             int charRemainMod = 10;
             int charBlessCurseMod = 5;
+            bool verystart = true;
             string charName = "";
             string difficulty = "Normal";
             string location = "Mansion";
             bool firstrun = true;
-            
-            string title = @"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     \\£███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄\\£███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██\\£███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀\\£███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    \\£███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    \\£███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    \\£████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  \\£                                                              ███    ███                                                                             \\£";
+
+            string title = @"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     \£███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄\£███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██\£███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀\£███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    \£███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    \£███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    \£████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  \£                                                              ███    ███                                                                             \£";
 
             int currentOption = 0;
 
@@ -903,7 +1022,7 @@ namespace CustardQuest
                     Console.WindowWidth = 150;
                     Console.WindowHeight = 30;
                     text(title);
-                    
+
                     text("\\cP\\wlay");      //Need to underline / bold first char (Make this input) -j
                     text("\\cO\\wptions");
                     text("\\cC\\wredits");
@@ -937,7 +1056,7 @@ namespace CustardQuest
                 else if (Menu == 1)
                 {
                     text(title);
-                    
+
                     text("\\cN\\wew Game");
                     text("\\cL\\woad Game");
 
@@ -959,7 +1078,7 @@ namespace CustardQuest
                 else if (Menu == 2)
                 {
                     text(title);
-                    
+
                     text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu");
                     inputc = Console.ReadKey().KeyChar;
                     if (inputc == 'j')
@@ -985,7 +1104,7 @@ namespace CustardQuest
                 else if (Menu == 3)     //Credits
                 {
                     text(title);
-                    
+
                     text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
                     Console.ReadKey();
                     Menu = 0;
@@ -997,7 +1116,7 @@ namespace CustardQuest
                 else if (Menu == 5)
                 { //difficulty choosing
                     text(title);
-                    
+
                     charGender = "Male";
                     charRace = "Human";
                     charClass = "Fighter";
@@ -1040,7 +1159,7 @@ namespace CustardQuest
 
                     //gender
                     text(title);
-                    
+
                     if (currentOption == 0)
                     {
                         text("Gender - \\g" + charGender + "\\w - " + info(charGender, "gender"));
@@ -1199,7 +1318,7 @@ namespace CustardQuest
                     {
                         Console.Clear();
                         text(title);
-                    
+
                         text("Press the up/down keys to move to a different option.");
                         text("Press the left/right keys to cycle through the choices, or add/subtract from a numerical value.");
                         text("Gender - No effect on gameplay.");
@@ -1214,9 +1333,9 @@ namespace CustardQuest
                     else if (input == ConsoleKey.E)
                     {
                         Console.Clear();
-                    text(title);
-                    
-                    text("Race - " + charRace + "\\w - " + info(charRace, "Erace"));
+                        text(title);
+
+                        text("Race - " + charRace + "\\w - " + info(charRace, "Erace"));
                         text("Class - " + charClass + "\\w - " + info(charClass, "Eclass"));
                         text("\\£Press any key to continue");
                         Console.ReadKey();
@@ -1237,7 +1356,7 @@ namespace CustardQuest
                 else if (Menu == 7)
                 {
                     text(title);
-                    
+
                     text("Character naming");
                     if (charName != "")
                     {
@@ -1286,12 +1405,13 @@ namespace CustardQuest
                     }
 
                 }
-                else if (Menu == 8)
+                else if (Menu == 8)  //location selection
                 {
                     text(title);
-                    
+
                     text("Select a location for the game");
                     text(location + " - " + info(location, "location"));
+                    text("\\cR\\wandomise");
 
                     text("\\£\\cN\\wext");
                     text("\\cB\\wack");
@@ -1309,6 +1429,10 @@ namespace CustardQuest
                     else if (input == ConsoleKey.N)
                     {
                         Menu = 9;
+                        //final game initialisation
+
+                        verystart = true;
+
                     }
                     else if (input == ConsoleKey.B)
                     {
@@ -1317,6 +1441,21 @@ namespace CustardQuest
                     else if (input == ConsoleKey.M)
                     {
                         Menu = 0;
+                    }
+                    else if (input == ConsoleKey.R)
+                    {
+                        location = cycle(location, "location", true, true);
+                    }
+                }
+                else if (Menu == 9) //game
+                {
+                    if (verystart)
+                    {
+                        text(info(location,"Glocation"));
+
+
+
+                        verystart = false;
                     }
                 }
 

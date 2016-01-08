@@ -538,7 +538,7 @@ namespace CustardQuest
                 }
                 else if (input == "Paladin")
                 {
-                    output = "After taking a sacred oath to protect the land and its people in the name of one powerful deity.";
+                    output = "A warrior who has taken a sacred oath to protect the land and its people in the name of one powerful deity.";
                 }
                 else if (input == "Ranger")
                 {

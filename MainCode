@@ -24,6 +24,33 @@ namespace CustardQuest
         {
             string output = "";
 
+
+            if (Console.KeyAvailable)
+            {
+                ConsoleKey input = Console.ReadKey(true).Key;
+                if (input == ConsoleKey.Spacebar)
+                {
+                    int furthestatt = -1;
+                    double furthestdist = 0;
+                    for (int i = 0; i < Sections(attackInfo, "|"); i++)
+                    {
+                        if (furthestdist < Convert.ToDouble(selectSection(selectSection(attackInfo, "|", i), ",", 5)))
+                        {
+                            furthestatt = i;
+                            furthestdist = Convert.ToDouble(selectSection(selectSection(attackInfo, "|", i), ",", 5));
+                        }
+                    }
+                    if (furthestatt != -1)
+                    {
+                        while (furthestatt != -1)
+                        {
+                            attackInfo = selectSection(attackInfo, "|", furthestatt, 3);
+
+                        }
+                    }
+
+                }
+            }
             for (int i = 0; i < Sections(attackInfo, "|"); i++)
             {
                 if (i != 0)
@@ -408,6 +435,34 @@ namespace CustardQuest
                     output = "Are you Male or Female?";
                 }
             }
+            else if (type == "title")
+            {
+                switch (Convert.ToInt32(input))
+                {
+                    case 0:
+                        output = "A-Level computer science simulator";
+                        break;
+                    case 1:
+                        output = "KILLNOEL.com";
+                        break;
+                    case 2:
+                        output = "i cna type vety well if i wsnt tk,";
+                        break;
+                    case 3:
+                        output = "IT'S 2 15";
+                        break;
+                    case 4:
+                        output = "Check the WOAH folder";
+                        break;
+                    case 5:
+                        output = "Made in manx";
+                        break;
+                    default:
+                        output = "Custard Quest";
+                        break;
+                }
+            }
+
             else if (type == "race")
             {
                 if (input == "Human")
@@ -991,13 +1046,12 @@ namespace CustardQuest
             string difficulty = "Normal";
             string location = "Mansion";
             bool firstrun = true;
+            Random titler = new Random();
+            Console.Title = info(Convert.ToString(titler.Next(0, 100)), "title");
 
             string title = @"▄████████ ███    █▄     ▄████████     ███        ▄████████    ▄████████ ████████▄       ████████▄   ███    █▄     ▄████████    ▄████████     ███     \£███    ███ ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███ ███   ▀███      ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄\£███    █▀  ███    ███   ███    █▀     ▀███▀▀██   ███    ███   ███    ███ ███    ███      ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██\£███        ███    ███   ███            ███   ▀   ███    ███  ▄███▄▄▄▄██▀ ███    ███      ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀\£███        ███    ███ ▀███████████     ███     ▀███████████ ▀▀███▀▀▀▀▀   ███    ███      ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███    \£███    █▄  ███    ███          ███     ███       ███    ███ ▀███████████ ███    ███      ███    ███  ███    ███   ███    █▄           ███     ███    \£███    ███ ███    ███    ▄█    ███     ███       ███    ███   ███    ███ ███   ▄███      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███    \£████████▀  ████████▀   ▄████████▀     ▄████▀     ███    █▀    ███    ███ ████████▀        ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀  \£                                                              ███    ███                                                                             \£";
 
             int currentOption = 0;
-
-
-
 
 
             Console.ForegroundColor = ConsoleColor.White;
@@ -1013,6 +1067,7 @@ namespace CustardQuest
             char inputc;
             while (Running)
             {
+                Console.Title = info(Convert.ToString(titler.Next(0, 100)), "title");
                 Console.Clear();
                 if (Menu == 0)
                 {
@@ -1449,7 +1504,7 @@ namespace CustardQuest
                 {
                     if (verystart)
                     {
-                        text(info(location,"Glocation"));
+                        text(info(location, "Glocation"));
 
 
 
@@ -1467,32 +1522,6 @@ namespace CustardQuest
                         aTimer.AutoReset = true;
                         aTimer.Enabled = true;
                         firstrun = false;
-                    }
-                    if (Console.KeyAvailable)
-                    {
-                        input = Console.ReadKey(true).Key;
-                        if (input == ConsoleKey.Spacebar)
-                        {
-                            int furthestatt = -1;
-                            double furthestdist = 0;
-                            for (int i = 0; i < Sections(attackInfo, "|"); i++)
-                            {
-                                if (furthestdist <= Convert.ToDouble(selectSection(selectSection(attackInfo, "|", i), ",", 5)))
-                                {
-                                    furthestatt = i;
-                                    furthestdist = Convert.ToDouble(selectSection(selectSection(attackInfo, "|", i), ",", 5));
-                                }
-                            }
-                            if (furthestatt != -1)
-                            {
-                                while (furthestatt != -1)
-                                {
-                                    attackInfo = selectSection(attackInfo, "|", furthestatt, 3);
-
-                                }
-                            }
-
-                        }
                     }
                 }
             }

@@ -354,27 +354,24 @@ namespace CustardQuest
             string[] options = new string[1];
             options[0] = "";
 
-            if (type == "gender")
+            switch (type)
             {
-                options = new string[] { "Male", "Female" };
+                case "gender":
+                    options = new string[] { "Male", "Female" };
+                    break;
+                case "race":
+                    options = new string[] { "Human", "Elf", "Dwarf", "Orc", "Gnome", "Goblin", "Tiefling", "Kobold", "Skeleton" };
+                    break;
+                case "class":
+                    options = new string[] { "Fighter", "Druid", "Wizard", "Monk", "Paladin", "Ranger", "Thief", "Warlock" };
+                    break;
+                case "difficulty":
+                    options = new string[] { "Easy", "Normal", "Hard", "Impossible" };
+                    break;
+                case "location":
+                    options = new string[] { "Mansion", "Dungeon - Crypt", "Dungeon - Basement", "Dungeon - Treasure Store", "Cemetery", "Temple", "Sentient Forest", "Sentient Cave", "Sentient House", "Haunted House", "Abandoned Village", "Trap Maker's Shop", "Magic School" };
+                    break;
             }
-            else if (type == "race")
-            {
-                options = new string[] { "Human", "Elf", "Dwarf", "Orc", "Gnome", "Goblin", "Tiefling", "Kobold", "Skeleton" };
-            }
-            else if (type == "class")
-            {
-                options = new string[] { "Fighter", "Druid", "Wizard", "Monk", "Paladin", "Ranger", "Thief", "Warlock" };
-            }
-            else if (type == "difficulty")
-            {
-                options = new string[] { "Easy", "Normal", "Hard", "Impossible" };
-            }
-            else if (type == "location")
-            {
-                options = new string[] { "Mansion", "Dungeon - Crypt", "Dungeon - Basement", "Dungeon - Treasure Store", "Cemetery", "Temple", "Sentient Forest", "Sentient Cave", "Sentient House", "Haunted House", "Abandoned Village", "Trap Maker's Shop", "Magic School" };
-            }
-
 
             int inputCode = -1;
             for (int i = 0; i < options.Length; i++)
@@ -424,458 +421,413 @@ namespace CustardQuest
         {
             string output = "";
 
-            if (type == "gender")
+            switch (type)
             {
-                if (input == "Male")
-                {
-                    output = "Are you Male or Female?";
-                }
-                else if (input == "Female")
-                {
-                    output = "Are you Male or Female?";
-                }
-            }
-            else if (type == "title")
-            {
-                switch (Convert.ToInt32(input))
-                {
-                    case 0:
-                        output = "A-Level computer science simulator";
-                        break;
-                    case 1:
-                        output = "KILLNOEL.com";
-                        break;
-                    case 2:
-                        output = "i cna type vety well if i wsnt tk,";
-                        break;
-                    case 3:
-                        output = "IT'S 2 15";
-                        break;
-                    case 4:
-                        output = "Check the WOAH folder";
-                        break;
-                    case 5:
-                        output = "Made in manx";
-                        break;
-                    default:
-                        output = "Custard Quest";
-                        break;
-                }
-            }
+                case "gender":
+                    switch (input)
+                    {
+                        case "Male":
+                            output = "Are you Male or Female?";
+                            break;
+                        case "Female":
+                            output = "Are you Male or Female?";
+                            break;
+                    }
+                    break;
+                case "title":
+                    switch (Convert.ToInt32(input))
+                    {
+                        case 0:
+                            output = "A-Level computer science simulator";
+                            break;
+                        case 1:
+                            output = "KILLNOEL.com";
+                            break;
+                        case 2:
+                            output = "i cna type vety well if i wsnt tk,";
+                            break;
+                        case 3:
+                            output = "IT'S 2 15";
+                            break;
+                        case 4:
+                            output = "Check the WOAH folder";
+                            break;
+                        case 5:
+                            output = "Made in manx";
+                            break;
+                        default:
+                            output = "Custard Quest";
+                            break;
+                    }
+                    break;
+                case "race":
 
-            else if (type == "race")
-            {
-                if (input == "Human")
-                {
-                    output = "A well rounded race that can't do anthing special.";
-                }
-                else if (input == "Elf")
-                {
-                    output = "Very smart individuals who would use their mind over matter.";
-                    if (optJokey)
+                    switch (input)
                     {
-                        output = "Lifeless individuals who do not care for the lesser races.";
+                        case "Human":
+                            output = "A well rounded race that can't do anthing special.";
+                            break;
+                        case "Elf":
+                            output = "Very smart individuals who would use their mind over matter.";
+                            if (optJokey)
+                            {
+                                output = "Lifeless individuals who do not care for the lesser races.";
+                            }
+                            break;
+                        case "Dwarf":
+                            output = "Short, strong and wise.";
+                            if (optJokey)
+                            {
+                                output = "Short, strong, wise and a raging alcoholic.";
+                            }
+                            break;
+                        case "Orc":
+                            output = "Very strong and not very bright.";
+                            if (optJokey)
+                            {
+                                output = "ORC SMASH";
+                            }
+                            break;
+                        case "Gnome":
+                            output = "Great at magic but not much else.";
+                            if (optJokey)
+                            {
+                                output = "Pretty bad tbh.";
+                            }
+                            break;
+                        case "Goblin":
+                            output = "Small selfish humanoids who can sneak anywhere.";
+                            if (optJokey)
+                            {
+                                output = "Sneaky Beaky Like.";
+                            }
+                            break;
+                        case "Tiefling":
+                            output = "Trained in the offensive schools of magic.";
+                            if (optJokey)
+                            {
+                                output = "Wierd demon folk who no one likes. Also into Scat. Horns provide extra clumsiness.";
+                            }
+                            break;
+                        case "Kobold":
+                            output = "Kobolds are small fury creatures who aren't very special.";
+                            if (optJokey)
+                            {
+                                output = "KOBALLLLLLLLLDDDDDD.";
+                            }
+                            break;
+                        case "Skeleton":
+                            output = "Skeletons are restless souls who are stuck on this plane.";
+                            if (optJokey)
+                            {
+                                output = "Thank mr Skeltal";
+                            }
+                            break;
                     }
-                }
-                else if (input == "Dwarf")
-                {
-                    output = "Short, strong and wise.";
-                    if (optJokey)
-                    {
-                        output = "Short, strong, wise and a raging alcoholic.";
-                    }
-                }
-                else if (input == "Orc")
-                {
-                    output = "Very strong and not very bright.";
-                    if (optJokey)
-                    {
-                        output = "ORC SMASH";
-                    }
-                }
-                else if (input == "Gnome")
-                {
-                    output = "Great at magic but not much else.";
-                    if (optJokey)
-                    {
-                        output = "Pretty bad tbh.";
-                    }
-                }
-                else if (input == "Goblin")
-                {
-                    output = "Small selfish humanoids who can sneak anywhere.";
-                    if (optJokey)
-                    {
-                        output = "Sneaky Beaky Like.";
-                    }
-                }
-                else if (input == "Tiefling")
-                {
-                    output = "Trained in the offensive schools of magic.";
-                    if (optJokey)
-                    {
-                        output = "Wierd demon folk who no one likes. Also into Scat. Horns provide extra clumsiness.";
-                    }
-                }
-                else if (input == "Kobold")
-                {
-                    output = "Kobalds are small fury creatures who aren't very special.";
-                    if (optJokey)
-                    {
-                        output = "KOBALLLLLLLLLDDDDDD.";
-                    }
-                }
-                else if (input == "Skeleton")
-                {
-                    output = "Skeletons are restless souls who are stuck on this plane.";
-                    if (optJokey)
-                    {
-                        output = "Thank mr Skeltal";
-                    }
-                }
-            }
-            else if (type == "Erace")
-            {
-                if (input == "Human")
-                {
-                    output = "Base 7 STR, 7 FLX, 7 MND. No other special feats.";
-                }
-                else if (input == "Elf")
-                {
-                    output = "Base 2 STR, 8 FLX, 11 MND. No other special feats.";
-                }
-                else if (input == "Dwarf")
-                {
-                    output = "Base 9 STR, 4 FLX, 7 MND. Item repair is more effective.";
-                }
-                else if (input == "Orc")
-                {
-                    output = "Base 16 STR, 4 FLX, 1 MND. Skilled with strength weapons.";
-                }
-                else if (input == "Gnome")
-                {
-                    output = "Base 7 STR, 3 FLX, 10 MND. Shop prices are lowered.";
-                }
-                else if (input == "Goblin")
-                {
-                    output = "Base 2 STR, 13 FLX, 1 MND. Can recruit fellow goblins and harder to detect.";
-                }
-                else if (input == "Tiefling")
-                {
-                    output = "Base 8 STR, 3 FLX, 9 MND. Skilled at offencive magic.";
-                }
-                else if (input == "Kobold")
-                {
-                    output = "Base 4 STR, 9 FLX, 2 MND. Special resistance and can frenzy causing MND to be added to STR";
-                }
-                else if (input == "Skeleton")
-                {
-                    output = "Base 4 STR, 3 FLX, 10 MND. Weak to smash attacks but resistant to both slash and special attacks. Can’t eat to heal but automatically  heals over time.";
-                }
-            }
-            else if (type == "class")
-            {
-                if (input == "Fighter")
-                {
-                    output = "Trained in the arts of melee from birth but not skilled at much else.";
-                }
-                else if (input == "Druid")
-                {
-                    output = "Intune with the force of nature meaning that they can control and befriend animals.";
-                }
-                else if (input == "Wizard")
-                {
-                    output = "Can focus mystical energies and form them into powerful spells.";
-                }
-                else if (input == "Monk")
-                {
-                    output = "Trained in the ways of Ki monks can unleash devastating unarmed attacks.";
-                }
-                else if (input == "Paladin")
-                {
-                    output = "A warrior who has taken a sacred oath to protect the land and its people in the name of one powerful deity.";
-                }
-                else if (input == "Ranger")
-                {
-                    output = "Trained with a bow and can prepare excellent food from their slain enemies.";
-                }
-                else if (input == "Thief")
-                {
-                    output = "Aligned with one code - the code of thieves.";
-                }
-                else if (input == "Warlock")
-                {
-                    output = "Made a deal with a dark demon to drain his life force for powerful magics.";
-                }
+                    break;
+                case "Erace":
 
-            }
-            else if (type == "Eclass")
-            {
-                if (input == "Fighter")
-                {
-                    output = "Starts with a steel broadsword, steel shield and scalemail.";
-                }
-                else if (input == "Druid")
-                {
-                    output = "Starts with a wrist claw, ancient staff of nature and a wild ruby amulet.";
-                }
-                else if (input == "Wizard")
-                {
-                    output = "Starts with a wooden staff of arcane, enchanted cloth robes and a spellbook.";
-                }
-                else if (input == "Monk")
-                {
-                    output = "Starts with monk robes and a Ki pool.";
-                }
-                else if (input == "Paladin")
-                {
-                    output = "Starts with a hammer of light, a tall shield, padded leather armour and a light heal spell.";
-                }
-                else if (input == "Ranger")
-                {
-                    output = "Starts with a light bow and some arrows, leather armour and an animal companion.";
-                }
-                else if (input == "Thief")
-                {
-                    output = "Starts with a dagger and light stealth clothing.";
-                }
-                else if (input == "Warlock")
-                {
-                    output = "Starts with a sacrificial dagger, light clothing and a blood drain spell.";
-                }
+                    switch (input)
+                    {
+                        case "Human":
+                            output = "Base 7 STR, 7 FLX, 7 MND. No other special feats.";
+                            break;
+                        case "Elf":
+                            output = "Base 2 STR, 8 FLX, 11 MND. No other special feats.";
+                            break;
+                        case "Dwarf":
+                            output = "Base 9 STR, 4 FLX, 7 MND. Item repair is more effective.";
+                            break;
+                        case "Orc":
+                            output = "Base 16 STR, 4 FLX, 1 MND. Skilled with strength weapons.";
+                            break;
+                        case "Gnome":
+                            output = "Base 7 STR, 3 FLX, 10 MND. Shop prices are lowered.";
+                            break;
+                        case "Goblin":
+                            output = "Base 2 STR, 13 FLX, 1 MND. Can recruit fellow goblins and harder to detect.";
+                            break;
+                        case "Tiefling":
+                            output = "Base 8 STR, 3 FLX, 9 MND. Skilled at offencive magic.";
+                            break;
+                        case "Kobold":
+                            output = "Base 4 STR, 9 FLX, 2 MND. Special resistance and can frenzy causing MND to be added to STR";
+                            break;
+                        case "Skeleton":
+                            output = "Base 4 STR, 3 FLX, 10 MND. Weak to smash attacks but resistant to both slash and special attacks. Can’t eat to heal but automatically  heals over time.";
+                            break;
+                    }
+                    break;
+                case "class":
 
-            }
-            else if (type == "stats")
-            {
-                if (input == "Strength")
-                {
-                    output = "Melee Weapons, HP, Poison Resist";
-                }
-                else if (input == "Flexibility")
-                {
-                    output = "Affects hit rate and dodging, flexibility weapons.";
-                }
-                else if (input == "Mind")
-                {
-                    output = "Identifying items, magic, perception, curse resistance, detecting traps.";
-                }
-            }
-            else if (type == "menu")
-            {
-                if (input == "0")
-                {
-                    output = "gender";
-                }
-                else if (input == "1")
-                {
-                    output = "race";
-                }
-                else if (input == "2")
-                {
-                    output = "class";
-                }
-            }
-            else if (type == "difficulty")//skill bonus points,blessing/curse points
-            {
-                if (input == "Easy")
-                {
-                    output = "15,5";
-                }
-                else if (input == "Normal")
-                {
-                    output = "10,0";
-                }
-                else if (input == "Hard")
-                {
-                    output = "5,-5";
-                }
-                else if (input == "Impossible")
-                {
-                    output = "0,-20";
-                }
-            }
-            else if (type == "idifficulty")
-            {
-                if (input == "Easy")
-                {
-                    output = "All the difficulty removed. Smaller floors, weaker enemies and easier attacks.";
-                }
-                else if (input == "Normal")
-                {
-                    output = "The standard game.";
-                }
-                else if (input == "Hard")
-                {
-                    output = "The game with a bit of challenge. Larger floors, harder enemies and rarer items.";
-                }
-                else if (input == "Impossible")
-                {
-                    output = "The ways the game should be played. Massive floors, impossible enemies and barely any items.";
-                }
-            }
-            else if (type == "location")
-            {
-                if (input == "Mansion")
-                {
-                    output = "An old abandoned mansion that an old curse inhabits.";
-                }
-                else if (input == "Dungeon - Crypt")
-                {
-                    output = "An underground tomb that houses the great King Anu Annear III.";
-                }
-                else if (input == "Dungeon - Basement")
-                {
-                    output = "An underground series of rooms and floors that was recently uncovered.";
-                }
-                else if (input == "Dungeon - Treasure Store")
-                {
-                    output = "An old abandoned store that houses the treasure of the hated Orlark Zuzha.";
-                }
-                else if (input == "Cemetery")
-                {
-                    output = "An eerie cemetery in a dead forest that now possess a dark magic.";
-                }
-                else if (input == "Temple")
-                {
-                    output = "A dark god has possessed his followers into a blood rage killing any who enter.";
-                }
-                else if (input == "Sentient Forest")
-                {
-                    output = "A forest that is always changing trying to trap anyone willing to explore it.";
-                }
-                else if (input == "Sentient Cave")
-                {
-                    output = "A cave with caverns that are always opening and closing.";
-                }
-                else if (input == "Sentient House")
-                {
-                    output = "An unhappy spirit manifests in this house trying to harm all who enter.";
-                }
-                else if (input == "Haunted House")
-                {
-                    output = "A house containing large amounts of unhappy spirits who are unable to pass on to the next plane.";
-                }
-                else if (input == "Abandoned Village")
-                {
-                    output = "A strange plague hit this village now no one dares enter it.";
-                }
-                else if (input == "Trap Maker's Shop")
-                {
-                    output = "A shop that's not well designed as the customer has to navigate the traps to buy any traps.";
-                }
-                else if (input == "Magic School")
-                {
-                    output = "A school where young minds can develop but one of the students has been experimenting with the dark arts.";
-                }
-            }
+                    switch (input)
+                    {
+                        case "Fighter":
+                            output = "Trained in the arts of melee from birth but not skilled at much else.";
+                            break;
+                        case "Druid":
+                            output = "Intune with the force of nature meaning that they can control and befriend animals.";
+                            break;
+                        case "Wizard":
+                            output = "Can focus mystical energies and form them into powerful spells.";
+                            break;
+                        case "Monk":
+                            output = "Trained in the ways of Ki monks can unleash devastating unarmed attacks.";
+                            break;
+                        case "Paladin":
+                            output = "A warrior who has taken a sacred oath to protect the land and its people in the name of one powerful deity.";
+                            break;
+                        case "Ranger":
+                            output = "Trained with a bow and can prepare excellent food from their slain enemies.";
+                            break;
+                        case "Thief":
+                            output = "Aligned with one code - the code of thieves.";
+                            break;
+                        case "Warlock":
+                            output = "Made a deal with a dark demon to drain his life force for powerful magics.";
+                            break;
+                    }
+                    break;
+                case "Eclass":
 
-            else if (type == "Glocation")
-            {
-                if (input == "Mansion")
-                {
-                    output = "The massive door slams shut behind you as you enter the oft feared mansion. However, at least you're out of the rain.";
-                    if (optJokey)
+                    switch (input)
                     {
-                        output = "You have entered Ainsley's secret mansion. Watch your step, the floor is sticky.";
+                        case "Fighter":
+                            output = "Starts with a steel broadsword, steel shield and scalemail.";
+                            break;
+                        case "Druid":
+                            output = "Starts with a wrist claw, ancient staff of nature and a wild ruby amulet.";
+                            break;
+                        case "Wizard":
+                            output = "Starts with a wooden staff of arcane, enchanted cloth robes and a spellbook.";
+                            break;
+                        case "Monk":
+                            output = "Starts with monk robes and a Ki pool.";
+                            break;
+                        case "Paladin":
+                            output = "Starts with a hammer of light, a tall shield, padded leather armour and a light heal spell.";
+                            break;
+                        case "Ranger":
+                            output = "Starts with a light bow and some arrows, leather armour and an animal companion.";
+                            break;
+                        case "Thief":
+                            output = "Starts with a dagger and light stealth clothing.";
+                            break;
+                        case "Warlock":
+                            output = "Starts with a sacrificial dagger, light clothing and a blood drain spell.";
+                            break;
                     }
-                }
-                else if (input == "Dungeon - Crypt")
-                {
-                    output = "A musty smell fills your lungs when you enter the crypt.";
-                    if (optJokey)
+                    break;
+                case "stats":
+
+                    switch (input)
                     {
-                        output = "Fear of the recently revived Noel rattles your bones.";
+                        case "Strength":
+                            output = "Melee Weapons, HP, Poison Resist";
+                            break;
+                        case "Flexibility":
+                            output = "Affects hit rate and dodging, flexibility weapons.";
+                            break;
+                        case "Mind":
+                            output = "Identifying items, magic, perception, curse resistance, detecting traps.";
+                            break;
                     }
-                }
-                else if (input == "Dungeon - Basement")
-                {
-                    output = "You fall through a trap door into a dark room. The trap door seals shut. The only way out is down.";
-                    if (optJokey)
+                    break;
+                case "menu":
+
+                    switch (input)
                     {
-                        output = "Rape dungeon time.";
+                        case "0":
+                            output = "gender";
+                            break;
+                        case "1":
+                            output = "race";
+                            break;
+                        case "2":
+                            output = "class";
+                            break;
                     }
-                }
-                else if (input == "Dungeon - Treasure Store")
-                {
-                    output = "You find a secret entrance into a warehouse, which locks behind you.";
-                    if (optJokey)
+                    break;
+                case "difficulty":
+
+                    switch (input)
                     {
-                        output = "gold everyyywhere!";
+                        case "Easy":
+                            output = "15,5";
+                            break;
+                        case "Normal":
+                            output = "10,0";
+                            break;
+                        case "Hard":
+                            output = "5,-5";
+                            break;
+                        case "Impossible":
+                            output = "0,-20";
+                            break;
                     }
-                }
-                else if (input == "Cemetery")
-                {
-                    output = "Something grabs your foot when the clock strikes midnight. You a pulled under the ground.";
-                    if (optJokey)
+                    break;
+                case "idifficulty":
+
+                    switch (input)
                     {
-                        output = "something spooky rattles its boner at you";
+                        case "Easy":
+                            output = "All the difficulty removed. Smaller floors, weaker enemies and easier attacks.";
+                            break;
+                        case "Normal":
+                            output = "The standard game.";
+                            break;
+                        case "Hard":
+                            output = "The game with a bit of challenge. Larger floors, harder enemies and rarer items.";
+                            break;
+                        case "Impossible":
+                            output = "The ways the game should be played. Massive floors, impossible enemies and barely any items.";
+                            break;
                     }
-                }
-                else if (input == "Temple")
-                {
-                    output = "Creepy chanting fills the air.";
-                    if (optJokey)
+                    break;
+                case "location":
+
+                    switch (input)
                     {
-                        output = @"its party time : )";
+                        case "Mansion":
+                            output = "An old abandoned mansion that an old curse inhabits.";
+                            break;
+                        case "Dungeon - Crypt":
+                            output = "An underground tomb that houses the great King Anu Annear III.";
+                            break;
+                        case "Dungeon - Basement":
+                            output = "An underground series of rooms and floors that was recently uncovered.";
+                            break;
+                        case "Dungeon - Treasure Store":
+                            output = "An old abandoned store that houses the treasure of the hated Orlark Zuzha.";
+                            break;
+                        case "Cemetery":
+                            output = "An eerie cemetery in a dead forest that now possess a dark magic.";
+                            break;
+                        case "Temple":
+                            output = "A dark god has possessed his followers into a blood rage killing any who enter.";
+                            break;
+                        case "Sentient Forest":
+                            output = "A forest that is always changing trying to trap anyone willing to explore it.";
+                            break;
+                        case "Sentient Cave":
+                            output = "A cave with caverns that are always opening and closing.";
+                            break;
+                        case "Sentient House":
+                            output = "An unhappy spirit manifests in this house trying to harm all who enter.";
+                            break;
+                        case "Haunted House":
+                            output = "A house containing large amounts of unhappy spirits who are unable to pass on to the next plane.";
+                            break;
+                        case "Abandoned Village":
+                            output = "A strange plague hit this village now no one dares enter it.";
+                            break;
+                        case "Trap Maker's Shop":
+                            output = "A shop that's not well designed as the customer has to navigate the traps to buy any traps.";
+                            break;
+                        case "Magic School":
+                            output = "A school where young minds can develop but one of the students has been experimenting with the dark arts.";
+                            break;
                     }
-                }
-                else if (input == "Sentient Forest")
-                {
-                    output = "As you enter the forest you feel like someone's watching you.";
-                    if (optJokey)
+                    break;
+                case "Glocation":
+
+                    switch (input)
                     {
-                        output = "a branch gets well mad at you";
+                        case "Mansion":
+                            output = "The massive door slams shut behind you as you enter the oft feared mansion. However, at least you're out of the rain.";
+                            if (optJokey)
+                            {
+                                output = "You have entered Ainsley's secret mansion. Watch your step, the floor is sticky.";
+                            }
+                            break;
+                        case "Dungeon - Crypt":
+                            output = "A musty smell fills your lungs when you enter the crypt.";
+                            if (optJokey)
+                            {
+                                output = "Fear of the recently revived Noel rattles your bones.";
+                            }
+                            break;
+                        case "Dungeon - Basement":
+                            output = "You fall through a trap door into a dark room. The trap door seals shut. The only way out is down.";
+                            if (optJokey)
+                            {
+                                output = "Rape dungeon time.";
+                            }
+                            break;
+                        case "Dungeon - Treasure Store":
+                            output = "You find a secret entrance into a warehouse, which locks behind you.";
+                            if (optJokey)
+                            {
+                                output = "gold everyyywhere!";
+                            }
+                            break;
+                        case "Cemetery":
+                            output = "Something grabs your foot when the clock strikes midnight. You a pulled under the ground.";
+                            if (optJokey)
+                            {
+                                output = "something spooky rattles its boner at you";
+                            }
+                            break;
+                        case "Temple":
+                            output = "Creepy chanting fills the air.";
+                            if (optJokey)
+                            {
+                                output = @"its party time : )";
+                            }
+                            break;
+                        case "Sentient Forest":
+                            output = "As you enter the forest you feel like someone's watching you.";
+                            if (optJokey)
+                            {
+                                output = "a branch gets well mad at you";
+                            }
+                            break;
+                        case "Sentient Cave":
+                            output = "As you delve into the cave you hear a rumble and the sunlight disappears.";
+                            if (optJokey)
+                            {
+                                output = "a pebble gets well mad at you";
+                            }
+                            break;
+                        case "Sentient House":
+                            output = "The door flattens into wall behind you.";
+                            if (optJokey)
+                            {
+                                output = "the walls are talking";
+                            }
+                            break;
+                        case "Haunted House":
+                            output = "A cold feeling passes through you when the door shuts.";
+                            if (optJokey)
+                            {
+                                output = "You get ghosts! You get ghosts! Everybody gets ghosts";
+                            }
+                            break;
+                        case "Abandoned Village":
+                            output = "You feel a strange force as you get close to the village.";
+                            if (optJokey)
+                            {
+                                output = "Some gross guy used to live here.";
+                            }
+                            break;
+                        case "Trap Maker's Shop":
+                            output = "The owner of this shop misunderstands basic sales tactics, the very shop preventing your exit.";
+                            if (optJokey)
+                            {
+                                output = "A bear trap wrenches off your 14th leg. You centipede.";
+                            }
+                            break;
+                        case "Magic School":
+                            output = "As you enter the school, the walls are covered in a fleshy-like material, with no one to be seen.";
+                            if (optJokey)
+                            {
+                                output = "Harry Potter dies in front of you.";
+                            }
+                            break;
                     }
-                }
-                else if (input == "Sentient Cave")
-                {
-                    output = "As you delve into the cave you hear a rumble and the sunlight disappears.";
-                    if (optJokey)
-                    {
-                        output = "a pebble gets well mad at you";
-                    }
-                }
-                else if (input == "Sentient House")
-                {
-                    output = "The door flattens into wall behind you.";
-                    if (optJokey)
-                    {
-                        output = "the walls are talking";
-                    }
-                }
-                else if (input == "Haunted House")
-                {
-                    output = "A cold feeling passes through you when the door shuts.";
-                    if (optJokey)
-                    {
-                        output = "You get ghosts! You get ghosts! Everybody gets ghosts";
-                    }
-                }
-                else if (input == "Abandoned Village")
-                {
-                    output = "You feel a strange force as you get close to the village.";
-                    if (optJokey)
-                    {
-                        output = "Some gross guy used to live here.";
-                    }
-                }
-                else if (input == "Trap Maker's Shop")
-                {
-                    output = "The owner of this shop misunderstands basic sales tactics, the very shop preventing your exit.";
-                    if (optJokey)
-                    {
-                        output = "A bear trap wrenches off your 14th leg. You centipede.";
-                    }
-                }
-                else if (input == "Magic School")
-                {
-                    output = "As you enter the school, the walls are covered in a fleshy-like material, with no one to be seen.";
-                    if (optJokey)
-                    {
-                        output = "Harry Potter dies in front of you.";
-                    }
-                }
+                    break;
             }
+            
 
 
 

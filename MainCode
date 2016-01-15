@@ -13,12 +13,24 @@ namespace CustardQuest
         static bool optSound = true;
         static bool optColour = true;
 
-        string[,] items = new string[0, 14]; //name, mass, blessings and curses, container and method, limbs, stats (0 is hp "," is seperator), extra, alignment to player, target, sentience, damage, description, dialog, moving
-
+        
         static string attackInfo = "";  //target,max damage, variation, min, speed, location, limb, limb damage | [next attack]
 
 
         static System.Timers.Timer aTimer;
+
+        public class gameData
+        {
+            public string[,] items; //name, mass, blessings and curses, container and method, limbs, stats (0 is hp "," is seperator), extra, alignment to player, target, sentience, damage, description, dialog, moving
+            public string difficulty;
+            public string location;
+            public gameData()
+            {
+                difficulty = "Normal";
+                location = "Mansion";
+                items = new string[0, 14];
+            }
+        }
 
         private static void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
@@ -827,7 +839,7 @@ namespace CustardQuest
                     }
                     break;
             }
-            
+
 
 
 
@@ -982,6 +994,7 @@ namespace CustardQuest
             bool Running = true;        //variable setup
             int Menu = 0;
 
+            gameData CurrentGame = new gameData();
             string charGender = "Male";
             string charRace = "Human";
             string charClass = "Fighter";
@@ -995,8 +1008,6 @@ namespace CustardQuest
             int charBlessCurseMod = 5;
             bool verystart = true;
             string charName = "";
-            string difficulty = "Normal";
-            string location = "Mansion";
             bool firstrun = true;
             Random titler = new Random();
             Console.Title = info(Convert.ToString(titler.Next(0, 100)), "title");
@@ -1132,20 +1143,20 @@ namespace CustardQuest
                     charFlxMod = 0;
                     charMndMod = 0;
                     charName = "";
-                    charRemainMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"), ",", 0));
-                    charBlessCurseMod = Convert.ToInt32(selectSection(info(difficulty, "difficulty"), ",", 1));
-                    text("Difficulty - " + difficulty + " - " + info(difficulty, "idifficulty"));
+                    charRemainMod = Convert.ToInt32(selectSection(info(CurrentGame.difficulty, "difficulty"), ",", 0));
+                    charBlessCurseMod = Convert.ToInt32(selectSection(info(CurrentGame.difficulty, "difficulty"), ",", 1));
+                    text("Difficulty - " + CurrentGame.difficulty + " - " + info(CurrentGame.difficulty, "idifficulty"));
                     text("\\£\\cN\\wext");
                     text("\\cM\\wainmenu");
 
                     input = Console.ReadKey().Key;
                     if (input == ConsoleKey.LeftArrow)
                     {
-                        difficulty = cycle(difficulty, "difficulty", false);
+                        CurrentGame.difficulty = cycle(CurrentGame.difficulty, "difficulty", false);
                     }
                     else if (input == ConsoleKey.RightArrow)
                     {
-                        difficulty = cycle(difficulty, "difficulty", true);
+                        CurrentGame.difficulty = cycle(CurrentGame.difficulty, "difficulty", true);
                     }
                     else if (input == ConsoleKey.N)
                     {
@@ -1415,7 +1426,7 @@ namespace CustardQuest
                     text(title);
 
                     text("Select a location for the game\\£");
-                    text(location + " - " + info(location, "location"));
+                    text(CurrentGame.location + " - " + info(CurrentGame.location, "location"));
                     text("\\£\\cR\\wandom");
 
                     text("\\£\\cN\\wext");
@@ -1425,11 +1436,11 @@ namespace CustardQuest
                     input = Console.ReadKey().Key;
                     if (input == ConsoleKey.LeftArrow)
                     {
-                        location = cycle(location, "location", false);
+                        CurrentGame.location = cycle(CurrentGame.location, "location", false);
                     }
                     else if (input == ConsoleKey.RightArrow)
                     {
-                        location = cycle(location, "location", true);
+                        CurrentGame.location = cycle(CurrentGame.location, "location", true);
                     }
                     else if (input == ConsoleKey.N)
                     {
@@ -1449,14 +1460,14 @@ namespace CustardQuest
                     }
                     else if (input == ConsoleKey.R)
                     {
-                        location = cycle(location, "location", true, true);
+                        CurrentGame.location = cycle(CurrentGame.location, "location", true, true);
                     }
                 }
                 else if (Menu == 9) //game
                 {
                     if (verystart)
                     {
-                        text(info(location, "Glocation"));
+                        text(info(CurrentGame.location, "Glocation"));
 
 
 

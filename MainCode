@@ -13,7 +13,7 @@ namespace CustardQuest
         static bool optSound = true;
         static bool optColour = true;
 
-        
+
         static string attackInfo = "";  //target,max damage, variation, min, speed, location, limb, limb damage | [next attack]
 
 
@@ -113,11 +113,11 @@ namespace CustardQuest
                 case "Human":
                     if (extra == "Male")
                     {
-                        syllables = @"Jo\Ba\Ean|hn\rin\ean|ath\tho\ean|on\lon\ean| Ho\ No\ Mo|mo\an\y|nym\ki\ath";
+                        syllables = @"Wy\Wil\Mack\Judd\Hann\Hop\Ab|mond\ky\kin\ra\\\|ham\\\\| |";
                     }
                     else if (extra == "Female")
                     {
-                        syllables = @"Kill\Heat|skull\sink| Death\ Murder|master\causer\superious";
+                        syllables = @"Dye\Cye\Eth\Hann\Addy|ne\el\ah|burg\dred\dre|da\\| |";
                     }
                     else
                     {
@@ -833,7 +833,7 @@ namespace CustardQuest
                             output = "As you enter the school, the walls are covered in a fleshy-like material, with no one to be seen.";
                             if (optJokey)
                             {
-                                output = "Harry Potter dies in front of you.";
+                                output = "Harry Potter dies in front of you. :(";
                             }
                             break;
                     }

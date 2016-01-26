@@ -13,6 +13,8 @@ namespace CustardQuest
         static bool optJokey = false;
         static bool optSound = true;
         static bool optColour = true;
+        static int previousheight = 0;
+        static int previousWriteHeight = 0;
 
 
         static string attackInfo = "";  //target,max damage, variation, min, speed, location, limb, limb damage | [next attack]
@@ -20,7 +22,7 @@ namespace CustardQuest
 
         static System.Timers.Timer aTimer;
 
-        private static void SaveGame(gameData Data, bool optJokey, bool optSound, bool optColour, string name) 
+        private static void SaveGame(gameData Data, bool optJokey, bool optSound, bool optColour, string name)
         {
             Data.optJokey = optJokey;
             Data.optSound = optSound;
@@ -38,7 +40,7 @@ namespace CustardQuest
             }
             catch
             {
-                
+
             }
         }
 
@@ -882,10 +884,15 @@ namespace CustardQuest
         {
             Console.ForegroundColor = ConsoleColor.White;
             int wait = 0;       //cyan - inputs for the user, white - default, grey - values that can be directly changed, green - good alerts, red - bad alerts or dealt damage, yellow - neutral alerts and general highlighting
-            bool playing = false;
-            bool allLettersVoice = false;
-            bool waitForSound = false;
+            bool playing = true;
             string output = "";
+            int distRight = 0;
+            int distDown = 0;
+            if (!(Console.CursorTop == 0))
+            {
+                Console.SetCursorPosition(0, previousWriteHeight);
+                distDown = previousWriteHeight;
+            }
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -904,34 +911,74 @@ namespace CustardQuest
                     else if (input.Substring(i, 1) == "4") { wait = 500; }
                     else if (input.Substring(i, 1) == "5") { wait = 1000; }
                     else if (input.Substring(i, 1) == "6") { wait = 2000; }
-                    else if (input.Substring(i, 1) == "v") { playing = !playing; }
-                    else if (input.Substring(i, 1) == "b") { allLettersVoice = !allLettersVoice; }
-                    else if (input.Substring(i, 1) == "B") { waitForSound = !waitForSound; }
-                    else if (input.Substring(i, 1) == "\\") { Console.Write("\\"); }
-                    else if (input.Substring(i, 1) == "!") { Console.Write("\""); }
-                    else if (input.Substring(i, 1) == "£") { output += "\n"; }
+                    else if (input.Substring(i, 1) == "\\") { output += "\\"; distRight++; }
+                    else if (input.Substring(i, 1) == "!") { output += "\""; distRight++; }
+                    else if (input.Substring(i, 1) == "£") 
+                    {
+                        while (distRight < Console.WindowWidth)
+                        {
+                            output += " ";
+                            distRight++;
+                        }
+                    }
                     else if (input.Substring(i, 1) == "$") { Console.Clear(); }
                 }
                 else
                 {
-                    output += (input.Substring(i, 1));
 
 
-                    if (optSound && (playing && ((Convert.ToChar(input.Substring(i, 1)) <= 'z' && Convert.ToChar(input.Substring(i, 1)) >= 'a') || (Convert.ToChar(input.Substring(i, 1)) <= 'Z' && Convert.ToChar(input.Substring(i, 1)) >= 'A')) && (allLettersVoice || Convert.ToChar(input.Substring(i, 1)) == 'u' || Convert.ToChar(input.Substring(i, 1)) == 'o' || (Convert.ToChar(input.Substring(i, 1)) == 'i' || Convert.ToChar(input.Substring(i, 1)) == 'e' || Convert.ToChar(input.Substring(i, 1)) == 'a'))))
+                    if (playing && ((Convert.ToChar(input.Substring(i, 1)) <= 'z' && Convert.ToChar(input.Substring(i, 1)) >= 'a') || (Convert.ToChar(input.Substring(i, 1)) <= 'Z' && Convert.ToChar(input.Substring(i, 1)) >= 'A')) && ( Convert.ToChar(input.Substring(i, 1)) == 'u' || Convert.ToChar(input.Substring(i, 1)) == 'o' || (Convert.ToChar(input.Substring(i, 1)) == 'i' || Convert.ToChar(input.Substring(i, 1)) == 'e' || Convert.ToChar(input.Substring(i, 1)) == 'a')))
                     {
-                        if (waitForSound)
+                        int wordLength = 1;
+                        bool EndOfWord = true;
+                        while (input.Length > i + wordLength && EndOfWord)
                         {
-                            // voice.PlaySync();
+                            if (playing && ((Convert.ToChar(input.Substring(i + wordLength, 1)) <= 'z' && Convert.ToChar(input.Substring(i + wordLength, 1)) >= 'a') || (Convert.ToChar(input.Substring(i + wordLength, 1)) <= 'Z' && Convert.ToChar(input.Substring(i + wordLength, 1)) >= 'A')) && (Convert.ToChar(input.Substring(i + wordLength, 1)) == 'u' || Convert.ToChar(input.Substring(i + wordLength, 1)) == 'o' || (Convert.ToChar(input.Substring(i + wordLength, 1)) == 'i' || Convert.ToChar(input.Substring(i + wordLength, 1)) == 'e' || Convert.ToChar(input.Substring(i + wordLength, 1)) == 'a')))
+                            {
+                                wordLength++;
+                            }
+                            else
+                            {
+                                EndOfWord = false;
+                            }
+                        }
+                        if (wordLength + distRight < Console.WindowWidth)
+                        {
+                            output += (input.Substring(i, 1));
+                            distRight++;
                         }
                         else
                         {
-                            // voice.Play();
+                            output += " ";
+                            distRight++;
+                            i--;
                         }
+                    }
+                    else
+                    {
+                        output += (input.Substring(i, 1));
+                        distRight++;
                     }
                 }
                 if (wait != 0)
                 {
                     System.Threading.Thread.Sleep(wait);
+                }
+                if (distRight == Console.WindowWidth)
+                {
+                    distRight = 0;
+                    distDown++;
+                }
+            }
+            previousWriteHeight = distDown + 1;
+            while (distDown < previousheight)
+            {
+                output += " ";
+                distRight++;
+                if (distRight == Console.WindowWidth)
+                {
+                    distRight = 0;
+                    distDown++;
                 }
             }
             Console.WriteLine(output);
@@ -1062,7 +1109,8 @@ namespace CustardQuest
             while (Running)
             {
                 Console.Title = info(Convert.ToString(titler.Next(0, 100)), "title");
-                Console.Clear();
+                previousheight = previousWriteHeight + 1;
+                Console.SetCursorPosition(0, 0);
                 if (Menu == 0)
                 {
                     Console.CursorVisible = false;

@@ -971,17 +971,12 @@ namespace CustardQuest
                 }
             }
             previousWriteHeight = distDown + 1;
+            Console.WriteLine(output);
             while (distDown < previousheight)
             {
-                output += " ";
-                distRight++;
-                if (distRight == Console.WindowWidth)
-                {
-                    distRight = 0;
-                    distDown++;
-                }
+                Console.WriteLine();
+                distDown++;
             }
-            Console.WriteLine(output);
         }
 
         public static int Sections(string input, string seperator) //outputs the amount of sections in the string, seperated by the seperator (so minimum 1)

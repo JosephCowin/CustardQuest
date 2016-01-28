@@ -971,6 +971,11 @@ namespace CustardQuest
                 }
             }
             previousWriteHeight = distDown + 1;
+            while (distRight != Console.WindowWidth)
+            {
+                output += " ";
+                distRight++;
+            }
             Console.WriteLine(output);
             while (distDown < previousheight)
             {

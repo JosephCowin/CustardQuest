@@ -530,7 +530,7 @@ namespace CustardQuest
                             output = "Very strong and not very bright.";
                             if (optJokey)
                             {
-                                output = "ORC SMASH";
+                                output = "Orc more like Andc";
                             }
                             break;
                         case "Gnome":

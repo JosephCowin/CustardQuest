@@ -146,11 +146,11 @@ namespace CustardQuest
                 case "Human":
                     if (extra == "Male")
                     {
-                        syllables = @"Wy\Wil\Mack\Judd\Hann\Hop\Ab|mond\ky\kin\ra\\\|ham\\\\| |";
+                        syllables = @"Wy\Wil\Mack\Judd\Hann\Hop\Ab|mond\ky\kin\ra\\\ |Ham\\\\\\| |Carl\Sin\Key\Wang\Field\Niel\Craw\Jen\Hamm|son\gle\s\sen\ford\kins\ond|ton\\\\| |";
                     }
                     else if (extra == "Female")
                     {
-                        syllables = @"Dye\Cye\Eth\Hann\Addy|ne\el\ah|burg\dred\dre|da\\| |";
+                        syllables = @"Cye\Eth\Hann\Addy\dye|ne\el\ah\\\\\|burg\dred\dre\\\\\\\\\\\\\|da\\\\\\\\\\\\\\\\\\\| |Carl\Sin\Key\Wang\Field\Niel\Craw\Jen\Hamm|son\gle\s\sen\ford\kins\ond|ton\\\\| |";
                     }
                     else
                     {
@@ -160,11 +160,11 @@ namespace CustardQuest
                 case "Elf":
                     if (extra == "Male")
                     {
-                        syllables = @"Jo\Ba\Ean|hn\rin\ean|ath\tho\ean|on\lon\ean| Ho\ No\ Mo|mo\an\y|nym\ki\ath";
+                        syllables = @"Ael\Bes\Cal\Ar\Cy\Dre\Fi\Gil\Ha\Sae\Sol\Ta\Tahl\Ther|ah\el\har\aer\ual\var\vin\ki\lam\lar\que\or\nis\nin\ram\thal\tril\ten\brar\drim\ess\evar\lon\sar\spar\thi\us\ua\via\vain\ya|ah\el\har\aer\ual\var\vin\ki\lam\lar\que\or\nis\nin\ram\thal\tril\ten\brar\drim\ess\evar\lon\sar\spar\thi\us\ua\via\vain\ya\\\\\\\\|ah\el\har\aer\ual\var\vin\ki\lam\lar\que\or\nis\nin\ram\thal\tril\ten\brar\drim\ess\evar\lon\sar\spar\thi\us\ua\via\vain\ya\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\| |Alean\Arabi\Cyred\Dwin\Glysse\Tyr\Kille\Norre\Orle\Heasi\Cyred|atlin\anea\dlues\ghymn\ettln\itryn\mitore\nddare\thym\valsa\zea\valsa\raheal";
                     }
                     else if (extra == "Female")
                     {
-                        syllables = @"Jo\Ba\Ean|hn\rin\ean|ath\tho\ean|on\lon\ean| Ho\ No\ Mo|mo\an\y|nym\ki\ath";
+                        syllables = @"Ael\Bes\Cal\Ar\Cy\Dre\Fi\Gil\Ha\Sae\Sol\Ta\Tahl\Ther|ah\el\har\aer\ual\var\vin\ki\lam\lar\que\or\nis\nin\ram\thal\tril\ten\brar\drim\ess\evar\lon\sar\spar\thi\us\ua\via\vain\ya|ah\el\har\aer\ual\var\vin\ki\lam\lar\que\or\nis\nin\ram\thal\tril\ten\brar\drim\ess\evar\lon\sar\spar\thi\us\ua\via\vain\ya\\\\\\\\|ah\el\har\aer\ual\var\vin\ki\lam\lar\que\or\nis\nin\ram\thal\tril\ten\brar\drim\ess\evar\lon\sar\spar\thi\us\ua\via\vain\ya\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\| |Alean\Arabi\Cyred\Dwin\Glysse\Tyr\Kille\Norre\Orle\Heasi\Cyred|atlin\anea\dlues\ghymn\ettln\itryn\mitore\nddare\thym\valsa\zea\valsa\raheal";
                     }
                     else
                     {
@@ -202,11 +202,11 @@ namespace CustardQuest
                 case "Gnome":
                     if (extra == "Male")
                     {
-                        syllables = @"Jo\Ba\Ean|hn\rin\ean|ath\tho\ean|on\lon\ean| Ho\ No\ Mo|mo\an\y|nym\ki\ath";
+                        syllables = @"Amp\Peck\Fitz\Jal\Lul\Ger\Bish\Mel\Giz\Gil\Zap\Tek\Fil\Sprock|dale\more\ton\bin\kle\ley\wood|ford\smith\worth\strom\stein| |Wrong\Volt\Bent\Tonk\Tin\Ret\Gim\Ser\Steel\wizz|cam\rat\fidg\bink\ker\ro\bal\vo\dyne\le|het\et\pis\guage\wheel\pow|er\\\\\\\\\\\";
                     }
                     else if (extra == "Female")
                     {
-                        syllables = @"Jo\Ba\Ean|hn\rin\ean|ath\tho\ean|on\lon\ean| Ho\ No\ Mo|mo\an\y|nym\ki\ath";
+                        syllables = @"Lar\Liz\Bick\Kess\Mar\Tor|a\aka\le\in\rid|beth\lyn\ella\git\\\\\\\\| |Wrong\Volt\Bent\Tonk\Tin\Ret\Gim\Ser\Steel\wizz|cam\rat\fidg\bink\ker\ro\bal\vo\dyne\le|het\et\pis\guage\wheel\pow| |";
                     }
                     else
                     {

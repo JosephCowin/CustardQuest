@@ -879,7 +879,6 @@ namespace CustardQuest
             return output;
         }
 
-
         public static void text(string input)
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -1110,7 +1109,7 @@ namespace CustardQuest
             while (Running)
             {
                 Console.Title = info(Convert.ToString(titler.Next(0, 100)), "title");
-                previousheight = previousWriteHeight + 1;
+                previousheight = Console.CursorTop + 1;
                 Console.SetCursorPosition(0, 0);
                 if (Menu == 0)
                 {
@@ -1125,7 +1124,7 @@ namespace CustardQuest
                     text("\\cE\\wxit");
 
 
-                    inputc = Console.ReadKey().KeyChar;
+                    inputc = Console.ReadKey(true).KeyChar;
 
                     if (inputc == 'p')
                     {
@@ -1158,7 +1157,7 @@ namespace CustardQuest
 
 
 
-                    inputc = Console.ReadKey().KeyChar;
+                    inputc = Console.ReadKey(true).KeyChar;
                     if (inputc == 'l')
                     {
                         Menu = 4;
@@ -1176,7 +1175,7 @@ namespace CustardQuest
                     text(title);
 
                     text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu");
-                    inputc = Console.ReadKey().KeyChar;
+                    inputc = Console.ReadKey(true).KeyChar;
                     if (inputc == 'j')
                     {
                         optJokey = !optJokey;
@@ -1202,7 +1201,7 @@ namespace CustardQuest
                     text(title);
 
                     text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
-                    Console.ReadKey();
+                    Console.ReadKey(true);
                     Menu = 0;
                 }
                 else if (Menu == 4)
@@ -1229,7 +1228,7 @@ namespace CustardQuest
                     text("\\£\\cN\\wext");
                     text("\\cM\\wainmenu");
 
-                    input = Console.ReadKey().Key;
+                    input = Console.ReadKey(true).Key;
                     if (input == ConsoleKey.LeftArrow)
                     {
                         CurrentGame.difficulty = cycle(CurrentGame.difficulty, "difficulty", false);
@@ -1317,7 +1316,7 @@ namespace CustardQuest
                     text("\\£\\cB\\wack");
                     text("\\cM\\wainmenu");
 
-                    input = Console.ReadKey().Key;
+                    input = Console.ReadKey(true).Key;
                     if (input == ConsoleKey.DownArrow)
                     {
                         if (currentOption != 5)
@@ -1424,7 +1423,7 @@ namespace CustardQuest
                         text("Flexibility - Affects ease of hitting, dodging, and use of precision weapons eg. bow.");
                         text("Mind - Helps provides extra information to the player, improves magic and curse resistance.");
                         text("\\£Press any key to continue");
-                        Console.ReadKey();
+                        Console.ReadKey(true);
                     }
                     else if (input == ConsoleKey.E)
                     {
@@ -1434,7 +1433,7 @@ namespace CustardQuest
                         text("Race - " + charRace + "\\w - " + info(charRace, "Erace"));
                         text("Class - " + charClass + "\\w - " + info(charClass, "Eclass"));
                         text("\\£Press any key to continue");
-                        Console.ReadKey();
+                        Console.ReadKey(true);
                     }
                     else if (input == ConsoleKey.B)
                     {
@@ -1475,7 +1474,7 @@ namespace CustardQuest
                     }
 
 
-                    input = Console.ReadKey().Key;
+                    input = Console.ReadKey(true).Key;
 
                     if (input == ConsoleKey.I)
                     {
@@ -1513,7 +1512,7 @@ namespace CustardQuest
                     text("\\cB\\wack");
                     text("\\cM\\wainmenu");
 
-                    input = Console.ReadKey().Key;
+                    input = Console.ReadKey(true).Key;
                     if (input == ConsoleKey.LeftArrow)
                     {
                         CurrentGame.location = cycle(CurrentGame.location, "location", false);

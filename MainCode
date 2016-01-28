@@ -978,7 +978,7 @@ namespace CustardQuest
             Console.WriteLine(output);
             while (distDown < previousheight + 2)
             {
-                Console.WriteLine();
+                Console.WriteLine("                                                                                                                                       ");
                 distDown++;
             }
             Console.SetCursorPosition(0, previousWriteHeight);
@@ -1099,6 +1099,7 @@ namespace CustardQuest
             Console.CursorVisible = false;
             Console.WindowWidth = 150;
             Console.WindowHeight = 30;
+
             text(title);
             text("Press Enter To Start");
             Console.ForegroundColor = ConsoleColor.Black;

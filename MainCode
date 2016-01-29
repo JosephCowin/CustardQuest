@@ -1071,6 +1071,9 @@ namespace CustardQuest
         {
             bool Running = true;        //variable setup
             int Menu = 0;
+            string toWrite = "";
+            
+            string gInput = "";
 
             gameData CurrentGame = new gameData();
             string charGender = "Male";
@@ -1100,10 +1103,11 @@ namespace CustardQuest
             Console.WindowWidth = 150;
             Console.WindowHeight = 30;
 
-            text(title);
-            text("Press Enter To Start");
+            toWrite += title += @"\£Press Enter To Start";
+            text(toWrite);
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.ReadLine();
+            Console.ReadLine(true);
+            toWrite = "";
             Console.ForegroundColor = ConsoleColor.White;
             ConsoleKey input;
             char inputc;
@@ -1117,12 +1121,11 @@ namespace CustardQuest
                     Console.CursorVisible = false;
                     Console.WindowWidth = 150;
                     Console.WindowHeight = 30;
-                    text(title);
+                    toWrite += title;
 
-                    text("\\cP\\wlay");      //Need to underline / bold first char (Make this input) -j
-                    text("\\cO\\wptions");
-                    text("\\cC\\wredits");
-                    text("\\cE\\wxit");
+                    toWrite += "\\£\\cP\\wlay\\£\\cO\\wptions\\£\\cC\\wredits\\£\\cE\\wxit";
+                    text(toWrite);
+                    toWrite = "";
 
 
                     inputc = Console.ReadKey(true).KeyChar;
@@ -1151,10 +1154,9 @@ namespace CustardQuest
 
                 else if (Menu == 1)
                 {
-                    text(title);
-
-                    text("\\cN\\wew Game");
-                    text("\\cL\\woad Game");
+                    toWrite += title + "\\£\\cN\\wew Game\\£\\cL\\woad Game";
+                    text(toWrite);
+                    toWrite = "";
 
 
 
@@ -1173,9 +1175,12 @@ namespace CustardQuest
                 }
                 else if (Menu == 2)
                 {
-                    text(title);
-
-                    text("\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu");
+                    toWrite += title "\\£\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu";
+                    text(toWrite);
+                    toWrite = "";
+                    
+                    
+                    
                     inputc = Console.ReadKey(true).KeyChar;
                     if (inputc == 'j')
                     {
@@ -1199,9 +1204,10 @@ namespace CustardQuest
                 }
                 else if (Menu == 3)     //Credits
                 {
-                    text(title);
-
-                    text("CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us");
+                    toWrite += title + "\\£CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us";
+                    text(toWrite);
+                    toWrite = "";
+                    
                     Console.ReadKey(true);
                     Menu = 0;
                 }
@@ -1211,7 +1217,6 @@ namespace CustardQuest
                 }
                 else if (Menu == 5)
                 { //difficulty choosing
-                    text(title);
 
                     charGender = "Male";
                     charRace = "Human";
@@ -1225,9 +1230,10 @@ namespace CustardQuest
                     charName = "";
                     charRemainMod = Convert.ToInt32(selectSection(info(CurrentGame.difficulty, "difficulty"), ",", 0));
                     charBlessCurseMod = Convert.ToInt32(selectSection(info(CurrentGame.difficulty, "difficulty"), ",", 1));
-                    text("Difficulty - " + CurrentGame.difficulty + " - " + info(CurrentGame.difficulty, "idifficulty"));
-                    text("\\£\\cN\\wext");
-                    text("\\cM\\wainmenu");
+                    toWrite += title + "\\£Difficulty - " + CurrentGame.difficulty + " - " + info(CurrentGame.difficulty, "idifficulty") + "\\£\\£\\cN\\wext" + "\\£\\cM\\wainmenu";
+                    text(toWrite);
+                    toWrite = "";
+                    
 
                     input = Console.ReadKey(true).Key;
                     if (input == ConsoleKey.LeftArrow)
@@ -1254,68 +1260,74 @@ namespace CustardQuest
                     //character creation
 
                     //gender
-                    text(title);
+                    toWrite += (title);
 
                     if (currentOption == 0)
                     {
-                        text("Gender - \\g" + charGender + "\\w - " + info(charGender, "gender"));
+                        toWrite += ("\\£Gender - \\g" + charGender + "\\w - " + info(charGender, "gender"));
                     }
                     else
                     {
-                        text("Gender - " + charGender + "\\w - " + info(charGender, "gender"));
+                        toWrite += ("\\£Gender - " + charGender + "\\w - " + info(charGender, "gender"));
                     }
                     if (currentOption == 1)
                     {
-                        text("Race - \\g" + charRace + "\\w - " + info(charRace, "race"));
+                        toWrite += ("\\£Race - \\g" + charRace + "\\w - " + info(charRace, "race"));
                     }
                     else
                     {
-                        text("Race - " + charRace + "\\w - " + info(charRace, "race"));
+                        toWrite += ("\\£Race - " + charRace + "\\w - " + info(charRace, "race"));
                     }
                     if (currentOption == 2)
                     {
-                        text("Class - \\g" + charClass + "\\w - " + info(charClass, "class"));
+                        toWrite += ("\\£Class - \\g" + charClass + "\\w - " + info(charClass, "class"));
                     }
                     else
                     {
-                        text("Class - " + charClass + "\\w - " + info(charClass, "class"));
+                        toWrite += ("\\£Class - " + charClass + "\\w - " + info(charClass, "class"));
                     }
                     if (currentOption == 3)
                     {
-                        text("Strength - \\g" + (charStr + charStrMod) + "\\w - " + info("Strength", "stats"));
+                        toWrite += ("\\£Strength - \\g" + (charStr + charStrMod) + "\\w - " + info("Strength", "stats"));
                     }
                     else
                     {
-                        text("Strength - " + (charStr + charStrMod) + "\\w - " + info("Strength", "stats"));
+                        toWrite += ("\\£Strength - " + (charStr + charStrMod) + "\\w - " + info("Strength", "stats"));
                     }
                     if (currentOption == 4)
                     {
-                        text("Flexibility - \\g" + (charFlx + charFlxMod) + "\\w - " + info("Flexibility", "stats"));
+                        toWrite += ("\\£Flexibility - \\g" + (charFlx + charFlxMod) + "\\w - " + info("Flexibility", "stats"));
                     }
                     else
                     {
-                        text("Flexibility - " + (charFlx + charFlxMod) + "\\w - " + info("Flexibility", "stats"));
+                        toWrite += ("\\£Flexibility - " + (charFlx + charFlxMod) + "\\w - " + info("Flexibility", "stats"));
                     }
                     if (currentOption == 5)
                     {
-                        text("Mind - \\g" + (charMnd + charMndMod) + "\\w - " + info("Mind", "stats"));
+                        toWrite += ("\\£Mind - \\g" + (charMnd + charMndMod) + "\\w - " + info("Mind", "stats"));
                     }
                     else
                     {
-                        text("Mind - " + (charMnd + charMndMod) + "\\w - " + info("Mind", "stats"));
+                        toWrite += ("\\£Mind - " + (charMnd + charMndMod) + "\\w - " + info("Mind", "stats"));
                     }
                     if (charRemainMod != 0)
                     {
-                        text("Stat Points remaining - " + charRemainMod);
+                        toWrite += ("\\£Stat Points remaining - " + charRemainMod);
                     }
                     if (charRemainMod == 0)
                     {
-                        text("\\cN\\wext");
+                        toWrite += ("\\£\\cN\\wext");
                     }
-                    text("\\£\\cI\\wnfo about options.");
-                    text("\\cE\\wxtra info about chosen choices.");
-                    text("\\£\\cB\\wack");
-                    text("\\cM\\wainmenu");
+                    toWrite += ("\\£\\£\\cI\\wnfo about options.");
+                    toWrite += ("\\£\\cE\\wxtra info about chosen choices.");
+                    toWrite += ("\\£\\£\\cB\\wack");
+                    toWrite += ("\\£\\cM\\wainmenu");
+                    
+                    
+                    text(toWrite);
+                    toWrite = "";
+                    
+                    
 
                     input = Console.ReadKey(true).Key;
                     if (input == ConsoleKey.DownArrow)
@@ -1413,27 +1425,33 @@ namespace CustardQuest
                     else if (input == ConsoleKey.I)
                     {
                         Console.Clear();
-                        text(title);
+                        toWrite += (title);
 
-                        text("Press the up/down keys to move to a different option.");
-                        text("Press the left/right keys to cycle through the choices, or add/subtract from a numerical value.");
-                        text("Gender - No effect on gameplay.");
-                        text("Race - Affects starting stats, spells and some ingame things.");
-                        text("Class - Affects stating items and spells.");
-                        text("Strength - Affects melee damage, health and stamina. Also helps resist poisons.");
-                        text("Flexibility - Affects ease of hitting, dodging, and use of precision weapons eg. bow.");
-                        text("Mind - Helps provides extra information to the player, improves magic and curse resistance.");
-                        text("\\£Press any key to continue");
+                        toWrite += ("\\£Press the up/down keys to move to a different option.");
+                        toWrite += ("\\£Press the left/right keys to cycle through the choices, or add/subtract from a numerical value.");
+                        toWrite += ("\\£Gender - No effect on gameplay.");
+                        toWrite += ("\\£Race - Affects starting stats, spells and some ingame things.");
+                        toWrite += ("\\£Class - Affects stating items and spells.");
+                        toWrite += ("\\£Strength - Affects melee damage, health and stamina. Also helps resist poisons.");
+                        toWrite += ("\\£Flexibility - Affects ease of hitting, dodging, and use of precision weapons eg. bow.");
+                        toWrite += ("\\£Mind - Helps provides extra information to the player, improves magic and curse resistance.");
+                        toWrite += ("\\£\\£Press any key to continue");
+                        
+                        text(toWrite);
+                        toWrite = "";
                         Console.ReadKey(true);
                     }
                     else if (input == ConsoleKey.E)
                     {
                         Console.Clear();
-                        text(title);
+                        toWrite += (title);
 
-                        text("Race - " + charRace + "\\w - " + info(charRace, "Erace"));
-                        text("Class - " + charClass + "\\w - " + info(charClass, "Eclass"));
-                        text("\\£Press any key to continue");
+                        toWrite += ("\\£Race - " + charRace + "\\w - " + info(charRace, "Erace"));
+                        toWrite += ("\\£Class - " + charClass + "\\w - " + info(charClass, "Eclass"));
+                        toWrite += ("\\£\\£Press any key to continue");
+                        
+                        text(toWrite);
+                        toWrite = "";
                         Console.ReadKey(true);
                     }
                     else if (input == ConsoleKey.B)
@@ -1451,29 +1469,32 @@ namespace CustardQuest
                 }
                 else if (Menu == 7)
                 {
-                    text(title);
+                    toWrite += (title);
 
-                    text("Character naming\\£");
+                    toWrite += ("\\£Character naming\\£");
                     if (charName != "")
                     {
-                        text("Current Name - " + charName + "\\£");
+                        toWrite += ("\\£Current Name - " + charName + "\\£");
                     }
 
-                    text("\\cI\\wnput name");
-                    text("\\cR\\wandom name");
+                    toWrite += ("\\£\\cI\\wnput name");
+                    toWrite += ("\\£\\cR\\wandom name");
 
                     if (charName != "")
                     {
-                        text("\\£\\cN\\wext");
-                        text("\\cB\\wack");
-                        text("\\cM\\wainmenu");
+                        toWrite += ("\\£\\£\\cN\\wext");
+                        toWrite += ("\\£\\cB\\wack");
+                        toWrite += ("\\£\\cM\\wainmenu");
                     }
                     else
                     {
-                        text("\\£\\cB\\wack");
-                        text("\\cM\\wainmenu");
+                        toWrite += ("\\£\\£\\cB\\wack");
+                        toWrite += ("\\£\\cM\\wainmenu");
                     }
 
+                    
+                    text(toWrite);
+                    toWrite = "";
 
                     input = Console.ReadKey(true).Key;
 
@@ -1503,16 +1524,19 @@ namespace CustardQuest
                 }
                 else if (Menu == 8)  //location selection
                 {
-                    text(title);
+                    toWrite += (title);
 
-                    text("Select a location for the game\\£");
-                    text(CurrentGame.location + " - " + info(CurrentGame.location, "location"));
-                    text("\\£\\cR\\wandom");
+                    toWrite += ("\\£Select a location for the game\\£");
+                    toWrite += ("\\£" + CurrentGame.location + " - " + info(CurrentGame.location, "location"));
+                    toWrite += ("\\£\\£\\cR\\wandom");
 
-                    text("\\£\\cN\\wext");
-                    text("\\cB\\wack");
-                    text("\\cM\\wainmenu");
+                    toWrite += ("\\£\\£\\cN\\wext");
+                    toWrite += ("\\£\\cB\\wack");
+                    toWrite += ("\\£\\cM\\wainmenu");
 
+                    
+                    text(toWrite);
+                    toWrite = "";
                     input = Console.ReadKey(true).Key;
                     if (input == ConsoleKey.LeftArrow)
                     {
@@ -1547,12 +1571,17 @@ namespace CustardQuest
                 {
                     if (verystart)
                     {
-                        text(info(CurrentGame.location, "Glocation"));
+                        toWrite += ((info(CurrentGame.location, "Glocation"));
 
 
 
                         verystart = false;
                     }
+                    
+                    text(toWrite);
+                    toWrite = "";
+                    gInput = Console.ReadLine();
+                    
                 }
 
                 else if (Menu == 12)  // attack

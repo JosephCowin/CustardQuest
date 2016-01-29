@@ -1103,10 +1103,10 @@ namespace CustardQuest
             Console.WindowWidth = 150;
             Console.WindowHeight = 30;
 
-            toWrite += title += @"\£Press Enter To Start";
+            toWrite += title + @"\£Press Enter To Start";
             text(toWrite);
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.ReadLine(true);
+            Console.ReadLine();
             toWrite = "";
             Console.ForegroundColor = ConsoleColor.White;
             ConsoleKey input;
@@ -1114,7 +1114,7 @@ namespace CustardQuest
             while (Running)
             {
                 Console.Title = info(Convert.ToString(titler.Next(0, 100)), "title");
-                previousheight = Console.CursorTop + 1;
+                previousheight = Console.CursorTop + 3;
                 Console.SetCursorPosition(0, 0);
                 if (Menu == 0)
                 {
@@ -1175,7 +1175,7 @@ namespace CustardQuest
                 }
                 else if (Menu == 2)
                 {
-                    toWrite += title "\\£\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu";
+                    toWrite += title + "\\£\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu";
                     text(toWrite);
                     toWrite = "";
                     
@@ -1571,7 +1571,7 @@ namespace CustardQuest
                 {
                     if (verystart)
                     {
-                        toWrite += ((info(CurrentGame.location, "Glocation"));
+                        toWrite += info(CurrentGame.location, "Glocation");
 
 
 

@@ -1106,6 +1106,7 @@ namespace CustardQuest
             toWrite += title + @"\£Press Enter To Start";
             text(toWrite);
             Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.ReadLine();
             toWrite = "";
             Console.ForegroundColor = ConsoleColor.White;

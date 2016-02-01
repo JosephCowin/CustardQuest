@@ -976,6 +976,7 @@ namespace CustardQuest
                 distRight++;
             }
             Console.WriteLine(output);
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
             while (distDown < previousheight)
             {
                 Console.WriteLine("                                                                                                                                       ");
@@ -1072,7 +1073,7 @@ namespace CustardQuest
             bool Running = true;        //variable setup
             int Menu = 0;
             string toWrite = "";
-            
+
             string gInput = "";
 
             gameData CurrentGame = new gameData();
@@ -1179,9 +1180,9 @@ namespace CustardQuest
                     toWrite += title + "\\£\\cJ\\wokes - \\g" + optJokey + "\\£\\w\\cS\\wound - \\g" + optSound + "\\£\\cC\\wolour - \\g" + optColour + "\\£\\£\\w\\cM\\wainmenu";
                     text(toWrite);
                     toWrite = "";
-                    
-                    
-                    
+
+
+
                     inputc = Console.ReadKey(true).KeyChar;
                     if (inputc == 'j')
                     {
@@ -1208,7 +1209,7 @@ namespace CustardQuest
                     toWrite += title + "\\£CREDITS\\£Code - Orry\\£Graphics - Orry\\£3D Rendering - Joey\\£Complaints Department - Joey\\£Credits - Orry\\£Ideas - Orry and a sprinkle of Joey\\£Typos - The wo of us";
                     text(toWrite);
                     toWrite = "";
-                    
+
                     Console.ReadKey(true);
                     Menu = 0;
                 }
@@ -1234,7 +1235,7 @@ namespace CustardQuest
                     toWrite += title + "\\£Difficulty - " + CurrentGame.difficulty + " - " + info(CurrentGame.difficulty, "idifficulty") + "\\£\\£\\cN\\wext" + "\\£\\cM\\wainmenu";
                     text(toWrite);
                     toWrite = "";
-                    
+
 
                     input = Console.ReadKey(true).Key;
                     if (input == ConsoleKey.LeftArrow)
@@ -1323,12 +1324,12 @@ namespace CustardQuest
                     toWrite += ("\\£\\cE\\wxtra info about chosen choices.");
                     toWrite += ("\\£\\£\\cB\\wack");
                     toWrite += ("\\£\\cM\\wainmenu");
-                    
-                    
+
+
                     text(toWrite);
                     toWrite = "";
-                    
-                    
+
+
 
                     input = Console.ReadKey(true).Key;
                     if (input == ConsoleKey.DownArrow)
@@ -1437,7 +1438,7 @@ namespace CustardQuest
                         toWrite += ("\\£Flexibility - Affects ease of hitting, dodging, and use of precision weapons eg. bow.");
                         toWrite += ("\\£Mind - Helps provides extra information to the player, improves magic and curse resistance.");
                         toWrite += ("\\£\\£Press any key to continue");
-                        
+
                         text(toWrite);
                         toWrite = "";
                         Console.ReadKey(true);
@@ -1450,7 +1451,7 @@ namespace CustardQuest
                         toWrite += ("\\£Race - " + charRace + "\\w - " + info(charRace, "Erace"));
                         toWrite += ("\\£Class - " + charClass + "\\w - " + info(charClass, "Eclass"));
                         toWrite += ("\\£\\£Press any key to continue");
-                        
+
                         text(toWrite);
                         toWrite = "";
                         Console.ReadKey(true);
@@ -1493,7 +1494,7 @@ namespace CustardQuest
                         toWrite += ("\\£\\cM\\wainmenu");
                     }
 
-                    
+
                     text(toWrite);
                     toWrite = "";
 
@@ -1535,7 +1536,7 @@ namespace CustardQuest
                     toWrite += ("\\£\\cB\\wack");
                     toWrite += ("\\£\\cM\\wainmenu");
 
-                    
+
                     text(toWrite);
                     toWrite = "";
                     input = Console.ReadKey(true).Key;
@@ -1578,11 +1579,11 @@ namespace CustardQuest
 
                         verystart = false;
                     }
-                    
+
                     text(toWrite);
                     toWrite = "";
                     gInput = Console.ReadLine();
-                    
+
                 }
 
                 else if (Menu == 12)  // attack

@@ -735,42 +735,94 @@ namespace CustardQuest
                     {
                         case "Mansion":
                             output = "An old abandoned mansion that an old curse inhabits.";
+                            if (optJokey)
+                            {
+                                output = "Spooky old dudes house that he ded in.(No butlers)";
+                            }
                             break;
                         case "Dungeon - Crypt":
                             output = "An underground tomb that houses the great King Anu Annear III.";
+                            if (optJokey)
+                            {
+                                output = "Thank mr Skeltal on your way in.";
+                            }
                             break;
                         case "Dungeon - Basement":
                             output = "An underground series of rooms and floors that was recently uncovered.";
+                            if (optJokey)
+                            {
+                                output = "Do you dare delve into the depths of the a MTN-DEW FUELED GAMER ZONE!";
+                            }
                             break;
                         case "Dungeon - Treasure Store":
                             output = "An old abandoned store that houses the treasure of the hated Orlark Zuzha.";
+                            if (optJokey)
+                            {
+                                output = "One million gold in hidden treasure. 16 pirates will do anything to find it. WATCH. YOUR. BACK;";
+                            }
                             break;
                         case "Cemetery":
-                            output = "An eerie cemetery in a dead forest that now possess a dark magic.";
+                            output = "An eerie cemetery in a dead forest that now possesses a dark magic.";
+                            if (optJokey)
+                            {
+                                output = "Dont Dead Open Inside.";
+                            }
                             break;
                         case "Temple":
                             output = "A dark god has possessed his followers into a blood rage killing any who enter.";
+                            if (optJokey)
+                            {
+                                output = "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know my name is the Lord when I lay my vengeance upon thee.";
+                            }
                             break;
                         case "Sentient Forest":
                             output = "A forest that is always changing trying to trap anyone willing to explore it.";
+                            if (optJokey)
+                            {
+                                output = "Are plants intelligent? Yes.";
+                            }
                             break;
                         case "Sentient Cave":
                             output = "A cave with caverns that are always opening and closing.";
+                            if (optJokey)
+                            {
+                                output = "";
+                            }
                             break;
                         case "Sentient House":
                             output = "An unhappy spirit manifests in this house trying to harm all who enter.";
+                            if (optJokey)
+                            {
+                                output = "Thank mr Skeltal";
+                            }
                             break;
                         case "Haunted House":
                             output = "A house containing large amounts of unhappy spirits who are unable to pass on to the next plane.";
+                            if (optJokey)
+                            {
+                                output = "Thank mr Skeltal";
+                            }
                             break;
                         case "Abandoned Village":
                             output = "A strange plague hit this village now no one dares enter it.";
+                            if (optJokey)
+                            {
+                                output = "Thank mr Skeltal";
+                            }
                             break;
                         case "Trap Maker's Shop":
                             output = "A shop that's not well designed as the customer has to navigate the traps to buy any traps.";
+                            if (optJokey)
+                            {
+                                output = "Thank mr Skeltal";
+                            }
                             break;
                         case "Magic School":
                             output = "A school where young minds can develop but one of the students has been experimenting with the dark arts.";
+                            if (optJokey)
+                            {
+                                output = "Thank mr Skeltal";
+                            }
                             break;
                     }
                     break;

@@ -146,7 +146,7 @@ namespace CustardQuest
                 case "Human":
                     if (extra == "Male")
                     {
-                        syllables = @"Wy\Wil\Mack\Judd\Hann\Hop\Ab|mond\ky\kin\ra\\\ |Ham\\\\\\| |Carl\Sin\Key\Wang\Field\Niel\Craw\Jen\Hamm|son\gle\s\sen\ford\kins\ond|ton\\\\| |";
+                        syllables = @"Wy\Wil\Mack\Judd\Hann\Hop\Ab|mond\ky\kin\ra\\\|ham\\\\\\| |Carl\Sin\Key\Wang\Field\Niel\Craw\Jen\Hamm|son\gle\s\sen\ford\kins\ond|ton\\\\| |";
                     }
                     else if (extra == "Female")
                     {

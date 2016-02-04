@@ -890,7 +890,7 @@ namespace CustardQuest
                             output = "The door flattens into wall behind you.";
                             if (optJokey)
                             {
-                                output = "the walls are talking";
+                                output = "the walls are talking smack about yo mamma.";
                             }
                             break;
                         case "Haunted House":

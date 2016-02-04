@@ -174,11 +174,11 @@ namespace CustardQuest
                 case "Dwarf":
                     if (extra == "Male")
                     {
-                        syllables = @"Jo\Ba\Ean|hn\rin\ean|ath\tho\ean|on\lon\ean| Ho\ No\ Mo|mo\an\y|nym\ki\ath";
+                        syllables = @"Gom\Ov\Stor\Mor\Gom\Ra\Har\Bar\Gro|lin\in\um\bur\il\gar\lin\zad\gol\\\| |";
                     }
                     else if (extra == "Female")
                     {
-                        syllables = @"Jo\Ba\Ean|hn\rin\ean|ath\tho\ean|on\lon\ean| Ho\ No\ Mo|mo\an\y|nym\ki\ath";
+                        syllables = @"Gro\Mor\Nor\Klr\Stor\Gor|din\gini\a\aka\kka|a\\\\\\| |";
                     }
                     else
                     {
@@ -188,11 +188,11 @@ namespace CustardQuest
                 case "Orc":
                     if (extra == "Male")
                     {
-                        syllables = @"Jo\Ba\Ean|hn\rin\ean|ath\tho\ean|on\lon\ean| Ho\ No\ Mo|mo\an\y|nym\ki\ath";
+                        syllables = @"Wort\Uz\Duff\Skab\Gor\Mek\Dur\Skar\Naz\No\Skab\Zod|gut\lug\gul\og\thug\gor\slag\arg\brot\gul| |";
                     }
                     else if (extra == "Female")
                     {
-                        syllables = @"Jo\Ba\Ean|hn\rin\ean|ath\tho\ean|on\lon\ean| Ho\ No\ Mo|mo\an\y|nym\ki\ath";
+                        syllables = @"Ag\bad\Or\Lam\Sha\Yag\Sna\O\Gonk\Snak\U\Glob\Lok\Du\Shad|rob\bog\bul\gar\gara\rag\gak\ra\lag\bak| |";
                     }
                     else
                     {
@@ -216,7 +216,7 @@ namespace CustardQuest
                 case "Goblin":
                     if (extra == "Male")
                     {
-                        syllables = @"Jo\Ba\Ean|hn\rin\ean|ath\tho\ean|on\lon\ean| Ho\ No\ Mo|mo\an\y|nym\ki\ath";
+                        syllables = @"Stil\Pain\Grit\Bog\Britt\Zarn\Bart\Hoo\Bee\Mud\Dug|mor\be\wee\tar\l\zed\y\filth\tle\zo\gy|nail\dead\puke\gkn\clobb\\\\\\\|er\scum\\\\\\\|slip\\\\\\| |";
                     }
                     else if (extra == "Female")
                     {

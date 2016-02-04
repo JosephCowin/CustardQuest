@@ -1170,6 +1170,10 @@ namespace CustardQuest
                 Console.Title = info(Convert.ToString(titler.Next(0, 100)), "title");
                 previousheight = Console.CursorTop + 3;
                 Console.SetCursorPosition(0, 0);
+                while (Console.KeyAvailable)
+                {
+                    Console.ReadKey(true);
+                }
                 if (Menu == 0)
                 {
                     Console.CursorVisible = false;
